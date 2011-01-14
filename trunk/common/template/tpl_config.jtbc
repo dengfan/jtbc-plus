@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[html_br]]></name>
+      <tpl_default><![CDATA[<br />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[a_href_self]]></name>
+      <tpl_default><![CDATA[<a href="{$value}" target="_self">{$explain}</a>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[a_href_blank]]></name>
+      <tpl_default><![CDATA[<a href="{$value}" target="_blank">{$explain}</a>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[select]]></name>
+      <tpl_default><![CDATA[<select name="{$name}">{$option}</select>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_unselect]]></name>
+      <tpl_default><![CDATA[<option value="{$value}">{$explain}</option>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_select]]></name>
+      <tpl_default><![CDATA[<option value="{$value}" selected="selected">{$explain}</option>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_unradio]]></name>
+      <tpl_default><![CDATA[<input type="radio" class="radio" name="{$explain}" value="{$value}" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_radio]]></name>
+      <tpl_default><![CDATA[<input type="radio" class="radio" name="{$explain}" value="{$value}" checked="checked" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_uncheckbox]]></name>
+      <tpl_default><![CDATA[<input type="checkbox" class="checkbox" name="{$explain}" value="{$value}" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[option_checkbox]]></name>
+      <tpl_default><![CDATA[<input type="checkbox" class="checkbox" name="{$explain}" value="{$value}" checked="checked" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_unselect]]></name>
+      <tpl_default><![CDATA[<option value="{$value}">{$explain}</option>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_select]]></name>
+      <tpl_default><![CDATA[<option value="{$value}" selected="selected">{$explain}</option>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_unradio]]></name>
+      <tpl_default><![CDATA[<label><input type="radio" class="radio" name="{$name}" value="{$value}" />{$explain}</label>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_radio]]></name>
+      <tpl_default><![CDATA[<label><input type="radio" class="radio" name="{$name}" value="{$value}" checked="checked" />{$explain}</label>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_uncheckbox]]></name>
+      <tpl_default><![CDATA[<label><input type="checkbox" class="checkbox" name="{$name}" value="{$value}" />{$explain}</label>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_checkbox]]></name>
+      <tpl_default><![CDATA[<label><input type="checkbox" class="checkbox" name="{$name}" value="{$value}" checked="checked" />{$explain}</label>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_unradio_image]]></name>
+      <tpl_default><![CDATA[<label><input type="radio" class="radio" name="{$name}" value="{$value}" /><img src="{$explain}" class="absmiddle" /></label>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[xmlselect_radio_image]]></name>
+      <tpl_default><![CDATA[<label><input type="radio" class="radio" name="{$name}" value="{$value}" checked="checked" /><img src="{$explain}" class="absmiddle" /></label>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

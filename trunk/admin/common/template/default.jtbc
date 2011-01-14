@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[default]]></name>
+      <tpl_default><![CDATA[{$=webHead("admin_head_1")}
+<div id="body" class="progress" onclick="manage.tbodyClick();"></div>
+<div class="dfn"><textarea id="ErrorMessage-1">{$=htmlencode(itake("default.errormessage-1", "lng"))}</textarea></div>
+<script type="text/javascript">manage.tInit();</script>
+{$=webFoot("admin_foot_1")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[default]]></name>
+      <tpl_default><![CDATA[{$=webHead("admin_head_2")}
+<script type="text/javascript" src="{$=$images}/js/manages.js"></script>
+<script type="text/javascript" src="{$=$images}/js/manage_categorys.js"></script>
+<table onmouseover="manage.windows.tResizePanel();" cellspacing="0" cellpadding="0" class="windowsContent">
+  <tr>
+    <td height="100%" valign="top">
+      <div id="windowsContent-Menu" class="windowsContent-Menu">
+        <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" class="checked"><span class="hand">{$=itake("manage.category", "lng")}</span></div>
+        <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);"><span class="hand" onclick="location.href = 'manage_topic.aspx';">{$=itake("manage.topic", "lng")}</span></div>
+        <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);"><span class="hand" onclick="location.href = 'manage_batchprocessing.aspx';">{$=itake("manage.batchprocessing", "lng")}</span></div>
+      </div>
+      <div class="windowsContent-Panel">
+        <div id="windowsContent-Panel-Loading" class="windowsContent-Panel-Loading"><img src="{$=$admin.theme}loading.gif" class="absmiddle" /> {$=itake("global.lng_common.loading", "lng")}</div>
+        <div id="windowsContent-topPanel" class="windowsContent-topPanel">
+          <div class="checked" onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage.windows.tSelectLeftPanel(this);"><span class="hand"><img src="{$=$admin.theme}panel/folder.1.png" class="absmiddle" /> {$=itake("global.lng_common.showleftpanel", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage_categorys.tRefresh();"><span class="hand"><img src="{$=$admin.theme}panel/refresh.1.png" class="absmiddle" /> {$=itake("global.lng_common.refresh", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage_categorys.popup.tLoadAdd();"><span class="hand"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" /> {$=itake("manage_category.nav_add", "lng")}</span></div>
+        </div>
+        <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td id="windowsContent-leftPanel" class="windowsContent-leftPanel" valign="top">
+              <table cellspacing="0" cellpadding="0" class="tablel">
+                <tr>
+                  <td class="tit">{$=itake("global.lng_common.slng", "lng")}:</td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td id="selslng" class="txt slng"></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+            </td>
+            <td id="windowsContent-rightPanel" class="windowsContent-rightPanel" valign="top">
+              <div id="windowsContent-rightPanel-Content" class="windowsContent-rightPanel-Content"></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
+<div class="dfn"><textarea id="ErrorMessage-1">{$=itake("manage.errormessage-1", "lng")}</textarea></div>
+<script type="text/javascript">manage_categorys.tInit(null);</script>
+<script type="text/javascript">manage_categorys.tSelslng(null);</script>
+<script type="text/javascript">manages.tSelslng = manage_categorys.tSelslng;</script>
+{$=webFoot("admin_foot_2")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

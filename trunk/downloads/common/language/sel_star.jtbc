@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[1]]></name>
+      <chinese><![CDATA[壹星]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[2]]></name>
+      <chinese><![CDATA[贰星]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[3]]></name>
+      <chinese><![CDATA[叁星]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[4]]></name>
+      <chinese><![CDATA[肆星]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[5]]></name>
+      <chinese><![CDATA[伍星]]></chinese>
+    </item>
+  </item_list>
+</xml>

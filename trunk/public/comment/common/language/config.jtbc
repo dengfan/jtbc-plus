@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[muusername]]></name>
+      <chinese><![CDATA[用户名]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[dfmuusername]]></name>
+      <chinese><![CDATA[*游客*]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[ip]]></name>
+      <chinese><![CDATA[IP地址]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[content]]></name>
+      <chinese><![CDATA[评论内容]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[keyword]]></name>
+      <chinese><![CDATA[关键字]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[fid]]></name>
+      <chinese><![CDATA[父ID]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[time]]></name>
+      <chinese><![CDATA[评论时间]]></chinese>
+    </item>
+  </item_list>
+</xml>

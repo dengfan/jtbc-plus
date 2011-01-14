@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[data_download]]></name>
+      <tpl_default><![CDATA[<img src="{$=$images}/download.gif" alt="download" class="absmiddle" /><a href="{$url}" target="_blank">{$text}</a> ]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake("default.class", "lng")}</h3>{$=isort("tpl=s1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake("default.list1", "lng")}</h3>{$=itransfer("tpl=1;type=commendatory;topx=10")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("class={$-class}")}</span></td>
+          </tr>
+          <tr>
+            <td class="list" valign="top">{@}
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="tit1"><span><a href="{$=iurl("type=detail;key={$id};time={$time}")}">{$topic}</a></span></td>
+                  <td width="80">{$=formatDate("{$time}", 4)}</td>
+                  <td width="100"><img src="{$=$images}/star/{$star}.gif" alt="{$star}" /></td>
+                  <td width="50" align="center">{$count}</td>
+                  <td width="80" align="center">{$=formatByte("{$size}")}</td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="25">{$intro}</td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="110" height="25">{$=itake("config.lang", "lng")}: {$=itake("sel_lang.{$lang}", "sel")}</td>
+                  <td width="110">{$=itake("config.accredit", "lng")}: {$=itake("sel_accredit.{$accredit}", "sel")}</td>
+                  <td>{$=itake("config.runco", "lng")}: {$runco}</td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="line1"></td>
+                </tr>
+              </table>{@}
+            </td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", iurl("type=page;key={$-class};page=[~page]"), "cutepage")}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake("default.class", "lng")}</h3>{$=isort("tpl=s1")}
+      </div>
+      <div class="box1">
+        <h3>{$=itake("default.list1", "lng")}</h3>{$=itransfer("tpl=1;type=commendatory;topx=10")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("class={$class}")}</span></td>
+          </tr>
+          <tr>
+            <td class="topic"><div>{$topic}</div></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="50%">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td width="80" height="25">{$=itake("config.star", "lng")}</td>
+                        <td><img src="{$=$images}/star/{$star}.gif" alt="{$star}" /></td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake("config.author", "lng")}</td>
+                        <td>{$author}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake("config.size", "lng")}</td>
+                        <td>{$=formatByte("{$size}")}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake("config.accredit", "lng")}</td>
+                        <td>{$=itake("sel_accredit.{$accredit}", "sel")}</td>
+                      </tr>
+                      <tr>
+                        <td height="25">{$=itake("config.lang", "lng")}</td>
+                        <td>{$=itake("sel_lang.{$lang}", "sel")}</td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" align="center"><img src="{$image}" alt="{$image}" /></td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="80" height="25">{$=itake("config.runco", "lng")}</td>
+                  <td>{$runco}</td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake("config.link", "lng")}</td>
+                  <td><a href="{$link}" target="_blank">{$link}</a></td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="25"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$=repathdecode(getRsValue("rs", "content"))}</div></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="50">{$-download}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">cls.tigets('{$=getActualRoute("public/count")}?genre={$-genre}&id={$id}', nll);</script>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

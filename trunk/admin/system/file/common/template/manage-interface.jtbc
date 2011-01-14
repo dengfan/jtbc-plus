@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[folder_add]]></name>
+      <tpl_default><![CDATA[
+                <div class="popup">
+                  <div class="popupTitle">
+                    <div>{$=itake("manage.nav_folder_add", "lng")}</div>
+                    <span class="hand" onclick="manages.popup.tClose();"><img src="{$=$admin.theme}close.2.png" /></span>
+                  </div>
+                  <div class="popupContent">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <form id="form1" method="post" action="manage-interface.aspx?type=action&atype=folder&ftype=add" onsubmit="return false;">
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                              <td width="80" class="txt">{$=itake("config.folder", "lng")}</td>
+                              <td class="txt"><input type="text" name="folder" size="20" class="text" value="{$=formatDate($now, "7")}" /> <input id="popup-ajaxSubmit1" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tFolderAdd('form1');" /></td>
+                            </tr>
+                          </table>
+                          </form>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[folder_edit]]></name>
+      <tpl_default><![CDATA[
+                <div class="popup">
+                  <div class="popupTitle">
+                    <div>{$=itake("manage.nav_folder_edit", "lng")}</div>
+                    <span class="hand" onclick="manages.popup.tClose();"><img src="{$=$admin.theme}close.2.png" /></span>
+                  </div>
+                  <div class="popupContent">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <form id="form2" method="post" action="manage-interface.aspx?type=action&atype=folder&ftype=edit" onsubmit="return false;">
+                          <input type="hidden" name="path" value="{$path}" />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                              <td width="80" class="txt">{$=itake("config.folder", "lng")}</td>
+                              <td class="txt"><input type="text" name="folder" size="20" class="text" value="{$folder}" /> <input id="popup-ajaxSubmit2" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tFolderEdit('form2');" /></td>
+                            </tr>
+                          </table>
+                          </form>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[file_add]]></name>
+      <tpl_default><![CDATA[
+                <div class="popup2">
+                  <div class="popup2Title">
+                    <div>{$=itake("manage.nav_file_add", "lng")}</div>
+                    <span class="hand" onclick="manages.popup.tClose();"><img src="{$=$admin.theme}close.2.png" /></span>
+                  </div>
+                  <div class="popup2Content">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <form id="form3" method="post" action="manage-interface.aspx?type=action&atype=file&ftype=add">
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                              <td height="25"><input type="text" name="file" size="40" class="text" value="{$=formatDate($now, "7")}.txt" /></td>
+                            </tr>
+                            <tr>
+                              <td height="5"></td>
+                            </tr>
+                            <tr>
+                              <td><textarea class="textarea" name="content" style="WIDTH: 580px; HEIGHT: 200px"></textarea></td>
+                            </tr>
+                            <tr>
+                              <td height="5"></td>
+                            </tr>
+                            <tr>
+                              <td height="25"><input id="popup-ajaxSubmit3" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tFileAdd('form3');" /></td>
+                            </tr>
+                          </table>
+                          </form>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[file_edit]]></name>
+      <tpl_default><![CDATA[
+                <div class="popup2">
+                  <div class="popup2Title">
+                    <div>{$=itake("manage.nav_file_edit", "lng")}</div>
+                    <span class="hand" onclick="manages.popup.tClose();"><img src="{$=$admin.theme}close.2.png" /></span>
+                  </div>
+                  <div class="popup2Content">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <form id="form4" method="post" action="manage-interface.aspx?type=action&atype=file&ftype=edit">
+                          <input type="hidden" name="path" value="{$path}" />
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                              <td height="25"><input type="text" name="file" size="40" class="text" value="{$file}" /></td>
+                            </tr>
+                            <tr>
+                              <td height="5"></td>
+                            </tr>
+                            <tr>
+                              <td><textarea class="textarea" name="content" style="WIDTH: 580px; HEIGHT: 200px">{$content}</textarea></td>
+                            </tr>
+                            <tr>
+                              <td height="5"></td>
+                            </tr>
+                            <tr>
+                              <td height="25"><input id="popup-ajaxSubmit4" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tFileEdit('form4');" /></td>
+                            </tr>
+                          </table>
+                          </form>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="tit tdl"></td>
+                    <td class="tit">{$=itake("manage.list", "lng")}</td>
+                    <td class="tit tdr"></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="txt tdl"></td>
+                    <td class="txt"><span class="ash">{$=itake("config.path", "lng")}: {$path}</span></td>
+                    <td class="txt tdr"></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td height="5"></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="txt tdl"></td>
+                    <td class="txt">{$=itake("config.filename", "lng")}</td>
+                    <td class="txt" width="130">{$=itake("config.time", "lng")}</td>
+                    <td class="txt" width="80">{$=itake("config.size", "lng")}</td>
+                    <td class="tdimg"></td>
+                    <td class="tdimg"></td>
+                    <td class="txt tdr"></td>
+                  </tr>{@}
+                  <tr onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);">
+                    <td></td>
+                    <td class="txt"><img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span></td>
+                    <td class="txt">{$=formatDate("{$time}", "100")}</td>
+                    <td class="txt">{$size}</td>
+                    <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.edit", "lng")}" onclick="{$onclick2}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></span></td>
+                    <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', '{$onclick3}');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span></td>
+                    <td></td>
+                  </tr>{@}
+                  <tr>
+                    <td colspan="7" height="10"></td>
+                  </tr>
+                </table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

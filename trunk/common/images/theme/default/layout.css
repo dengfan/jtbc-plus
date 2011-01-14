@@ -1,0 +1,267 @@
+HTML,BODY {
+	WIDTH: 100%; HEIGHT: 100%
+}
+BODY {
+	MARGIN: 0px; PADDING: 0px; FONT-FAMILY: arial,verdana,sans-serif
+}
+TABLE {
+	FONT-SIZE: 12px; TEXT-ALIGN: left; MARGIN: auto
+}
+DIV {
+	FONT-SIZE: 12px; TEXT-ALIGN: left; MARGIN: auto
+}
+DIV.dfn {
+	DISPLAY: none
+}
+FORM,UL,OL,INPUT,SELECT,TEXTAREA {
+	MARGIN: 0px; PADDING: 0px
+}
+INPUT,SELECT,TEXTAREA {
+	FONT-SIZE: 12px; FONT-FAMILY: arial; VERTICAL-ALIGN: middle
+}
+INPUT.text {
+	HEIGHT: 16px; PADDING: 2px; BORDER: #999999 1px solid
+}
+INPUT.btn {
+	HEIGHT: 22px; LINE-HEIGHT: 22px; BORDER: #DCDCDC 1px solid; PADDING-LEFT: 14px; BACKGROUND: url(button.jpg)
+}
+INPUT.button {
+	HEIGHT: 22px; BACKGROUND: #DDDDDD; BORDER: 1px solid; BORDER-COLOR: #DDDDDD #AAAAAA #AAAAAA #DDDDDD; PADDING: 3px 5px 3px 5px; OVERFLOW: visible
+}
+INPUT.file {
+	HEIGHT: 22px; LINE-HEIGHT: 22px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; BORDER: #999999 1px solid
+}
+INPUT.checkbox {
+	WIDTH: 13px; HEIGHT: 13px; BORDER: 0px; MARGIN: 2px
+}
+INPUT.radio {
+	WIDTH: 13px; HEIGHT: 13px; BORDER: 0px; MARGIN: 2px
+}
+SELECT.select {
+	HEIGHT: 22px; LINE-HEIGHT: 22px
+}
+TEXTAREA.textarea {
+	PADDING: 2px; BORDER: #999999 1px solid
+}
+IMG {
+	BORDER: 0px
+}
+IMG.absmiddle {
+	VERTICAL-ALIGN: middle
+}
+A {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+#top {
+	WIDTH: 100%; MIN-WIDTH: 900px; HEIGHT: 88px; BACKGROUND: url(bg.1.jpg)
+}
+#topContent {
+	WIDTH: 900px
+}
+#topContent H2 {
+	MARGIN: 0px; COLOR: #FFFFFF; FONT-SIZE: 24px; FONT-WEIGHT: bold; POSITION: relative; TOP: 20px
+}
+#topContent H2 A {
+	COLOR: #FFFFFF; TEXT-DECORATION: none
+}
+#topContent H2 A:hover {
+	TEXT-DECORATION: underline
+}
+#menu {
+	MARGIN-TOP: 25px; FLOAT: right
+}
+#menu UL {
+	MARGIN: 0; LIST-STYLE: none
+}
+#menu LI {
+	DISPLAY: block; FLOAT: left; WHITE-SPACE: nowrap
+}
+#menu A {
+	DISPLAY: block; COLOR: #FFFFFF; TEXT-DECORATION: none; MARGIN-LEFT: 10px; PADDING: 4px 6px 4px 6px; BORDER-TOP: #ffffff 2px solid
+}
+#menu A:hover {
+	BORDER-TOP-COLOR: #A0A0A0
+}
+#middle {
+	WIDTH: 900px
+}
+#middleContent {
+	WIDTH: 100%; PADDING-TOP: 10px; PADDING-BOTTOM: 30px
+}
+#bottom {
+	WIDTH: 900px; BACKGROUND: url(line.jpg) top center no-repeat
+}
+#bottomContent {
+	WIDTH: 100%; PADDING-TOP: 10px; PADDING-BOTTOM: 30px
+}
+#bottomContent P {
+	MARGIN: 0px; COLOR: #666666; LINE-HEIGHT: 20px; HEIGHT: 20px; TEXT-ALIGN: center
+}
+#bottomContent P A {
+	COLOR: #666666; TEXT-DECORATION: none
+}
+#bottomContent P A:hover {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+.ash {
+	COLOR: #666666
+}
+.box1 {
+	WIDTH: 250px; MARGIN-BOTTOM: 10px; BACKGROUND: #F6F9FB; BORDER: #E1E1E1 1px solid
+}
+.box1 H3 {
+	MARGIN: 10px; FONT-SIZE: 14px; FONT-WEIGHT: bold; COLOR: #9F9F9F
+}
+.box1 UL {
+	LIST-STYLE-IMAGE: url(icon.1.gif); PADDING: 0 0 5px 30px; MARGIN: 10px 0 10px 0px
+}
+.box1 UL LI {
+	MARGIN-TOP: 5px
+}
+.box1 DIV.box1s {
+	MARGIN: 10px
+}
+.box2 {
+	WIDTH: 100%
+}
+.box2 H3 {
+	MARGIN: 10px; FONT-SIZE: 12px; FONT-WEIGHT: bold; COLOR: #666666; PADDING-BOTTOM: 5px; BORDER-BOTTOM: #999999 1px dotted
+}
+.box2 UL {
+	LIST-STYLE-IMAGE: url(icon.2.jpg); PADDING: 0 0 5px 30px; MARGIN: 10px 0 10px 0px
+}
+.box2 UL LI {
+	MARGIN-TOP: 5px
+}
+.clear {
+	DISPLAY: block; CLEAR: both; WIDTH: 100%; HEIGHT: 1px; OVERFLOW: hidden
+}
+.content DIV {
+	LINE-HEIGHT: 150%
+}
+.content DIV UL {
+	LIST-STYLE: inside
+}
+.content DIV OL {
+	LIST-STYLE: inside
+}
+.comment DIV {
+	LINE-HEIGHT: 120%
+}
+.cutepage {
+	TEXT-ALIGN: right
+}
+.cutepage A {
+	MARGIN-LEFT: 3px; PADDING-TOP: 2px; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER: #AFAFAF 1px solid; TEXT-DECORATION: none
+}
+.cutepage A:hover {
+	TEXT-DECORATION: none
+}
+.cutepage A.selected {
+	COLOR: #F00000; TEXT-DECORATION: none
+}
+.cutepage INPUT {
+	WIDTH: 20px; PADDING-TOP: 2px; PADDING-BOTTOM: 2px; MARGIN-LEFT: 3px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER: #AFAFAF 1px solid
+}
+.hand {
+	CURSOR: pointer
+}
+.hidden {
+	DISPLAY: none
+}
+.inline {
+	DISPLAY: inline
+}
+.highlight {
+	BACKGROUND: #ffff66
+}
+.imgbox1 {
+	WIDTH: 122px; PADDING: 3px; BORDER: #B9B9B9 1px solid
+}
+.jloader {
+	MARGIN: 0px; BACKGROUND: #FFFFFF; PADDING-LEFT: 8px; BORDER: #666666 1px solid
+}
+.jloader DIV {
+	MARGIN: 0px; BACKGROUND: url(jloading.gif) left center no-repeat; HEIGHT: 48px; LINE-HEIGHT: 48px; PADDING-LEFT: 40px; PADDING-RIGHT: 8px; COLOR: #666666
+}
+.list {
+	PADDING-TOP: 10px
+}
+.line1 {
+	HEIGHT: 1px; BACKGROUND: url(line.1.jpg)
+}
+.middleSide {
+	WIDTH: 252px; DISPLAY: block; FLOAT: left
+}
+.middleMain {
+	WIDTH: 648px; DISPLAY: block; FLOAT: left
+}
+.middleMainContent {
+	MARGIN-LEFT: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BACKGROUND: url(bg.2.jpg) top center repeat-x
+}
+.nav SPAN {
+	DISPLAY: block; LINE-HEIGHT: 25px; BACKGROUND: url(bg.3.gif) center left no-repeat; PADDING-LEFT: 16px; PADDING-TOP: 2px; COLOR: #454545
+}
+.nav SPAN A {
+	COLOR: #454545; TEXT-DECORATION: none
+}
+.nav SPAN A:hover {
+	TEXT-DECORATION: underline
+}
+.quote {
+	WIDTH: 98%; LINE-HEIGHT: 150%; BORDER: #dcdcdc 1px dotted; PADDING: 5px
+}
+.relative {
+	POSITION: relative
+}
+.red {
+	COLOR: #CC0066
+}
+.tit1 {
+	HEIGHT: 30px
+}
+.tit1 SPAN {
+	PADDING-LEFT: 10px; BACKGROUND: url(icon.2.jpg) center left no-repeat
+}
+.time1 {
+	TEXT-ALIGN: right
+}
+.time1 SPAN {
+	COLOR: #999999
+}
+.tablem {
+	WIDTH: 100%; BORDER: 0px
+}
+.tablen {
+	WIDTH: 100%; BORDER: 0px
+}
+.tablex {
+	WIDTH: 100%; BACKGROUND: #CCCCCC; BORDER: 0px
+}
+.tablex TD {
+	BACKGROUND: #FFFFFF
+}
+.tables {
+	WIDTH: 100%; MARGIN-BOTTOM: 5px; BACKGROUND: #DCDCDC; BORDER: 0px
+}
+.tables TD {
+	BACKGROUND: #FFFFFF
+}
+.tables TD.tbt {
+	BACKGROUND: #F9F9F9
+}
+.topic {
+	HEIGHT: 50px
+}
+.topic DIV {
+	LINE-HEIGHT: 50px; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.ubb_code {
+	BORDER: #dcdcdc 1px dotted; PADDING: 5px; LINE-HEIGHT: 150%; FONT-STYLE: italic
+}
+.ubb_quote {
+	BORDER: #dcdcdc 1px dotted; PADDING: 5px; LINE-HEIGHT: 150%
+}

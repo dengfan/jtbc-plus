@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[mgtitle]]></name>
+      <chinese><![CDATA[会员短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <chinese><![CDATA[短信列表]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nav_list]]></name>
+      <chinese><![CDATA[全部短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nav_hidden_1]]></name>
+      <chinese><![CDATA[隐藏的短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nav_add]]></name>
+      <chinese><![CDATA[添加新短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nav_edit]]></name>
+      <chinese><![CDATA[编辑短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[req_topic]]></name>
+      <chinese><![CDATA[短信标题不能为空]]></chinese>
+    </item>
+  </item_list>
+</xml>

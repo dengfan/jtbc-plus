@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[nuppath]]></name>
+      <chinese><![CDATA[common/jtbcinstall/]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nuptype]]></name>
+      <chinese><![CDATA[.jtbcinstall]]></chinese>
+    </item>
+  </item_list>
+</xml>

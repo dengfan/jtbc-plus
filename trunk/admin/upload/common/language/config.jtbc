@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[filename]]></name>
+      <chinese><![CDATA[文件名]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[genre]]></name>
+      <chinese><![CDATA[模块名]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[username]]></name>
+      <chinese><![CDATA[上传者]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[time]]></name>
+      <chinese><![CDATA[上传时间]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[validity]]></name>
+      <chinese><![CDATA[有效性]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[effective]]></name>
+      <chinese><![CDATA[有效的上传文件]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[noneffective0]]></name>
+      <chinese><![CDATA[尚无关联的上传]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[noneffective1]]></name>
+      <chinese><![CDATA[关联已删的上传]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[noneffective2]]></name>
+      <chinese><![CDATA[关联已被替代的]]></chinese>
+    </item>
+  </item_list>
+</xml>

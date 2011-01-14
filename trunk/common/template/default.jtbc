@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[default]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake("global.passport/account:api.userlogin", "lng")}</h3>
+        <div class="box1s">{$=ireplace("global.passport/account:api.jslogin-1", "tpl")}</div>
+      </div>
+      <div class="box1">
+        <h3>{$=itake("global.search:default.channel_title", "lng")}</h3>
+        <form method="get" action="{$=getActualRoute("search")}">
+        <div class="box1s"><input type="text" name="keyword" class="text" size="20" />&nbsp; &nbsp;<input type="submit" value="{$=itake("global.search:default.search", "lng")}" class="button" /></div>
+        </form>
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="50%" valign="top">
+              <div class="box2">
+                <h3>{$=itake("global.articles:default.channel_title", "lng")}</h3>{$=itransfer("genre=articles;tpl=1;type=new;topx=10")}
+              </div>
+            </td>
+            <td width="50%" valign="top">
+              <div class="box2">
+                <h3>{$=itake("global.products:default.channel_title", "lng")}</h3>{$=itransfer("genre=products;tpl=1;type=new;topx=10")}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <div class="box2">
+                <h3>{$=itake("global.downloads:default.channel_title", "lng")}</h3>{$=itransfer("genre=downloads;tpl=1;type=new;topx=10")}
+              </div>
+            </td>
+            <td valign="top">
+              <div class="box2">
+                <h3>{$=itake("global.mall/products:default.channel_title", "lng")}</h3>{$=itransfer("genre=mall/products;tpl=1;type=new;topx=10")}
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>
