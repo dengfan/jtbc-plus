@@ -10,7 +10,7 @@
             <name><![CDATA[default]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head")}
-{$=ireplace("login.login_form", "tpl")}
+{$=ireplace("login.login", "tpl")}
 {$=webAdminFoot("admin_foot")}]]>
             </tpl_default>
         </item>
