@@ -7,9 +7,9 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[login]]></name>
+            <name><![CDATA[login_form]]></name>
             <tpl_default>
-                <![CDATA[
+                <![CDATA[{$=webAdminHead("admin_head")}
 <table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
   <tr>
     <td width="100%" align="center">
@@ -24,7 +24,7 @@
               <tr>
                 <td width="100%" height="20" colspan="2"></td>
               </tr>
-              <form method="post" name="login" action="index.asp?action=login">
+              <form method="post" name="login" action="default.aspx?type=action&atype=login">
               <tr>
                 <td width="25%" height="25" align="right">{$=itake("config.username","lng")}</td>
                 <td width="75%" height="25">&nbsp;<input type="text" size="20" class="text" name="username" id="username" /></td>
@@ -58,7 +58,7 @@
     </td>
   </tr>
 </table>
-]]>
+{$=webAdminFoot("admin_foot")}]]>
             </tpl_default>
         </item>
     </item_list>

@@ -7,7 +7,7 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[default]]></name>
+            <name><![CDATA[login]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head")}
 {$=ireplace("login.login", "tpl")}
