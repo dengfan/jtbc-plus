@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xml mode="jtbc" author="cainiao1v1">
+<xml mode="jtbc" author="jetiben">
     <configure>
         <node>item</node>
         <field>name,tpl_default</field>
@@ -9,9 +9,9 @@
         <item>
             <name><![CDATA[default]]></name>
             <tpl_default>
-                <![CDATA[{$=webAdminHead("admin_head_1")}
-<div id="body">its running...11fd</div>
-{$=webAdminFoot("admin_foot_1")}]]>
+                <![CDATA[{$=webAdminHead("admin_head")}
+{$=ireplace("login.login_form", "tpl")}
+{$=webAdminFoot("admin_foot")}]]>
             </tpl_default>
         </item>
     </item_list>

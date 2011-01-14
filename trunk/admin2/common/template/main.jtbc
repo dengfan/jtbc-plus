@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[admin_head]]></name>
+            <tpl_default>
+                <![CDATA[<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<title>{$=itake("default.channel_title", "lng")}</title>
+<script language="javascript" src="{$=$images}/js/main.js"></script>
+<script language="javascript" src="{$=$images}/js/selects.js"></script>
+<script language="javascript" src="{$=$images}/js/manage.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
+</head>
+<body onload="nhrefstate()">]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_foot]]></name>
+            <tpl_default>
+                <![CDATA[</body>
+</html>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_frame]]></name>
+            <tpl_default>
+                <![CDATA[<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$=itake('admin_config.admin_copyright','lng')}</title>
+<link href="{$images}main/frame.css" type="text/css" rel="stylesheet" />
+<script language="javascript" src="{$global.images}js/main.js"></script>
+<script language="javascript">
+<!--
+if(top.location!=self.location) top.location=self.location;
+
+var tlists, timages;
+
+function myobj_load()
+{
+  tlists = get_id("lists");
+  timages = get_id("images");
+}
+
+function startscroll(strt, strnum)
+{
+  var tmpbase=5;
+  if (strt == "up") tmpbase = -tmpbase;
+  scrolling(tmpbase, strnum, 0);
+}
+
+function scrolling(strnum, strk, strn)
+{
+  if (strn >= strk) return;
+  parent.list.window.scrollBy(0, strnum);
+  setTimeout("scrolling("+strnum+", "+strk+", "+(strn+1)+")", 15);
+}
+
+function switch_menu()
+{
+  var tmpstyle = 'none';
+  var tmpimg = '{$images}main/smenub.gif';
+  if (tlists.style.display == "none")
+  {
+    tmpstyle = '';
+    tmpimg = '{$images}main/smenua.gif';
+  }
+  tlists.style.display = tmpstyle;
+  timages.src = tmpimg;
+}
+//-->
+</script>
+</head>
+<body onload="myobj_load()">
+<table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="47" background="{$images}main/top_bg.gif" valign="top">
+      <table cellSpacing="0" cellPadding="0" width="100%" background="{$images}main/top_bg.gif" border="0">
+        <tr>
+          <td width="147"><img src="{$images}main/top_logo.gif" border="0"></td>
+          <td align="center">
+            <table cellSpacing="0" cellPadding="0" width="98%" border="0">
+              <tr>
+                <td align="right" width="15"></td>
+                <td align="right"><a href="admin_main.asp" target="_top"><b>{$=itake('main.admin_main','lng')}</b></a>&nbsp;<a href="index.asp?action=logout" target="_top"><b>{$=itake('main.admin_logout','lng')}</b></a></td>
+                <td align="right" width="15"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="*">
+      <table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
+        <tr width="100%" height="100%">
+          <td width="163" id="lists" name="lists"><iframe id="list" name="list" src="admin_left.asp" frameborder="0" scrolling="no" width="100%" height="100%"></iframe></td>
+          <td width="10" class="tmenus">
+            <table height="100%" cellSpacing="0" cellPadding="0" width="10" border="0">
+              <tr align="middle">
+                <td onclick="javascript:startscroll('up',30);" height="20"><img src="{$images}main/up.gif" width="10" border="0"></td>
+              </tr>
+              <tr align="middle">
+                <td height="*" align="center" onclick="switch_menu();"><img id="images" name="images" src="{$images}main/smenua.gif" width="10" border="0"></td>
+              </tr>
+              <tr align="middle">
+                <td onclick="javascript:startscroll('down',30);" height="20"><img src="{$images}main/down.gif" width="10" border="0"></td>
+              </tr>
+            </table>
+          </td>
+          <td width="*"><iframe name="main" src="admin_manage.asp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_left]]></name>
+            <tpl_default>
+                <![CDATA[<table cellSpacing="0" cellPadding="0" width="100%" height="100%" align="left" border="0" class="trw">
+  <tr>
+    <td height="5"></td>
+  </tr>
+  <tr>
+    <td vAlign="top">{$recurrence_ida}
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="25" background="{$images}main/menu_topleft.gif"></td>
+          <td width="*" background="{$images}main/menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('submenu{$id}')"><span>{$description}</span></td>
+          <td width="4" background="{$images}main/menu_topright.gif"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center" id="submenu{$id}" style="display:none;">
+        <tr>
+          <td valign="top" align="center">
+            <table cellSpacing="0" cellPadding="0" border="0" width="150" class="sec_menu" align="center">
+              <tr>
+                <td>
+                  <table cellSpacing="0" cellPadding="0" border="0" width="142" align="center">
+                    <tr>
+                      <td height="5" colspan="2"></td>
+                    </tr>{$recurrence_idb}
+                    <tr>
+                      <td height="20" width="15" align="center"><img src="{$images}main/icos.gif" width="5" height="7" border="0"></td><td height="20" width="125"><a href="{$ahref}" target="main">{$topic}</a></td>
+                    </tr>{$recurrence_idb}
+                  </table>
+                 </td>
+               </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="2"><img src="{$images}main/menu_endleft.gif" width="4" height="2" border="0"></td>
+          <td width="142" background="{$images}main/menu_endbg.gif"></td>
+          <td width="4"><img src="{$images}main/menu_endright.gif" width="4" height="2" border="0"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="100%" align="center">
+        <tr>
+          <td height="2"></td>
+        </tr>
+      </table>{$recurrence_ida}
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="25" background="{$images}main/menu_topleft.gif"></td>
+          <td width="*" background="{$images}main/menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span>{$=itake('main.admin_sysinfo','lng')}</span></td>
+          <td width="4" background="{$images}main/menu_topright.gif"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td valign="top" align="center">
+            <table cellSpacing="0" cellPadding="0" border="0" width="150" class="sec_menu" align="center">
+              <tr>
+                <td>
+                  <table cellSpacing="0" cellPadding="0" border="0" width="142" align="center">
+                    <tr>
+                      <td height="5"></td>
+                    </tr>
+                    <tr>
+                      <td height="20" width="130" align="center"><a href="http://www.jetiben.com/" target="_blank">{$=itake('admin_config.admin_copyright','lng')}</a></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                    </tr>
+                  </table>
+                 </td>
+               </tr>
+            </table>
+            <table cellSpacing="0" cellPadding="0" border="0" width="100%" align="center">
+              <tr>
+                <td height="5"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_manage]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellSpacing="0" cellPadding="0">
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_condition','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+            <tr>
+              <td width="100%" height="5" colspan="2"></td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">{$=itake('main.admin_server','lng')}{$=request.servervariables("server_name")}(ip:{$=request.servervariables("local_addr")})</td>
+              <td width="50%" height="25">{$=itake('main.admin_port','lng')}{$=request.servervariables("server_port")}</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">{$=itake('main.admin_time','lng')}{$=now}</td>
+              <td width="50%" height="25">{$=itake('main.admin_iis','lng')}{$=request.servervariables("server_software")}</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">{$=itake('main.admin_timeout','lng')}{$=server.scripttimeout}</td>
+              <td width="50%" height="25">{$=itake('main.admin_path','lng')}{$=request.servervariables("path_translated")}</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">{$=itake('main.admin_script','lng')}{$=scriptengine}/{$=scriptenginemajorversion}.{$=scriptengineminorversion}.{$=scriptenginebuildversion}</td>
+              <td width="50%" height="25">{$=itake('main.admin_os','lng')}{$=adm_get_os}</td>
+            </tr>
+            <tr>
+              <td width="100%" height="5" colspan="2"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_discreteness','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
+            <tr>
+              <td width="100%" height="5" colspan="2"></td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.AdRotator"))})MSWC.AdRotator</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.BrowserType"))})MSWC.BrowserType</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.NextLink"))})MSWC.NextLink</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Tools"))})MSWC.Tools</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Status"))})MSWC.Status</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Counters"))})MSWC.Counters</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("CDONTS.NewMail"))})CDONTS.NewMail</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("CDO.Message"))})CDO.Message</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Microsoft.XMLDOM"))})Microsoft.XMLDOM</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Microsoft.XMLHTTP"))})Microsoft.XMLHTTP</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Adodb.Stream"))})Adodb.Stream</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Scripting.FileSystemObject"))})Scripting.FileSystemObject</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("WScript.Shell"))})WScript.Shell</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("JMail.SmtpMail"))})JMail.SmtpMail</td>
+            </tr>
+            <tr>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Persits.Jpeg"))})Persits.Jpeg</td>
+              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Persits.Upload"))})Persits.Upload</td>
+            </tr>
+            <tr>
+              <td width="100%" height="5" colspan="2"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+  <tr>
+    <td width="100%" align="center">
+    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
+      <tr>
+        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_ckdiscreteness','lng')}</td>
+      </tr>
+      <tr>
+        <td width="100%" align="center">
+          <table border="0" width="98%" cellSpacing="0" cellpadding="0">
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+            <form method="post" name="ckform">
+            <tr>
+              <td width="100%" height="25">{$=itake('main.admin_ckname','lng')}<input type="text" name="ckname" size="25">&nbsp;<input type="submit" value="{$=itake('main.admin_cksubmit','lng')}" class="button"></td>
+            </tr>
+            </form>
+            <tr>
+              <td width="100%" height="20" class="red">{$=adm_show_ckisobj}</td>
+            </tr>
+            <tr>
+              <td width="100%" height="5"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%" height="5"></td>
+  </tr>
+</table>
+]]>
+            </tpl_default>
+        </item>
+    </item_list>
+</xml>

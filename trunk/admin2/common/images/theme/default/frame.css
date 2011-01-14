@@ -1,0 +1,24 @@
+BODY {
+	BACKGROUND: #0096d4; MARGIN: 0px; OVERFLOW: hidden
+}
+TABLE {
+	FONT-SIZE: 12px
+}
+A {
+	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #f6f6f6; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.table {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid
+}
+.tmenus {
+	CURSOR: pointer
+}
+.bg {
+	BACKGROUND: #ffffff
+}

@@ -1,0 +1,93 @@
+BODY {
+	BACKGROUND: #0096d4; MARGIN: 0px; FONT-FAMILY: arial,verdana,sans-serif
+}
+TABLE {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-SIZE: 12px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+A {
+	COLOR: #000000; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #666666; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+A:active {
+	COLOR: #000000; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.table {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid
+}
+.foot {
+	BORDER-RIGHT: #ffffff 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #ffffff 1px solid; COLOR: #ffffff; PADDING-TOP: 1px; BORDER-BOTTOM: #ffffff 1px solid; LETTER-SPACING: 1px; BACKGROUND-COLOR: #173667
+}
+.red {
+	COLOR: #ff0000
+}
+.red A {
+	COLOR: #ff0000; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+.red A:hover {
+	COLOR: #336633; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.red A:active {
+	COLOR: #ff0000; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.green {
+	COLOR: #336633
+}
+.green A {
+	COLOR: #336633; FONT-STYLE: normal; TEXT-DECORATION: none
+}
+.green A:hover {
+	COLOR: #cc0066; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.green A:active {
+	COLOR: #336633; FONT-STYLE: normal; TEXT-DECORATION: underline
+}
+.ash {
+	COLOR: #a7a6aa
+}
+.tbg {
+	BACKGROUND: #173667; COLOR: #ffffff; TEXT-DECORATION: none
+}
+.tbtop {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; BACKGROUND: url(admin_bg_1.gif); COLOR: #ffffff
+}
+.trr {
+	BACKGROUND: #d6dff7
+}
+.trw {
+	BACKGROUND: #0096d4
+}
+.lrbtline {
+	BORDER-RIGHT: #0081b4 1px solid; BORDER-TOP: #0081b4 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #0081b4 1px solid; BORDER-BOTTOM: #0081b4 1px solid
+}
+.sec_menu {
+	BORDER-RIGHT: #0081b4 1px solid; BACKGROUND: #ffffff; BORDER-LEFT: #0081b4 1px solid; BORDER-BOTTOM: #0081b4 1px solid
+}
+.menu_title {
+	CURSOR: pointer
+}
+.menu_title SPAN {
+	FONT-WEIGHT: bold; LEFT: 8px; COLOR: #ffffff; POSITION: relative; TOP: 2px
+}
+.hrs {
+	COLOR: #f6f6f6; HEIGHT: 1px
+}
+INPUT {
+	BORDER-RIGHT: #c0c0c0 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #c0c0c0 1px solid; PADDING-TOP: 1px; BORDER-BOTTOM: #c0c0c0 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff
+}
+INPUT.checkbox {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: 0px; PADDING-TOP: 1px; BORDER-BOTTOM: 0px
+}
+INPUT.radio {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 1px; BORDER-TOP: 0px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: 0px; PADDING-TOP: 1px; BORDER-BOTTOM: 0px
+}
+INPUT.button {
+	BORDER-RIGHT: #c0c0c0 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #c0c0c0 1px solid; PADDING-LEFT: 12px; BACKGROUND: url(bg_button.gif); PADDING-BOTTOM: 1px; BORDER-LEFT: #c0c0c0 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #c0c0c0 1px solid; HEIGHT: 20px
+}
+SELECT.select {
+	BORDER-RIGHT: #c0c0c0 1px solid; BORDER-TOP: #c0c0c0 1px solid; BORDER-LEFT: #c0c0c0 1px solid; COLOR: #173667; BORDER-BOTTOM: #c0c0c0 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff
+}
+
+.hand {cursor: pointer;}
+.absmiddle {vertical-align: middle;}

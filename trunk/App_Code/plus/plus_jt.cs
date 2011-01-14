@@ -11,7 +11,7 @@
     {
         public static string cvalue(string argString)
         {
-            string str = argString;
+            string str = jt.cvalue(argString);
             if (str != "")
             {
                 string str2 = cls.getLRStr(str, "(", "left");
