@@ -7,10 +7,6 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[base]]></name>
-            <tpl_default><![CDATA[<base id="base" href="{$-base}" />]]></tpl_default>
-        </item>
-        <item>
             <name><![CDATA[admin_head_1]]></name>
             <tpl_default>
                 <![CDATA[<html>
@@ -32,9 +28,5 @@
 </html>]]>
             </tpl_default>
         </item>
-        
-        
-        
-        
     </item_list>
 </xml>

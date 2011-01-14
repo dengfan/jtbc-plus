@@ -9,19 +9,9 @@
         <item>
             <name><![CDATA[default]]></name>
             <tpl_default>
-                <![CDATA[{$=webHead("admin_head_1")}
-<div id="body" class="progress" onclick="manage.tbodyClick();"></div>
-<div class="dfn"><textarea id="ErrorMessage-1">{$=htmlencode(itake("default.errormessage-1", "lng"))}</textarea></div>
-<script type="text/javascript">manage.tInit();</script>
-{$=webFoot("admin_foot_1")}]]>
-            </tpl_default>
-        </item>
-        <item>
-            <name><![CDATA[default2]]></name>
-            <tpl_default>
-                <![CDATA[{$=itake("tpl_public.admin_head_1", "tpl")}
-<div id="body">its running...</div>
-{$=itake("tpl_public.admin_foot_1", "tpl")}]]>
+                <![CDATA[{$=webAdminHead("admin_head_1")}
+<div id="body">its running...11fd</div>
+{$=webAdminFoot("admin_foot_1")}]]>
             </tpl_default>
         </item>
     </item_list>
