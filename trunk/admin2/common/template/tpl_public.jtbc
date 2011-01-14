@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="cainiao1v1">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[base]]></name>
+            <tpl_default><![CDATA[<base id="base" href="{$-base}" />]]></tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_head_1]]></name>
+            <tpl_default>
+                <![CDATA[<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("default.channel_title", "lng")}</title>
+<script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
+<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}layout.css" />
+</head>
+<body>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_foot_1]]></name>
+            <tpl_default>
+                <![CDATA[</body>
+</html>]]>
+            </tpl_default>
+        </item>
+        
+        
+        
+        
+    </item_list>
+</xml>
