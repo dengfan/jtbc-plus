@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using jtbc;
 
-public partial class admin2_admin_left : System.Web.UI.Page
+public partial class module : jpage
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load()
     {
+        PageInit();
+        PageNoCache();
+
 
     }
 }

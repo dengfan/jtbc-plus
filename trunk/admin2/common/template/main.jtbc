@@ -11,12 +11,12 @@
             <tpl_default>
                 <![CDATA[<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
 <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
 <title>{$=itake("default.channel_title", "lng")}</title>
-<script language="javascript" src="{$=$images}/js/main.js"></script>
-<script language="javascript" src="{$=$images}/js/selects.js"></script>
-<script language="javascript" src="{$=$images}/js/manage.js"></script>
+<script type="text/javascript" src="{$=$images}/js/main.js"></script>
+<script type="text/javascript" src="{$=$images}/js/selects.js"></script>
+<script type="text/javascript" src="{$=$images}/js/manage.js"></script>
 <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
 </head>
 <body onload="nhrefstate()">]]>
@@ -35,11 +35,11 @@
                 <![CDATA[<html>
 <head>
 <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{$=itake('admin_config.admin_copyright','lng')}</title>
-<link href="{$images}main/frame.css" type="text/css" rel="stylesheet" />
-<script language="javascript" src="{$global.images}js/main.js"></script>
-<script language="javascript">
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("config.copyright","lng")}</title>
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
+<script type="text/javascript" src="{$=$images}/js/main.js"></script>
+<script type="text/javascript">
 <!--
 if(top.location!=self.location) top.location=self.location;
 
@@ -83,15 +83,17 @@ function switch_menu()
 <body onload="myobj_load()">
 <table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
   <tr>
-    <td width="100%" height="47" background="{$images}main/top_bg.gif" valign="top">
-      <table cellSpacing="0" cellPadding="0" width="100%" background="{$images}main/top_bg.gif" border="0">
+    <td width="100%" height="47" background="{$=$admin.theme}top_bg.gif" valign="top">
+      <table cellSpacing="0" cellPadding="0" width="100%" background="{$=$admin.theme}top_bg.gif" border="0">
         <tr>
-          <td width="147"><img src="{$images}main/top_logo.gif" border="0"></td>
+          <td width="147"><img src="{$=$admin.theme}top_logo.gif" border="0"></td>
           <td align="center">
             <table cellSpacing="0" cellPadding="0" width="98%" border="0">
               <tr>
                 <td align="right" width="15"></td>
-                <td align="right"><a href="admin_main.asp" target="_top"><b>{$=itake('main.admin_main','lng')}</b></a>&nbsp;<a href="index.asp?action=logout" target="_top"><b>{$=itake('main.admin_logout','lng')}</b></a></td>
+                <td align="right">
+                    <a href="admin_main.asp" target="_top"><b>{$=itake("main.admin_main","lng")}</b></a>&nbsp;
+                    <a href="default.aspx?type=action&atype=logout" target="_top"><b>{$=itake("main.admin_logout","lng")}</b></a></td>
                 <td align="right" width="15"></td>
               </tr>
             </table>
@@ -104,21 +106,25 @@ function switch_menu()
     <td width="100%" height="*">
       <table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
         <tr width="100%" height="100%">
-          <td width="163" id="lists" name="lists"><iframe id="list" name="list" src="admin_left.asp" frameborder="0" scrolling="no" width="100%" height="100%"></iframe></td>
+          <td width="163" id="lists" name="lists">
+            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+          </td>
           <td width="10" class="tmenus">
             <table height="100%" cellSpacing="0" cellPadding="0" width="10" border="0">
               <tr align="middle">
-                <td onclick="javascript:startscroll('up',30);" height="20"><img src="{$images}main/up.gif" width="10" border="0"></td>
+                <td onclick="javascript:startscroll('up',30);" height="20"><img src="{$=$admin.theme}up.gif" width="10" border="0"></td>
               </tr>
               <tr align="middle">
-                <td height="*" align="center" onclick="switch_menu();"><img id="images" name="images" src="{$images}main/smenua.gif" width="10" border="0"></td>
+                <td height="*" align="center" onclick="switch_menu();"><img id="images" name="images" src="{$=$admin.theme}smenua.gif" width="10" border="0"></td>
               </tr>
               <tr align="middle">
-                <td onclick="javascript:startscroll('down',30);" height="20"><img src="{$images}main/down.gif" width="10" border="0"></td>
+                <td onclick="javascript:startscroll('down',30);" height="20"><img src="{$=$admin.theme}down.gif" width="10" border="0"></td>
               </tr>
             </table>
           </td>
-          <td width="*"><iframe name="main" src="admin_manage.asp" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe></td>
+          <td width="*">
+            <iframe name="main" src="admin_manage.aspx" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
+          </td>
         </tr>
       </table>
     </td>
@@ -140,9 +146,9 @@ function switch_menu()
     <td vAlign="top">{$recurrence_ida}
       <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
         <tr>
-          <td width="4" height="25" background="{$images}main/menu_topleft.gif"></td>
-          <td width="*" background="{$images}main/menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('submenu{$id}')"><span>{$description}</span></td>
-          <td width="4" background="{$images}main/menu_topright.gif"></td>
+          <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('submenu{$id}')"><span>{$description}</span></td>
+          <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
         </tr>
       </table>
       <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center" id="submenu{$id}" style="display:none;">
@@ -156,7 +162,7 @@ function switch_menu()
                       <td height="5" colspan="2"></td>
                     </tr>{$recurrence_idb}
                     <tr>
-                      <td height="20" width="15" align="center"><img src="{$images}main/icos.gif" width="5" height="7" border="0"></td><td height="20" width="125"><a href="{$ahref}" target="main">{$topic}</a></td>
+                      <td height="20" width="15" align="center"><img src="{$=$admin.theme}icos.gif" width="5" height="7" border="0"></td><td height="20" width="125"><a href="{$ahref}" target="main">{$topic}</a></td>
                     </tr>{$recurrence_idb}
                   </table>
                  </td>
@@ -167,9 +173,9 @@ function switch_menu()
       </table>
       <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
         <tr>
-          <td width="4" height="2"><img src="{$images}main/menu_endleft.gif" width="4" height="2" border="0"></td>
-          <td width="142" background="{$images}main/menu_endbg.gif"></td>
-          <td width="4"><img src="{$images}main/menu_endright.gif" width="4" height="2" border="0"></td>
+          <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0"></td>
+          <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+          <td width="4"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0"></td>
         </tr>
       </table>
       <table cellSpacing="0" cellPadding="0" border="0" width="100%" align="center">
@@ -179,9 +185,9 @@ function switch_menu()
       </table>{$recurrence_ida}
       <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
         <tr>
-          <td width="4" height="25" background="{$images}main/menu_topleft.gif"></td>
-          <td width="*" background="{$images}main/menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span>{$=itake('main.admin_sysinfo','lng')}</span></td>
-          <td width="4" background="{$images}main/menu_topright.gif"></td>
+          <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span>{$=itake('main.admin_sysinfo','lng')}</span></td>
+          <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
         </tr>
       </table>
       <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">

@@ -63,17 +63,7 @@ public partial class module : jpage
 
     private string Module_Login()
     {
-        string tmpstr = "";
-        if (!_admin.ckLogin())
-        {
-            tmpstr = plus_jt.ireplace("login.login_form", "tpl");
-        }
-        else
-        {
-            Module_Desktop();
-        }
-
-        return tmpstr;
+        return plus_jt.ireplace("login.login_form", "tpl");
     }
 
     protected void Page_Load()
@@ -98,10 +88,14 @@ public partial class module : jpage
                     break;
             }
         }
-        else
+
+        if (_admin.ckLogin()) //已登录
         {
-            //进入登录界面
-            tmpstr = Module_Login();
+            Module_Desktop(); //进入后台主界面
+        }
+        else //未登录
+        {
+            tmpstr = Module_Login(); //进入登录界面
         }
 
         PagePrint(tmpstr);

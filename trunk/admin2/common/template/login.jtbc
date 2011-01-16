@@ -18,7 +18,7 @@
           <td height="25" class="tbtop" colspan="2">{$=itake("config.login","lng")}</td>
         </tr>
         <tr>
-          <td width="100" align="center" valign="middle"><img src="{$=$images}/theme/default/admin_lock.gif" border="0"></td>
+          <td width="100" align="center" valign="middle"><img src="{$=$admin.theme}admin_lock.gif" border="0"></td>
           <td width="300" align="center" valign="top">
             <table border="0" width="100%" cellSpacing="1" cellPadding="0">
               <tr>
