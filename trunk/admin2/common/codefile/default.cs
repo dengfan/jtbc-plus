@@ -3,7 +3,7 @@ using jtbc.plus;
 
 public partial class module : jpage
 {
-    private admin admin;
+    private admin _admin;
 
     private void Module_Action_Login()
     {
@@ -14,7 +14,7 @@ public partial class module : jpage
         {
             if (!cls.isEmpty(tusername))
             {
-                if (admin.ckLogins(tusername, tpassword)) Module_Desktop();
+                if (_admin.ckLogins(tusername, tpassword)) Module_Desktop();
             }
             else
             {
@@ -31,7 +31,7 @@ public partial class module : jpage
 
     private void Module_Desktop()
     {
-        if (admin.ckLogin())
+        if (_admin.ckLogin())
         {
             Response.Redirect("admin_main.aspx");
         }
@@ -43,7 +43,7 @@ public partial class module : jpage
 
     private void Module_Action_Logout()
     {
-        admin.Logout();
+        _admin.Logout();
         Response.Redirect("default.aspx");
     }
 
@@ -64,7 +64,7 @@ public partial class module : jpage
     private string Module_Login()
     {
         string tmpstr = "";
-        if (!admin.ckLogin())
+        if (!_admin.ckLogin())
         {
             tmpstr = plus_jt.ireplace("login.login_form", "tpl");
         }
@@ -81,9 +81,9 @@ public partial class module : jpage
         PageInit();
         PageNoCache();
 
-        admin = new admin();
-        admin.Init();
-        admin.adminPstate = "public";
+        _admin = new admin();
+        _admin.Init();
+        _admin.adminPstate = "public";
 
         string tmpstr = "";
         string tType = cls.getString(request.querystring("type"));
