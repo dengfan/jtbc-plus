@@ -92,7 +92,7 @@ function switch_menu()
               <tr>
                 <td align="right" width="15"></td>
                 <td align="right">
-                    <a href="admin_main.asp" target="_top"><b>{$=itake("main.admin_main","lng")}</b></a>&nbsp;
+                    <a href="admin_main.aspx" target="_top"><b>{$=itake("main.admin_main","lng")}</b></a>&nbsp;
                     <a href="default.aspx?type=action&atype=logout" target="_top"><b>{$=itake("main.admin_logout","lng")}</b></a></td>
                 <td align="right" width="15"></td>
               </tr>
