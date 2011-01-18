@@ -17,7 +17,7 @@
 <script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
 <script type="text/javascript" src="{$=$images}/js/selects.1.js"></script>
 <script type="text/javascript" src="{$=$images}/js/manage.1.js"></script>
-<script type="text/javascript" src="{$=$images}/jquery-treeview/lib/jquery.js"></script>
+<script type="text/javascript" src="{$=$images}/js/lib/jquery.js"></script>
 <script type="text/javascript" src="{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
 <link type="text/css" rel="stylesheet" href="{$=$images}/jquery-treeview/jquery.treeview.css" />
 <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
