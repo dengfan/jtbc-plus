@@ -36,9 +36,7 @@
             <table cellspacing="0" cellpadding="0" border="0" width="150" class="sec_menu" align="center">
               <tr>
                 <td>
-                  
                   {$MenuItem}
-                  
                  </td>
                </tr>
             </table>
@@ -60,7 +58,7 @@
       <table cellspacing="0" cellpadding="0" border="0" width="150" align="center">
         <tr>
           <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
-          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span>abc</span></td>
+          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span><img class=absmiddle src="{$=$admin.theme}icon_1_1.png" width=18 height=18>&nbsp;{$=itake("config.sysinfo","lng")}</span></td>
           <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
         </tr>
       </table>
