@@ -17,7 +17,15 @@
 <script type="text/javascript" src="{$=$images}/js/main.js"></script>
 <script type="text/javascript" src="{$=$images}/js/selects.js"></script>
 <script type="text/javascript" src="{$=$images}/js/manage.js"></script>
+<script type="text/javascript" src="{$=$images}/js/lib/jquery.js"></script>
+<script type="text/javascript" src="{$=$images}/js/lib/jquery.treeview.js"></script>
 <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}jquery.treeview.css" />
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('table td ul').treeview();
+    });
+</script>
 </head>
 <body onload="nhrefstate()">]]>
             </tpl_default>

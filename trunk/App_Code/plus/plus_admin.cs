@@ -64,11 +64,12 @@
                 if ((cls.getLRStr(argString, ":", "right") == "description") && (argString.IndexOf("/") == -1))
                 {
                     string str7 = str5;
-                    string str2 = cls.getParameter(strArray[i, 1], "text", "@") + formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr"));
+                    string str2 = cls.getParameter(strArray[i, 1], "text", "@");
                     string str3 = cls.getParameter(strArray[i, 1], "link", "@");
                     str7 = str7.Replace("{$text}", str2).Replace("{$link}", str3);
                     newValue = newValue + str7;
                 }
+                newValue = newValue.Replace("{$MenuItem}", formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr")));
             }
             return jt.creplace(argTemplate.Replace(config.jtbccinfo, newValue));
         }

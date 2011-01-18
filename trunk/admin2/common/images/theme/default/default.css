@@ -1,4 +1,5 @@
-body { margin: 0px; padding:0px; background: #0096d4; font-family: 微软雅黑, arial,verdana,sans-serif; font-size: 0.8em;}
+* {font-size: 14px; font-family: 微软雅黑, arial, verdana, sans-serif;}
+body { margin: 0px; padding:0px; background-color: #0096d4; }
 table {
 	border-right: 0px; border-top: 0px;  border-left: 0px; border-bottom: 0px
 }

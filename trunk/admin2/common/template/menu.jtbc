@@ -17,22 +17,93 @@
         <item>
             <name><![CDATA[admin_menu_content]]></name>
             <tpl_default>
-                <![CDATA[<ul id="MenuContentUL">{@}
-  <li>{$text}</li>{@}
-  <li><span onclick="manage.start.tClose(); manage.windows.dialog.tConfirm('{$=itake("global.lng_common.logoutconfirm", "lng")}', 'manage.logout.tLogoutClick();');"><img src="{$=$admin.theme}logout.png" width="18" height="18" class="absmiddle" />&nbsp;{$=itake("global.lng_common.logout", "lng")}</span></li>
-</ul>]]>
+                <![CDATA[<table cellSpacing="0" cellPadding="0" width="100%" height="100%" align="left" border="0" class="trw">
+  <tr>
+    <td height="5"></td>
+  </tr>
+  <tr>
+    <td vAlign="top">{@}
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('submenu{$id}')"><span>{$text}</span></td>
+          <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center" id="submenu{$id}" style="display:none;">
+        <tr>
+          <td valign="top" align="center">
+            <table cellSpacing="0" cellPadding="0" border="0" width="150" class="sec_menu" align="center">
+              <tr>
+                <td>
+                  
+                  {$MenuItem}
+                  
+                 </td>
+               </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0"></td>
+          <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+          <td width="4"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="100%" align="center">
+        <tr>
+          <td height="2"></td>
+        </tr>
+      </table>{@}
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+          <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" height="25"><span>abc</span></td>
+          <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
+        </tr>
+      </table>
+      <table cellSpacing="0" cellPadding="0" border="0" width="150" align="center">
+        <tr>
+          <td valign="top" align="center">
+            <table cellSpacing="0" cellPadding="0" border="0" width="150" class="sec_menu" align="center">
+              <tr>
+                <td>
+                  <table cellSpacing="0" cellPadding="0" border="0" width="142" align="center">
+                    <tr>
+                      <td height="5"></td>
+                    </tr>
+                    <tr>
+                      <td height="20" width="130" align="center"><a href="http://www.jetiben.com/" target="_blank">{$=itake("config.copyright","lng")}</a></td>
+                    </tr>
+                    <tr>
+                      <td height="5"></td>
+                    </tr>
+                  </table>
+                 </td>
+               </tr>
+            </table>
+            <table cellSpacing="0" cellPadding="0" border="0" width="100%" align="center">
+              <tr>
+                <td height="5"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>]]>
             </tpl_default>
         </item>
         <item>
             <name><![CDATA[admin_menu_content_child]]></name>
             <tpl_default>
                 <![CDATA[<ul>{@}
-  <li>{$text}</li>{@}
+    <li>{$text}</li>{@}
 </ul>]]>
             </tpl_default>
         </item>
     </item_list>
 </xml>
-
-
-
