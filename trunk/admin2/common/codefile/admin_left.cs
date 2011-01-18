@@ -27,6 +27,8 @@ public partial class module : jpage
         _admin.Init();
         _admin.adminPstate = "public";
 
+        if (!_admin.ckLogin()) Response.Redirect("default.aspx");
+
         string tmpstr = "";
         tmpstr = Module_Desktop();
 

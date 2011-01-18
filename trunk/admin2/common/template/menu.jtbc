@@ -73,7 +73,7 @@
                       <td height="5"></td>
                     </tr>
                     <tr>
-                      <td height="20" width="130" align="center"><a href="http://www.jetiben.com/" target="_blank">{$=itake("config.copyright","lng")}</a></td>
+                      <td height="20" width="130" align="center"><a href="http://www.jetiben.com/" target="_blank" style="font-size:12px;">{$=itake("config.copyright","lng")}</a></td>
                     </tr>
                     <tr>
                       <td height="5"></td>
@@ -95,6 +95,7 @@
 </table>
 <script type="text/javascript">
     $(document).ready(function(){
+        //$('table td ul').addClass('filetree treeview-famfamfam');
         $('table td ul').treeview();
     });
 </script>]]>

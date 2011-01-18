@@ -66,10 +66,12 @@
                     string str7 = str5;
                     string str2 = cls.getParameter(strArray[i, 1], "text", "@");
                     string str3 = cls.getParameter(strArray[i, 1], "link", "@");
-                    str7 = str7.Replace("{$text}", str2).Replace("{$link}", str3);
+                    str7 = str7.Replace("{$id}", (i + 1).ToString());
+                    str7 = str7.Replace("{$text}", str2);
+                    str7 = str7.Replace("{$link}", str3);
+                    str7 = str7.Replace("{$MenuItem}", formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr")));
                     newValue = newValue + str7;
                 }
-                newValue = newValue.Replace("{$MenuItem}", formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr")));
             }
             return jt.creplace(argTemplate.Replace(config.jtbccinfo, newValue));
         }
@@ -96,10 +98,12 @@
                     string newValue = cls.getParameter(strArray[i, 1], "text", "@");
                     if (cls.getLRStr(argString, ":", "leftr") != str)
                     {
+                        newValue = string.Format("<span class=\"folder\">{0}</span>", newValue);
                         newValue = newValue + formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr"));
                     }
                     string str4 = cls.getParameter(strArray[i, 1], "link", "@");
-                    str8 = str8.Replace("{$text}", newValue).Replace("{$link}", str4);
+                    str8 = str8.Replace("{$text}", newValue);
+                    str8 = str8.Replace("{$link}", str4);
                     argObject = argObject + str8;
                 }
             }
