@@ -1,4 +1,5 @@
 ﻿using jtbc;
+using jtbc.plus;
 
 public partial class module : jpage
 {
@@ -9,10 +10,11 @@ public partial class module : jpage
         string tmpstr = "";
         if (_admin.ckLogin())
         {
-            tmpstr = _admin.getMenuHtml(cls.getActualRoute("./"));
+            tmpstr = plus_jt.ireplace("menu.admin_menu", "tpl");
+            tmpstr = tmpstr.Replace("{$MenuHtml}", plus_admin.getMenuHtml(cls.getActualRoute("./"), _admin));
             tmpstr = jt.creplace(tmpstr);
         }
-        tmpstr = config.ajaxPreContent + tmpstr;
+        //tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;
     }
 
@@ -27,7 +29,6 @@ public partial class module : jpage
 
         string tmpstr = "";
         tmpstr = Module_Desktop();
-
 
         PagePrint(tmpstr);
         PageClose();

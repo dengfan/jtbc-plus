@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[admin_menu]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head")}
+{$MenuHtml}
+{$=webAdminFoot("admin_foot")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_menu_content]]></name>
+            <tpl_default>
+                <![CDATA[<ul id="MenuContentUL">{@}
+  <li>{$text}</li>{@}
+  <li><span onclick="manage.start.tClose(); manage.windows.dialog.tConfirm('{$=itake("global.lng_common.logoutconfirm", "lng")}', 'manage.logout.tLogoutClick();');"><img src="{$=$admin.theme}logout.png" width="18" height="18" class="absmiddle" />&nbsp;{$=itake("global.lng_common.logout", "lng")}</span></li>
+</ul>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_menu_content_child]]></name>
+            <tpl_default>
+                <![CDATA[<ul>{@}
+  <li>{$text}</li>{@}
+</ul>]]>
+            </tpl_default>
+        </item>
+    </item_list>
+</xml>
+
+
+
