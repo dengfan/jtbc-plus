@@ -14,18 +14,13 @@
 <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
 <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
 <title>{$=itake("default.channel_title", "lng")}</title>
-<script type="text/javascript" src="{$=$images}/js/main.js"></script>
-<script type="text/javascript" src="{$=$images}/js/selects.js"></script>
-<script type="text/javascript" src="{$=$images}/js/manage.js"></script>
-<script type="text/javascript" src="{$=$images}/js/lib/jquery.js"></script>
-<script type="text/javascript" src="{$=$images}/js/lib/jquery.treeview.js"></script>
+<script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
+<script type="text/javascript" src="{$=$images}/js/selects.1.js"></script>
+<script type="text/javascript" src="{$=$images}/js/manage.1.js"></script>
+<script type="text/javascript" src="{$=$images}/jquery-treeview/lib/jquery.js"></script>
+<script type="text/javascript" src="{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$images}/jquery-treeview/jquery.treeview.css" />
 <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
-<link type="text/css" rel="stylesheet" href="{$=$admin.theme}jquery.treeview.css" />
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('table td ul').treeview();
-    });
-</script>
 </head>
 <body onload="nhrefstate()">]]>
             </tpl_default>
