@@ -10,7 +10,8 @@
         {
             string tmpstr = "";
             string tPath = argPath;
-            string tActiveGenre = com.getActiveGenre("guide", tPath);
+            string tActiveGenre = com.getActiveGenre("guide", tPath);//分析整个站点文件夹组织结构，得到所有模块名序列化字符串
+            //return tActiveGenre;
             if (!cls.isEmpty(tActiveGenre))
             {
                 string[] tActiveGenreAry = tActiveGenre.Split(new char[] { '|' });
@@ -68,7 +69,7 @@
                     string str3 = cls.getParameter(strArray[i, 1], "link", "@");
                     str7 = str7.Replace("{$id}", (i + 1).ToString());
                     str7 = str7.Replace("{$text}", str2);
-                    str7 = str7.Replace("{$link}", str3);
+                    //str7 = str7.Replace("{$link}", str3);
                     str7 = str7.Replace("{$MenuItem}", formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr")));
                     newValue = newValue + str7;
                 }
@@ -98,7 +99,6 @@
                     string newValue = cls.getParameter(strArray[i, 1], "text", "@");
                     if (cls.getLRStr(argString, ":", "leftr") != str)
                     {
-                        newValue = string.Format("<span class=\"folder\">{0}</span>", newValue);
                         newValue = newValue + formatMenuHtml(strArray, cls.getLRStr(argString, ":", "leftr"));
                     }
                     string str4 = cls.getParameter(strArray[i, 1], "link", "@");

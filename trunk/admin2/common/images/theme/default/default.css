@@ -88,5 +88,6 @@ select.select {
 	border-right: #c0c0c0 1px solid; border-top: #c0c0c0 1px solid; border-left: #c0c0c0 1px solid; color: #173667; border-bottom: #c0c0c0 1px solid; height: 20px; background-color: #ffffff
 }
 
+a img {border: 0;}
 .hand {cursor: pointer;}
 .absmiddle {vertical-align: middle;}

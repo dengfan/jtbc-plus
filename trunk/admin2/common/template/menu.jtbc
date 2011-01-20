@@ -95,7 +95,6 @@
 </table>
 <script type="text/javascript">
     $(document).ready(function(){
-        //$('table td ul').addClass('filetree treeview-famfamfam');
         $('table td ul').treeview();
     });
 </script>]]>

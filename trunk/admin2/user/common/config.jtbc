@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xml mode="jtbc" author="jetiben">
+<xml mode="jtbcf" author="jetiben">
   <configure>
     <node>item</node>
     <field>name,chinese</field>
@@ -7,8 +7,8 @@
   </configure>
   <item_list>
     <item>
-      <name><![CDATA[mgtitle]]></name>
-      <chinese><![CDATA[系统相关+]]></chinese>
+      <name><![CDATA[genre-order]]></name>
+      <chinese><![CDATA[user,userlog]]></chinese>
     </item>
   </item_list>
 </xml>
