@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[menumorecontent]]></name>
+      <tpl_default><![CDATA[  <div class="more"><img src="{$=$admin.theme}icon.1.png" /></div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[windowscontent]]></name>
+      <tpl_default><![CDATA[  <div id="{$id}-windowsTitle" class="windowsTitle" onmousedown="manage.windows.drag.tstart(this); manage.contextmenu.tClose();" onmouseup="manage.windows.drag.tstop(this);" onmousemove="manage.windows.drag.tdrag(this, event);" onmouseout="manage.windows.drag.tmouseout(this);" ondblclick="manage.windows.tMax('{$id}');" oncontextmenu="manage.contextmenu.tLoad('windowsTitle', event, '{$id}');">
+    <span id="{$id}-windowsTitleText">{$title}</span>
+    <div class="windowsControl"><span class="hand" onclick="manage.windows.tMin('{$id}');"><img src="{$=$admin.theme}min.0.png" onmouseover="manage.img.tchange(this, 0);" onmouseout="manage.img.tchange(this, 1);" class="absmiddle" /></span><span class="hand" onclick="manage.windows.tMax('{$id}');"><img src="{$=$admin.theme}max.0.png" onmouseover="manage.img.tchange(this, 0);" onmouseout="manage.img.tchange(this, 1);" class="absmiddle" /></span><span class="hand" onclick="manage.windows.tRemove('{$id}');"><img src="{$=$admin.theme}close.0.png" onmouseover="manage.img.tchange(this, 0);" onmouseout="manage.img.tchange(this, 1);" class="absmiddle" /></span></div>
+  </div>
+  <div id="{$id}-windowsIframeDIV"><iframe id="{$id}-windowsIframe" src="#" width="100%" height="20" scrolling="auto" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></div>
+  <div class="windowsResize" onmousedown="manage.windows.resize.tstart(this);" onmouseup="manage.windows.resize.tstop(this);" onmousemove="manage.windows.resize.tdrag(this, event)" onmouseout="manage.windows.resize.tmouseout(this);"></div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[desktoplnkcontent]]></name>
+      <tpl_default><![CDATA[  <div id="{$lnkname}-DIV" link="{$link}" onmousedown="cls.drag.tstart(this);" onmouseup="cls.drag.tstop(this);" onmousemove="cls.drag.tdrag(this, event);" onmouseout="cls.drag.tmouseout(this);" onclick="manage.desktop.tSelect(this);" ondblclick="manage.desktop.tSelectdbl(this);" oncontextmenu="manage.desktop.tSelect(this); manage.contextmenu.tLoad('DesktopLnk', event, '{$lnkname}');">
+    <span class="space"></span>
+    <span class="icon"><span class="hand" ondblclick="{$link}" title="{$topic}"><img ondrag="return false;" src="{$icon}" width="32" height="32" class="absmiddle" onerror="this.src = '{$=$admin.theme}lnk.default.png'; this.parentNode.ondblclick = null;" /></span></span>
+    <span class="text"><span class="hand" ondblclick="{$link}" title="{$topic}"><nobr id="{$lnkname}-Topic">{$topic}</nobr></span></span>
+  </div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[contextmenucontent-desktop]]></name>
+      <tpl_default><![CDATA[  <ul id="ContextMenuUL" class="hidden">
+    <li>
+      <span class="hand">{$=itake("default.orderlnk", "lng")}</span>
+      <ul>
+        <li><span class="hand" onclick="manage.desktop.tOrder('topic');">{$=itake("default.orderlnk-topic", "lng")}</span></li>
+        <li><span class="hand" onclick="manage.desktop.tOrder('time');">{$=itake("default.orderlnk-time", "lng")}</span></li>
+      </ul>
+    </li>
+    <li><span class="hand" onclick="manage.desktop.tRefresh();">{$=itake("global.lng_common.refresh", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.menubar.tDesktop();">{$=itake("default.desktop", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.logoutconfirm", "lng")}', 'manage.logout.tLogoutClick();');">{$=itake("global.lng_common.logout", "lng")}</span></li>
+  </ul>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[contextmenucontent-desktoplnk]]></name>
+      <tpl_default><![CDATA[  <ul id="ContextMenuUL" class="hidden">
+    <li><span class="hand" onclick="manage.desktop.tCtmOpen('{$argkey}');">{$=itake("default.open", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deletelnkconfirm", "lng")}[' + cls.tgetMBcString($('{$argkey}-Topic').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', 'manage.desktop.tCtmRemove(\'{$argkey}\');');">{$=itake("default.remove", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.desktop.tCtmRename('{$argkey}');">{$=itake("default.rename", "lng")}</span></li>
+  </ul>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[contextmenucontent-menubardiv]]></name>
+      <tpl_default><![CDATA[  <ul id="ContextMenuUL" class="hidden">
+    <li><span class="hand" onclick="manage.windows.tSelect('{$argkey}'); manage.menubar.tChecked('{$argkey}');">{$=itake("default.open", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.tSelect('{$argkey}'); manage.menubar.tChecked('{$argkey}'); manage.windows.tMax('{$argkey}');">{$=itake("default.max", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.tRemove('{$argkey}');">{$=itake("default.close", "lng")}</span></li>
+  </ul>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[contextmenucontent-windowstitle]]></name>
+      <tpl_default><![CDATA[  <ul id="ContextMenuUL" class="hidden">
+    <li><span class="hand" onclick="manage.windows.tRemove('{$argkey}');">{$=itake("default.close", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.tMin('{$argkey}');">{$=itake("default.min", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.tMax('{$argkey}');">{$=itake("default.max", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.windows.tReload('{$argkey}');">{$=itake("default.reload", "lng")}</span></li>
+    <li><span class="hand" onclick="manage.desktop.tSendlnk('{$argkey}');">{$=itake("default.sendlnk", "lng")}</span></li>
+  </ul>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>
