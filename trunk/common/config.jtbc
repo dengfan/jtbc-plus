@@ -36,7 +36,7 @@
     </item>
     <item>
       <name><![CDATA[genre-order]]></name>
-      <chinese><![CDATA[admin,public,plugin,passport,articles,products,downloads,mall,forum,aboutus]]></chinese>
+      <chinese><![CDATA[admin2,admin,public,plugin,passport,articles,products,downloads,mall,forum,aboutus]]></chinese>
     </item>
     <item>
       <name><![CDATA[mail-smtpcharset]]></name>

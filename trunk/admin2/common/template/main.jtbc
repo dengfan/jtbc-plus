@@ -15,7 +15,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
 <title>{$=itake("config.copyright","lng")}</title>
 <link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
-<script type="text/javascript" src="{$=$images}/js/main.js"></script>
+<script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
 <script type="text/javascript">
 <!--
 if(top.location!=self.location) top.location=self.location;
@@ -45,11 +45,11 @@ function scrolling(strnum, strk, strn)
 function switch_menu()
 {
   var tmpstyle = 'none';
-  var tmpimg = '{$images}main/smenub.gif';
+  var tmpimg = '{$=$admin.theme}smenub.gif';
   if (tlists.style.display == "none")
   {
     tmpstyle = '';
-    tmpimg = '{$images}main/smenua.gif';
+    tmpimg = '{$=$admin.theme}smenua.gif';
   }
   tlists.style.display = tmpstyle;
   timages.src = tmpimg;
