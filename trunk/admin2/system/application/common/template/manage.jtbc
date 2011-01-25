@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[default]]></name>
+            <tpl_default>
+                <![CDATA[{$=webHead("admin_head_2")}
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tr>
+    <td height="100%" valign="top">
+      <div class="windowsContent-Panel">
+        <div id="windowsContent-Panel-Loading" class="windowsContent-Panel-Loading"><img src="{$=$admin.theme}loading.gif" class="absmiddle" /> {$=itake("global.lng_common.loading", "lng")}</div>
+        <div id="windowsContent-topPanel" class="windowsContent-topPanel">
+          <div class="checked" onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage.windows.tSelectLeftPanel(this);"><span class="hand"><img src="{$=$admin.theme}panel/folder.1.png" class="absmiddle" /> {$=itake("global.lng_common.showleftpanel", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tRefresh();"><span class="hand"><img src="{$=$admin.theme}panel/refresh.1.png" class="absmiddle" /> {$=itake("global.lng_common.refresh", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tDeleteApplication('');"><span class="hand"><img src="{$=$admin.theme}panel/delete.1.png" class="absmiddle" /> {$=itake("global.lng_common.deleteall", "lng")}</span></div>
+        </div>
+        <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td id="windowsContent-leftPanel" class="windowsContent-leftPanel" valign="top">
+              <table cellspacing="0" cellpadding="0" class="tablel">
+                <tr>
+                  <td class="tit">{$=itake("global.lng_config.search", "lng")}:</td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td class="txt">{$=itake("config.name", "lng")}:</td>
+                </tr>
+                <tr>
+                  <td class="txt"><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
+                </tr>
+                <tr>
+                  <td class="txt"><input type="button" class="button" value="{$=itake("global.lng_config.search", "lng")}" onclick="manages.tLoad('?keyword=' + escape($('keyword').value));" /></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+            </td>
+            <td id="windowsContent-rightPanel" class="windowsContent-rightPanel" valign="top">
+              <div id="windowsContent-rightPanel-Content" class="windowsContent-rightPanel-Content"></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
+{$=webFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[default2]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_header")}
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+        <td height="5" width="100%">
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="middle">
+            <table class="lrbtline" border="0" cellspacing="0" cellpadding="0" width="98%">
+                <tr>
+                    <td class="tbtop" height="25" width="100%">
+                        缓存管理
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" align="middle">
+                        <table border="0" cellspacing="0" cellpadding="0" width="98%">
+                            <tr>
+                                <td height="5" width="100%" colspan="2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25" width="80%">
+                                    缓存名&nbsp;<a class="red" href="?type=action&atype=delete&name=">{$=itake("global.lng_common.deleteall", "lng")}</a>
+                                </td>
+                                <td width="20%">
+                                    缓存值
+                                </td>
+                            </tr>{@}
+                            <tr>
+                                <td height="25">{$name}</td>
+                                <td>
+                                    <a href="?type=action&atype=detail&name={$name}">详细</a>&nbsp;
+                                    <a href="?type=action&atype=delete&name={$name}" title="{$=itake("global.lng_config.delete", "lng")}"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" alt="" /></a>
+                                </td>
+                            </tr>{@}
+                            <tr>
+                                <td height="5" width="100%" colspan="2">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td height="5" width="100%">
+        </td>
+    </tr>
+</table>
+{$=webAdminFoot("admin_foot")}]]></tpl_default>
+        </item>
+    </item_list>
+</xml>
