@@ -1,24 +1,43 @@
-BODY {
-	BACKGROUND: #0096d4; MARGIN: 0px; OVERFLOW: hidden
+*
+{
+    font-size: 12px;
+    font-family: 微软雅黑, Arial;
 }
-TABLE {
-	FONT-SIZE: 12px
+body
+{
+    background: #0096d4;
+    margin: 0px;
+    overflow: hidden;
+    font-size: 12px;
 }
-A {
-	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: none
+a
+{
+    color: white;
+    font-style: normal;
+    text-decoration: none;
 }
-A:hover {
-	COLOR: #f6f6f6; FONT-STYLE: normal; TEXT-DECORATION: underline
+a:hover
+{
+    color: #f6f6f6;
+    font-style: normal;
+    text-decoration: underline;
 }
-A:active {
-	COLOR: #ffffff; FONT-STYLE: normal; TEXT-DECORATION: underline
+a:active
+{
+    color: white;
+    font-style: normal;
+    text-decoration: underline;
 }
-.table {
-	BORDER-RIGHT: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid
+.table
+{
+    border-right: white 1px solid;
+    border-left: white 1px solid;
 }
-.tmenus {
-	CURSOR: pointer
+.tmenus
+{
+    cursor: pointer;
 }
-.bg {
-	BACKGROUND: #ffffff
+.bg
+{
+    background-color: white;
 }

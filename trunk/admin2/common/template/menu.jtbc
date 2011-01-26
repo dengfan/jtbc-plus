@@ -9,9 +9,9 @@
         <item>
             <name><![CDATA[admin_menu]]></name>
             <tpl_default>
-                <![CDATA[{$=webAdminHead("admin_head")}
+                <![CDATA[{$=webAdminHead("admin_head_1")}
 {$MenuHtml}
-{$=webAdminFoot("admin_foot")}]]>
+{$=webAdminFoot("admin_foot_1")}]]>
             </tpl_default>
         </item>
         <item>

@@ -7,7 +7,7 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[admin_head]]></name>
+            <name><![CDATA[admin_head_1]]></name>
             <tpl_default>
                 <![CDATA[<html>
 <head>
@@ -26,7 +26,33 @@
             </tpl_default>
         </item>
         <item>
-            <name><![CDATA[admin_foot]]></name>
+            <name><![CDATA[admin_foot_1]]></name>
+            <tpl_default>
+                <![CDATA[</body>
+</html>]]>
+            </tpl_default>
+        </item>
+        <item note="用于后台 main frame 页面">
+            <name><![CDATA[admin_head_2]]></name>
+            <tpl_default>
+                <![CDATA[<html>
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("manage.mgtitle", "lng")}</title>
+<script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
+<script type="text/javascript" src="{$=$images}/js/selects.1.js"></script>
+<script type="text/javascript" src="{$=$images}/js/manage.1.js"></script>
+<script type="text/javascript" src="{$=$images}/js/lib/jquery.js"></script>
+<script type="text/javascript" src="{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$images}/jquery-treeview/jquery.treeview.css" />
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
+</head>
+<body onload="nhrefstate()">]]>
+            </tpl_default>
+        </item>
+        <item note="用于后台 main frame 页面">
+            <name><![CDATA[admin_foot_2]]></name>
             <tpl_default>
                 <![CDATA[</body>
 </html>]]>

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xml mode="jtbc" author="jetiben">
-  <configure>
-    <node>item</node>
-    <field>name,tpl_default</field>
-    <base>item_list</base>
-  </configure>
-  <item_list>
-    <item>
-      <name><![CDATA[list]]></name>
-      <tpl_default><![CDATA[
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[list]]></name>
+            <tpl_default>
+                <![CDATA[
                 <table cellspacing="0" cellpadding="0" class="tabler">
                   <tr>
                     <td class="tit tdl"></td>
@@ -32,7 +33,16 @@
                   <tr>
                     <td colspan="4" height="10"></td>
                   </tr>
-                </table>]]></tpl_default>
-    </item>
-  </item_list>
+                </table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[list2]]></name>
+            <tpl_default>
+                <![CDATA[
+                
+                ]]>
+            </tpl_default>
+        </item>
+    </item_list>
 </xml>

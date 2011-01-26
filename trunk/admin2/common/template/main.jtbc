@@ -11,111 +11,114 @@
             <tpl_default>
                 <![CDATA[<html>
 <head>
-<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
-<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
-<title>{$=itake("config.copyright","lng")}</title>
-<link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
-<script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
-<script type="text/javascript">
-<!--
-if(top.location!=self.location) top.location=self.location;
+    <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+    <title>{$=itake("config.copyright","lng")}</title>
+    <link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
+    <script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
+    <script type="text/javascript">
+        <!--
+        if (top.location != self.location) top.location = self.location;
 
-var tlists, timages;
+        var tlists, timages;
 
-function myobj_load()
-{
-  tlists = get_id("lists");
-  timages = get_id("images");
-}
+        function myobj_load() {
+            tlists = get_id("lists");
+            timages = get_id("images");
+        }
 
-function startscroll(strt, strnum)
-{
-  var tmpbase=5;
-  if (strt == "up") tmpbase = -tmpbase;
-  scrolling(tmpbase, strnum, 0);
-}
+        function startscroll(strt, strnum) {
+            var tmpbase = 5;
+            if (strt == "up") tmpbase = -tmpbase;
+            scrolling(tmpbase, strnum, 0);
+        }
 
-function scrolling(strnum, strk, strn)
-{
-  if (strn >= strk) return;
-  parent.list.window.scrollBy(0, strnum);
-  setTimeout("scrolling("+strnum+", "+strk+", "+(strn+1)+")", 15);
-}
+        function scrolling(strnum, strk, strn) {
+            if (strn >= strk) return;
+            parent.list.window.scrollBy(0, strnum);
+            setTimeout("scrolling(" + strnum + ", " + strk + ", " + (strn + 1) + ")", 15);
+        }
 
-function switch_menu()
-{
-  var tmpstyle = 'none';
-  var tmpimg = '{$=$admin.theme}smenub.gif';
-  if (tlists.style.display == "none")
-  {
-    tmpstyle = '';
-    tmpimg = '{$=$admin.theme}smenua.gif';
-  }
-  tlists.style.display = tmpstyle;
-  timages.src = tmpimg;
-}
-//-->
-</script>
+        function switch_menu() {
+            var tmpstyle = 'none';
+            var tmpimg = '{$=$admin.theme}smenub.gif';
+            if (tlists.style.display == "none") {
+                tmpstyle = '';
+                tmpimg = '{$=$admin.theme}smenua.gif';
+            }
+            tlists.style.display = tmpstyle;
+            timages.src = tmpimg;
+        }
+        //-->
+    </script>
 </head>
 <body onload="myobj_load()">
-<table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
-  <tr>
-    <td width="100%" height="47" background="{$=$admin.theme}top_bg.gif" valign="top">
-      <table cellSpacing="0" cellPadding="0" width="100%" background="{$=$admin.theme}top_bg.gif" border="0">
+    <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
         <tr>
-          <td width="147"><img src="{$=$admin.theme}top_logo.gif" border="0"></td>
-          <td align="center">
-            <table cellSpacing="0" cellPadding="0" width="98%" border="0">
-              <tr>
-                <td align="right" width="15"></td>
-                <td align="right">
-                    <a href="admin_main.aspx" target="_top"><b>{$=itake("main.admin_main","lng")}</b></a>&nbsp;
-                    <a href="default.aspx?type=action&atype=logout" target="_top"><b>{$=itake("main.admin_logout","lng")}</b></a></td>
-                <td align="right" width="15"></td>
-              </tr>
-            </table>
-          </td>
+            <td width="100%" height="47" valign="top">
+                <table cellspacing="0" cellpadding="0" width="100%" background="{$=$admin.theme}top_bg.gif" border="0">
+                    <tr>
+                        <td width="147"><img src="{$=$admin.theme}top_logo.gif" border="0"></td>
+                        <td align="center">
+                            <table cellspacing="0" cellpadding="0" width="98%" border="0">
+                                <tr>
+                                    <td align="right" width="15"></td>
+                                    <td align="right">
+                                        <a href="admin_main.aspx" target="_top"><strong>{$=itake("main.admin_main","lng")}</strong></a>&nbsp;
+                                        <a href="default.aspx?type=action&atype=logout" target="_top"><strong>{$=itake("main.admin_logout","lng")}</strong></a>
+                                    </td>
+                                    <td align="right" width="15"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" height="*">
-      <table border="0" width="100%" height="100%" cellSpacing="0" cellPadding="0">
-        <tr width="100%" height="100%">
-          <td width="163" id="lists" name="lists">
-            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
-          </td>
-          <td width="10" class="tmenus">
-            <table height="100%" cellSpacing="0" cellPadding="0" width="10" border="0">
-              <tr align="middle">
-                <td onclick="javascript:startscroll('up',30);" height="20"><img src="{$=$admin.theme}up.gif" width="10" border="0"></td>
-              </tr>
-              <tr align="middle">
-                <td height="*" align="center" onclick="switch_menu();"><img id="images" name="images" src="{$=$admin.theme}smenua.gif" width="10" border="0"></td>
-              </tr>
-              <tr align="middle">
-                <td onclick="javascript:startscroll('down',30);" height="20"><img src="{$=$admin.theme}down.gif" width="10" border="0"></td>
-              </tr>
-            </table>
-          </td>
-          <td width="*">
-            <iframe name="main" src="admin_manage.aspx" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
-          </td>
+        <tr>
+            <td width="100%" height="*">
+                <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
+                    <tr width="100%" height="100%">
+                        <td width="163" id="lists" name="lists">
+                            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no"
+                                width="100%" height="100%"></iframe>
+                        </td>
+                        <td width="10" class="tmenus">
+                            <table height="100%" cellspacing="0" cellpadding="0" width="10" border="0">
+                                <tr align="middle">
+                                    <td onclick="javascript:startscroll('up',30);" height="20">
+                                        <img src="{$=$admin.theme}up.gif" width="10" border="0">
+                                    </td>
+                                </tr>
+                                <tr align="middle">
+                                    <td height="*" align="center" onclick="switch_menu();">
+                                        <img id="images" name="images" src="{$=$admin.theme}smenua.gif" width="10" border="0">
+                                    </td>
+                                </tr>
+                                <tr align="middle">
+                                    <td onclick="javascript:startscroll('down',30);" height="20">
+                                        <img src="{$=$admin.theme}down.gif" width="10" border="0">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="*">
+                            <iframe name="main" src="admin_manage.aspx" frameborder="0" scrolling="auto" width="100%"
+                                height="100%"></iframe>
+                        </td>
+                    </tr>
+                </table>
+            </td>
         </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+    </table>
 </body>
-</html>
-]]>
+</html>]]>
             </tpl_default>
         </item>
         <item>
             <name><![CDATA[admin_manage]]></name>
             <tpl_default>
-                <![CDATA[{$=webAdminHead("admin_head")}
+                <![CDATA[{$=webAdminHead("admin_head_1")}
 <table border="0" width="100%" cellSpacing="0" cellPadding="0">
   <tr>
     <td width="100%" height="5"></td>
@@ -249,7 +252,7 @@ function switch_menu()
     <td width="100%" height="5"></td>
   </tr>
 </table>
-{$=webAdminFoot("admin_foot")}]]>
+{$=webAdminFoot("admin_foot_1")}]]>
             </tpl_default>
         </item>
     </item_list>
