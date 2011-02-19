@@ -58,14 +58,21 @@
             <td width="100%" height="47" valign="top">
                 <table cellspacing="0" cellpadding="0" width="100%" background="{$=$admin.theme}top_bg.gif" border="0">
                     <tr>
-                        <td width="147"><img src="{$=$admin.theme}top_logo.gif" border="0"></td>
+                        <td width="147"><img src="{$=$admin.theme}top_logo.gif" border="0" alt="" /></td>
                         <td align="center">
                             <table cellspacing="0" cellpadding="0" width="98%" border="0">
                                 <tr>
                                     <td align="right" width="15"></td>
                                     <td align="right">
-                                        <a href="admin_main.aspx" target="_top"><strong>{$=itake("main.admin_main","lng")}</strong></a>&nbsp;
-                                        <a href="default.aspx?type=action&atype=logout" target="_top"><strong>{$=itake("main.admin_logout","lng")}</strong></a>
+                                        <img src="{$=$admin.theme}desktop.1.png" width="18" height="18" border="0" alt="" align="absmiddle" />
+                                        <a href="admin_main.aspx" target="_top">
+                                            <strong>{$=itake("main.admin_main","lng")}</strong>
+                                        </a>
+                                        &nbsp;
+                                        <img src="{$=$admin.theme}logout.png" width="18" height="18" border="0" alt="" align="absmiddle" />
+                                        <a href="default.aspx?type=action&atype=logout" target="_top">
+                                            <strong>{$=itake("main.admin_logout","lng")}</strong>
+                                        </a>
                                     </td>
                                     <td align="right" width="15"></td>
                                 </tr>
@@ -80,31 +87,29 @@
                 <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
                     <tr width="100%" height="100%">
                         <td width="163" id="lists" name="lists">
-                            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no"
-                                width="100%" height="100%"></iframe>
+                            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
                         </td>
                         <td width="10" class="tmenus">
                             <table height="100%" cellspacing="0" cellpadding="0" width="10" border="0">
-                                <tr align="middle">
+                                <tr align="center">
                                     <td onclick="javascript:startscroll('up',30);" height="20">
-                                        <img src="{$=$admin.theme}up.gif" width="10" border="0">
+                                        <img src="{$=$admin.theme}up.gif" width="10" border="0" alt="" />
                                     </td>
                                 </tr>
-                                <tr align="middle">
+                                <tr align="center">
                                     <td height="*" align="center" onclick="switch_menu();">
-                                        <img id="images" name="images" src="{$=$admin.theme}smenua.gif" width="10" border="0">
+                                        <img id="images" name="images" src="{$=$admin.theme}smenua.gif" width="10" border="0" alt="" />
                                     </td>
                                 </tr>
-                                <tr align="middle">
+                                <tr align="center">
                                     <td onclick="javascript:startscroll('down',30);" height="20">
-                                        <img src="{$=$admin.theme}down.gif" width="10" border="0">
+                                        <img src="{$=$admin.theme}down.gif" width="10" border="0" alt="" />
                                     </td>
                                 </tr>
                             </table>
                         </td>
                         <td width="*">
-                            <iframe name="main" src="admin_manage.aspx" frameborder="0" scrolling="auto" width="100%"
-                                height="100%"></iframe>
+                            <iframe name="main" src="admin_manage.aspx" frameborder="0" scrolling="auto" width="100%" height="100%"></iframe>
                         </td>
                     </tr>
                 </table>
@@ -253,6 +258,17 @@
   </tr>
 </table>
 {$=webAdminFoot("admin_foot_1")}]]>
+            </tpl_default>
+        </item>
+        <item note="后台提示信息页面">
+            <name><![CDATA[client_alert]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_2")}
+<script type="text/javascript">
+    alert('{$alert}');
+    {$dispose}
+</script>
+{$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>
         </item>
     </item_list>

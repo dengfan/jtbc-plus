@@ -24,7 +24,17 @@
             string str = argKey;
             return jt.creplace(jt.itake(string.Format("global.{0}:default.{1}", config.adminFolder, str), "tpl"));
         }
+
+        public static string clientAlert(string argAlert, string argType)
+        {
+            string tmpdispose;
+            if (argType == "-1")
+                tmpdispose = string.Format("history.go({0});", argType); //argType = -1
+            else
+                tmpdispose = string.Format("location.href='{0}';", argType); //argType is backurl
+            
+            string tmpstr = jt.itake(string.Format("global.{0}:main.client_alert", config.adminFolder), "tpl");
+            return plus_jt.creplace(tmpstr.Replace("{$alert}", encode.htmlencode(argAlert)).Replace("{$dispose}", encode.htmlencode(tmpdispose)));
+        }
     }
 }
-
-

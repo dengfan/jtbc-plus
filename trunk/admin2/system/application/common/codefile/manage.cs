@@ -5,9 +5,8 @@ public partial class module : jpage
 {
     private admin admin;
 
-    private string Module_Action_Delete()
+    private void Module_Action_Delete()
     {
-        string tstate = "200";
         string tname = cls.getSafeString(request.querystring("name"));
         if (!cls.isEmpty(tname))
         {
@@ -15,7 +14,8 @@ public partial class module : jpage
             application.remove(tname);
         }
         else application.removeall();
-        return tstate;
+
+        Response.Redirect("manage.aspx");
     }
 
     private string Module_Action()
@@ -25,7 +25,7 @@ public partial class module : jpage
         switch (tAtype)
         {
             case "delete":
-                tmpstr = Module_Action_Delete();
+                Module_Action_Delete();
                 break;
         }
         return tmpstr;
@@ -36,9 +36,10 @@ public partial class module : jpage
         string tmpstr = "";
         string tmpastr, tmprstr, tmptstr;
         string tkeyword = cls.getSafeString(request.querystring("keyword"));
-        tmpstr = jt.itake("manage.default2", "tpl");
+        tmpstr = jt.itake("manage.default", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
+        int i = 0;
         foreach (string tAppName in application.getContents())
         {
             if (cls.isEmpty(tkeyword) || tAppName.IndexOf(tkeyword) >= 0)
@@ -46,10 +47,13 @@ public partial class module : jpage
                 tmptstr = tmpastr;
                 tmptstr = tmptstr.Replace("{$name}", encode.htmlencode(tAppName));
                 tmprstr += tmptstr;
+                i++;
             }
         }
+        
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
         tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = tmpstr.Replace("{$item_count}", i.ToString());
         //tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;
     }
