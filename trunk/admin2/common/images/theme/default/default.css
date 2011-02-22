@@ -192,6 +192,17 @@ a img
 {
     border: 0;
 }
+#loading
+{
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: 1px 6px;
+    background-color: #AA0000;
+    color: White;
+    font-size: 10px;
+}
 .hidden
 {
     display: none;

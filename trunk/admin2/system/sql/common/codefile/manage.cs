@@ -16,7 +16,7 @@ public partial class module : jpage
             int tstate2 = 0;
             string ttpl = "";
             string tstate1 = "0";
-            string ttplstr = jt.itake("manage-interface.run", "tpl");
+            string ttplstr = jt.itake("manage.run", "tpl");
             string[] tSqlAry = Regex.Split(tsqlstrs, "\r\n");
             for (int ti = 0; ti < tSqlAry.Length; ti++)
             {
@@ -37,7 +37,6 @@ public partial class module : jpage
             }
         }
         tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;
     }
 
@@ -57,7 +56,7 @@ public partial class module : jpage
     private string Module_List()
     {
         string tmpstr = "";
-        tmpstr = jt.itake("manage.default2", "tpl");
+        tmpstr = jt.itake("manage.default", "tpl");
         tmpstr = plus_jt.creplace(tmpstr);
 
         return tmpstr;

@@ -50,7 +50,13 @@
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.1.js"></script>
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
 </head>
-<body onload="nhrefstate()">]]>
+<body onload="nhrefstate()">
+    <div id="loading">Loading...</div>
+    <script type="text/javascript">
+        j("#loading").ajaxStart(function(){ j(this).show(); });
+        j("#loading").ajaxStop(function(){ j(this).hide(); });
+    </script>
+]]>
             </tpl_default>
         </item>
         <item note="用于后台 main frame 页面">
