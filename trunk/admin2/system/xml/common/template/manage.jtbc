@@ -213,7 +213,7 @@
                                                         <tr>
                                                             <td width="80"></td>
                                                             <td>
-                                                                <button type="button" class="button" onclick="manages.tEdit('form1');">{$=itake("global.lng_config.submit", "lng")}</button> 
+                                                                <button type="submit" class="button">{$=itake("global.lng_config.submit", "lng")}</button> 
                                                                 &nbsp;
                                                                 <button type="reset" class="button">{$=itake("global.lng_config.reset", "lng")}</button>
                                                             </td>

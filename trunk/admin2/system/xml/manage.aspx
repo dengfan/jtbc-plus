@@ -1,1 +1,1 @@
-<%@ Page Language="C#" CodeFile="common/codefile/manage.cs" Inherits="module" %>
+<%@ Page Language="C#" CodeFile="common/codefile/manage.cs" Inherits="module" validateRequest="false" %>
