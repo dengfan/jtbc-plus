@@ -37,7 +37,7 @@
                             </tr>
                             <tr>
                                 <td width="100%" align="center">
-                                    <form method="get" name="search" action="?action=search">
+                                    <form method="get" name="search" action="manage.aspx">
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="5"></td>
