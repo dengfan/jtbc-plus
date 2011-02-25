@@ -32,7 +32,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <p style="padding: 0 6px; line-height: 20px;">
+                                                    <p style="padding: 0 6px; line-height: 20px;" class="ash">
                                                         {$=itake("manage.hint1", "lng")}<br />
                                                         {$=itake("manage.hint2", "lng")}
                                                     </p>
