@@ -16,7 +16,7 @@
         </item>
         <item>
             <name><![CDATA[data-value-textarea]]></name>
-            <tpl_default><![CDATA[<textarea rows="6" name="{$name}{$i}" cols="80" class="codearea" ondblclick="this.rows *= 2;">{$value}</textarea>]]></tpl_default>
+            <tpl_default><![CDATA[<textarea rows="6" name="{$name}{$i}" cols="90" ondblclick="this.rows *= 2;">{$value}</textarea>]]></tpl_default>
         </item>
         <item>
             <name><![CDATA[public]]></name>
