@@ -67,7 +67,7 @@
                                             <td height="5"></td>
                                         </tr>
                                         <tr>
-                                            <td><textarea id="sqlstrs" name="sqlstrs" rows="15" cols="80"></textarea></td>
+                                            <td><textarea id="sqlstrs" name="sqlstrs" rows="15" cols="90"></textarea></td>
                                         </tr>
                                         <tr>
                                             <td height="5"></td>
