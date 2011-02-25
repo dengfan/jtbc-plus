@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xml mode="jtbc" author="jetiben">
-    <configure>
-        <node>item</node>
-        <field>name,tpl_default</field>
-        <base>item_list</base>
-    </configure>
-    <item_list>
-        <item>
-            <name><![CDATA[admin_head_1]]></name>
-            <tpl_default>
-                <![CDATA[<html>
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[admin_head_1]]></name>
+      <tpl_default><![CDATA[<html>
 <head>
     <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
@@ -23,20 +22,16 @@
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.1.js"></script>
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
 </head>
-<body onload="nhrefstate()">]]>
-            </tpl_default>
-        </item>
-        <item>
-            <name><![CDATA[admin_foot_1]]></name>
-            <tpl_default>
-                <![CDATA[</body>
-</html>]]>
-            </tpl_default>
-        </item>
-        <item note="用于后台 main frame 页面">
-            <name><![CDATA[admin_head_2]]></name>
-            <tpl_default>
-                <![CDATA[<html>
+<body onload="nhrefstate()">]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_foot_1]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_head_2]]></name>
+      <tpl_default><![CDATA[<html>
 <head>
     <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
@@ -56,15 +51,12 @@
         j("#loading").ajaxStart(function(){ j(this).show(); });
         j("#loading").ajaxStop(function(){ j(this).hide(); });
     </script>
-]]>
-            </tpl_default>
-        </item>
-        <item note="用于后台 main frame 页面">
-            <name><![CDATA[admin_foot_2]]></name>
-            <tpl_default>
-                <![CDATA[</body>
-</html>]]>
-            </tpl_default>
-        </item>
-    </item_list>
+]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_foot_2]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+  </item_list>
 </xml>

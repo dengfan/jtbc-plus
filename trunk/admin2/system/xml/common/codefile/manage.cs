@@ -38,6 +38,7 @@ public partial class module : jpage
     private string Module_Action_Edit()
     {
         string tmpstr = "";
+        string tbackurl = cls.getSafeString(request.querystring("backurl"));
         string tnode = cls.getSafeString(request.form("xmlconfig_node"));
         string tfield = cls.getSafeString(request.form("xmlconfig_field"));
         string tbase = cls.getSafeString(request.form("xmlconfig_base"));
@@ -81,17 +82,18 @@ public partial class module : jpage
             }
             tmpXML += @"  </" + tbase + @">" + "\r\n";
             tmpXML += @"</xml>" + "\r\n";
-            if (com.filePutContents(Server.MapPath(trootstr), tmpXML)) tmpstr = jt.itake("global.lng_common.edit-succeed", "lng");
-            else tmpstr = jt.itake("global.lng_common.edit-failed", "lng");
+            if (com.filePutContents(Server.MapPath(trootstr), tmpXML)) tmpstr = jt.itake("manage.edit-succeed", "lng");
+            else tmpstr = jt.itake("manage.edit-failed", "lng");
         }
-        else tmpstr = jt.itake("global.lng_common.edit-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+        else tmpstr = jt.itake("manage.edit-failed", "lng");
+        
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Delete()
     {
         string tmpstr = "";
+        string tbackurl = cls.getSafeString(request.querystring("backurl"));
         string trootstr = cls.getSafeString(encode.base64.decodeBase64(request.querystring("root")));
         string tvaluestr = cls.getSafeString(encode.base64.decodeBase64(request.querystring("value")));
         if (com.fileExists(Server.MapPath(trootstr)))
@@ -111,15 +113,15 @@ public partial class module : jpage
                     tXmlNodeDel.ParentNode.RemoveChild(tXmlNodeDel);
                     tXMLDom.Save(Server.MapPath(trootstr));
                 }
-                tmpstr = jt.itake("global.lng_common.delete-succeed", "lng");
+                tmpstr = jt.itake("manage.delete-succeed", "lng");
             }
             catch
             {
-                tmpstr = jt.itake("global.lng_common.delete-failed", "lng");
+                tmpstr = jt.itake("manage.delete-failed", "lng");
             }
         }
-        else tmpstr = jt.itake("global.lng_common.delete-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
+        else tmpstr = jt.itake("manage.delete-failed", "lng");
+
         return tmpstr;
     }
 
@@ -144,13 +146,13 @@ public partial class module : jpage
         string tmpstr = "";
         string tmpastr, tmprstr, tmptstr;
         string txml = cls.getSafeString(request.querystring("xml"));
-        txml = ".tpl.default";
+        if (cls.isEmpty(txml)) txml = ".tpl.default";
         string trootstr = PP_GetXmlRoot(txml);
         if (com.fileExists(Server.MapPath(trootstr)))
         {
             int tXMLNodesCount = 0;
             string tnode, tfield, tbase;
-            tmpstr = jt.itake("manage.default2", "tpl");
+            tmpstr = jt.itake("manage.list", "tpl");
             tmprstr = "";
             tmpastr = cls.ctemplate(ref tmpstr, "{@}");
             try
@@ -225,7 +227,9 @@ public partial class module : jpage
             tmpstr = jt.itake("manage.list-error", "tpl");
             tmpstr = plus_jt.creplace(tmpstr);
         }
-        //tmpstr = config.ajaxPreContent + tmpstr;
+        tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
+        tmpstr = tmpstr.Replace("{$xml}", txml);
+        tmpstr = plus_jt.creplace(tmpstr);
         return tmpstr;
     }
 
