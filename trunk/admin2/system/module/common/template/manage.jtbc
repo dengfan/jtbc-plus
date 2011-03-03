@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xml mode="jtbc" author="jetiben">
-  <configure>
-    <node>item</node>
-    <field>name,tpl_default</field>
-    <base>item_list</base>
-  </configure>
-  <item_list>
-    <item>
-      <name><![CDATA[default]]></name>
-      <tpl_default><![CDATA[{$=webHead("admin_head_2")}
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[default]]></name>
+            <tpl_default>
+                <![CDATA[{$=webHead("admin_head_2")}
 <script type="text/javascript" src="{$=$images}/js/manages.js"></script>
 <table onmouseover="manage.windows.tResizePanel();" cellspacing="0" cellpadding="0" class="windowsContent">
   <tr>
@@ -30,7 +31,7 @@
                   <td height="5"></td>
                 </tr>
                 <tr>
-                  <td class="txt">{$=itake("manage.hint1", "lng")}</td>
+                  <td>{$=itake("manage.hint1", "lng")}</td>
                 </tr>
                 <tr>
                   <td height="5"></td>
@@ -47,7 +48,188 @@
   </tr>
 </table>
 <script type="text/javascript">manages.tInit(null);</script>
-{$=webFoot("admin_foot_2")}]]></tpl_default>
-    </item>
-  </item_list>
+{$=webFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[default2]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_2")}
+<script type="text/javascript" src="{$=$images}/js/jquery.manages.js"></script>
+<table border="0" cellspacing="5" cellpadding="0" width="100%">
+    <tr>
+        <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="120" align="center" valign="top">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                            <tr>
+                                <td width="100%" height="25" class="tbtop">
+                                    {$=itake("global.lng_config.hint", "lng")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="5" height="5"></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><span class="ash">{$=itake("manage.hint1", "lng")}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5" height="15"></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="5"></td>
+                    <td width="*" align="center" valign="top">
+                        {$content}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{$=webAdminFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[data_modulelist]]></name>
+            <tpl_default>
+                <![CDATA[<table width="100%" cellspacing="0" cellpadding="0" border="0">{@}
+    <tr>
+        <td width="20" height="28"><img src="{$=getActualRoute("{$value}")}/{$=$images}/icon.1.1.png" /></td>
+        <td><span class="hand" onclick="cls.tswitchDisplay($('module-child-{$value}'));">{$text}</span><span class="{$-remove-span-class}" onclick="manages.popup.tLoad('?type=remove&genre=' + escape('{$value}'));"><span class="ash1">&nbsp;({$=itake("manage.remove", "lng")})</span></span></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><div id="module-child-{$value}" style="display: none;">{$-child}</div></td>
+    </tr>{@}
+</table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[list]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+    <tr>
+        <td width="100%" height="25" class="tbtop">
+            {$=itake("manage.nav_list", "lng")}
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td><span class="ash">{$=itake("manage.hint2", "lng")}</span></td>
+                </tr>
+                <tr>
+                    <td height="5"></td>
+                </tr>
+                <tr>
+                    <td>{$-modulelist}</td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+        <td height="5"></td>
+    </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+    <tr>
+        <td width="100%" height="25" class="tbtop">
+            {$=itake("manage.nav_add", "lng")}
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td width="80" height="28">{$=itake("manage.jtbcinstall", "lng")}</td>
+                    <td><input type="text" name="jtbcinstall" id="jtbcinstall" itype="text" size="40" class="text" /></td>
+                </tr>
+                <tr>
+                    <td height="28">{$=itake("global.lng_config.upload", "lng")}</td>
+                    <td><iframe src="manage-interface.aspx?type=upload&amp;fid=jtbcinstall&amp;fmode=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
+                </tr>
+                <tr>
+                    <td height="28"></td>
+                    <td>
+                        <button type="button" class="button" onclick="manages.tAdd($('jtbcinstall').value);">{$=itake("manage.add", "lng")}</button>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[remove]]></name>
+            <tpl_default>
+                <![CDATA[
+                <div class="popup">
+                  <div class="popupTitle">
+                    <div>{$=itake("manage.remove", "lng")}</div>
+                    <span class="hand" onclick="manages.popup.tClose();"><img src="{$=$admin.theme}close.2.png" /></span>
+                  </div>
+                  <div class="popupContent">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td valign="top">
+                          <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                            <tr>
+                              <td><span class="ash">{$=itake("manage.removelist", "lng")}</span></td>
+                            </tr>
+                            <tr>
+                              <td height="10"></td>
+                            </tr>{@}
+                            <tr>
+                              <td height="22"><img src="{$=getActualRoute("{$value}")}/{$=$images}/icon.1.1.png" class="absmiddle" /> {$text}({$value})</td>
+                            </tr>{@}
+                            <tr>
+                              <td height="10"></td>
+                            </tr>
+                            <tr>
+                              <td height="25"><input id="popup-ajaxSubmit1" type="button" class="btn" value="{$=itake("manage.remove", "lng")}" onclick="manages.tRemove('{$-genre}');" /></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>]]>
+            </tpl_default>
+        </item>
+    </item_list>
 </xml>

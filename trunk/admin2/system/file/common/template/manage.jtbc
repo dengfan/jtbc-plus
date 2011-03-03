@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[default]]></name>
+            <tpl_default>
+                <![CDATA[{$=webHead("admin_head_2")}
+<script type="text/javascript" src="{$=$images}/js/manages.js"></script>
+<table onmouseover="manage.windows.tResizePanel();" cellspacing="0" cellpadding="0" class="windowsContent">
+  <tr>
+    <td height="100%" valign="top">
+      <div class="windowsContent-Panel">
+        <div id="windowsContent-Panel-Loading" class="windowsContent-Panel-Loading"><img src="{$=$admin.theme}loading.gif" class="absmiddle" /> {$=itake("global.lng_common.loading", "lng")}</div>
+        <div id="windowsContent-Panel-History" class="windowsContent-Panel-History"><span class="hand" onclick="manages.history.tBack();"><img id="History-Img-Back" src="{$=$admin.theme}panel/back.0.png" class="absmiddle" /></span> <span class="hand" onclick="manages.history.tForward();"><img id="History-Img-Forward" src="{$=$admin.theme}panel/forward.0.png" class="absmiddle" /></span></div>
+        <div id="windowsContent-topPanel" class="windowsContent-topPanel">
+          <div class="checked" onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage.windows.tSelectLeftPanel(this);"><span class="hand"><img src="{$=$admin.theme}panel/folder.1.png" class="absmiddle" /> {$=itake("global.lng_common.showleftpanel", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tRefresh();"><span class="hand"><img src="{$=$admin.theme}panel/refresh.1.png" class="absmiddle" /> {$=itake("global.lng_common.refresh", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tLoad(null);"><span class="hand"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" /> {$=itake("manage.nav_list", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.popup.tLoad('?type=folder&ftype=add');"><span class="hand"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" /> {$=itake("manage.nav_folder_add", "lng")}</span></div>
+          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.popup.tLoad('?type=file&ftype=add');"><span class="hand"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" /> {$=itake("manage.nav_file_add", "lng")}</span></div>
+        </div>
+        <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td id="windowsContent-leftPanel" class="windowsContent-leftPanel" valign="top">
+              <table cellspacing="0" cellpadding="0" class="tablel">
+                <tr>
+                  <td class="tit">{$=itake("global.lng_config.search", "lng")}:</td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td class="txt"><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
+                </tr>
+                <tr>
+                  <td class="txt"><select id="field" name="field" class="select">{$=getSearchOptions("foldername,filename")}</select></td>
+                </tr>
+                <tr>
+                  <td class="txt"><input type="button" class="button" value="{$=itake("global.lng_config.search", "lng")}" onclick="manages.tLoad(cls.treparameter(cls.treparameter(manages.ttempArg, 'field', escape($('field').value)), 'keyword', escape($('keyword').value)));" /></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+              </table>
+            </td>
+            <td id="windowsContent-rightPanel" class="windowsContent-rightPanel" valign="top">
+              <div id="windowsContent-rightPanel-Content" class="windowsContent-rightPanel-Content"></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>
+<script type="text/javascript">manages.tInit(null);</script>
+{$=webFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[default2]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_2")}
+    <script type="text/javascript" src="{$=$images}/js/jquery.manages.js"></script>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+        <tr>
+            <td width="100%" align="center">
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="120" align="center" valign="top">
+                            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                                <tr>
+                                    <td width="100%" height="25" class="tbtop">
+                                        搜索
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100%" align="center">
+                                        <form method="get" name="search" action="?action=search">
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td height="5"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" height="28">
+                                                        &nbsp;<input type="text" name="keyword" size="10" value="" class="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" height="28">
+                                                        &nbsp;<select name="field" class="select">
+                                                            <option value="username">按用户名</option>
+                                                            <option value="id">按编号</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="100%" height="28">
+                                                        &nbsp;<button type="submit" class="button">搜索</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="5"></td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="5"></td>
+                        <td width="*" align="center" valign="top">
+                            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                                <tr>
+                                    <td width="100%" height="25" class="tbtop">
+                                        管理导航
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100%" align="center">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                        </table>
+                                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="25">
+                                                    <span id="userlist"><a href="?hspan=userlist"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
+                                                    &nbsp;
+                                                    <span id="userlock"><a href="?type=list&field=lock&keyword=1&hspan=userlock"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_lock_1", "lng")}</a></span>
+                                                    &nbsp;
+                                                    <span id="useradd"><a href="?type=add&hspan=useradd"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_add", "lng")}</a></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="5"></td>
+                                </tr>
+                            </table>
+                            {$content}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    {$=webAdminFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[list]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                            <tr>
+                                <td width="100%" height="25" class="tbtop">
+                                    {$=itake("manage.list", "lng")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
+                                    <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="28"><span class="ash">{$=itake("config.path", "lng")}: {$path}</span></td>
+                                        </tr>
+                                    </table>
+                                    <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                                        <thead>
+                                            <tr>
+                                                <td class="txt tdl"></td>
+                                                <td class="txt">{$=itake("config.filename", "lng")}</td>
+                                                <td class="txt" width="130">{$=itake("config.time", "lng")}</td>
+                                                <td class="txt" width="80">{$=itake("config.size", "lng")}</td>
+                                                <td class="tdimg"></td>
+                                                <td class="tdimg"></td>
+                                                <td class="txt tdr"></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>{@}
+                                            <tr>
+                                                <td height="22"></td>
+                                                <td class="txt"><img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span></td>
+                                                <td class="txt">{$=formatDate("{$time}", "100")}</td>
+                                                <td class="txt">{$size}</td>
+                                                <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.edit", "lng")}" onclick="{$onclick2}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></span></td>
+                                                <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', '{$onclick3}');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span></td>
+                                                <td></td>
+                                            </tr>{@}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="7" height="10"></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>]]>
+            </tpl_default>
+        </item>
+    </item_list>
+</xml>
