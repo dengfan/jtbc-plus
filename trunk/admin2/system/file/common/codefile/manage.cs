@@ -134,22 +134,28 @@ public partial class module : jpage
 
     private string Module_Folder_Add()
     {
-        string tmpstr = "";
-        tmpstr = jt.itake("manage-interface.folder_add", "tpl");
-        tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        string tmpstr = jt.itake("manage.default2", "tpl");
+        tmpstr = plus_jt.creplace(tmpstr);
+
+        string tmpstr2 = jt.itake("manage.folder_add", "tpl");
+        tmpstr2 = plus_jt.creplace(tmpstr2);
+
+        tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
     }
 
     private string Module_Folder_Edit()
     {
-        string tmpstr = "";
+        string tmpstr = jt.itake("manage.default2", "tpl");
+        tmpstr = plus_jt.creplace(tmpstr);
+
+        string tmpstr2 = jt.itake("manage.folder_edit", "tpl");
         string tpath = cls.getString(request.querystring("path"));
-        tmpstr = jt.itake("manage-interface.folder_edit", "tpl");
-        tmpstr = tmpstr.Replace("{$path}", encode.htmlencode(tpath));
-        tmpstr = tmpstr.Replace("{$folder}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
-        tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
+        tmpstr2 = tmpstr2.Replace("{$folder}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
+        tmpstr2 = jt.creplace(tmpstr2);
+
+        tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
     }
 
@@ -171,23 +177,29 @@ public partial class module : jpage
 
     private string Module_File_Add()
     {
-        string tmpstr = "";
-        tmpstr = jt.itake("manage-interface.file_add", "tpl");
-        tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        string tmpstr = jt.itake("manage.default2", "tpl");
+        tmpstr = plus_jt.creplace(tmpstr);
+
+        string tmpstr2 = jt.itake("manage.file_add", "tpl");
+        tmpstr2 = plus_jt.creplace(tmpstr2);
+
+        tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
     }
 
     private string Module_File_Edit()
     {
-        string tmpstr = "";
-        string tpath = cls.getString(request.querystring("path"));
-        tmpstr = jt.itake("manage-interface.file_edit", "tpl");
-        tmpstr = tmpstr.Replace("{$path}", encode.htmlencode(tpath));
-        tmpstr = tmpstr.Replace("{$file}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
-        tmpstr = tmpstr.Replace("{$content}", encode.htmlencode(com.fileGetContents(Server.MapPath(cls.getActualRoute(tpath)))));
+        string tmpstr = jt.itake("manage.default2", "tpl");
         tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        
+        string tmpstr2 = jt.itake("manage.file_edit", "tpl");
+        string tpath = cls.getString(request.querystring("path"));
+        tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
+        tmpstr2 = tmpstr2.Replace("{$file}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
+        tmpstr2 = tmpstr2.Replace("{$content}", encode.htmlencode(com.fileGetContents(Server.MapPath(cls.getActualRoute(tpath)))));
+        tmpstr2 = jt.creplace(tmpstr2);
+
+        tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
     }
 
@@ -232,7 +244,7 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry1[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry1[ti, 2]));
                     tmptstr = tmptstr.Replace("{$onclick1}", "manages.tLoad('?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/") + "');");
-                    tmptstr = tmptstr.Replace("{$onclick2}", "manages.popup.tLoad('?type=folder&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "');");
+                    tmptstr = tmptstr.Replace("{$onclick2}", "location.href='?type=folder&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "';");
                     tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFolderDelete(\\'?type=action&atype=folder&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "\\');");
                     tmprstr += tmptstr;
                 }

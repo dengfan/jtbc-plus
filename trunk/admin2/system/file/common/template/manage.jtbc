@@ -35,13 +35,13 @@
                   <td height="5"></td>
                 </tr>
                 <tr>
-                  <td class="txt"><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
+                  <td><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
                 </tr>
                 <tr>
-                  <td class="txt"><select id="field" name="field" class="select">{$=getSearchOptions("foldername,filename")}</select></td>
+                  <td><select id="field" name="field" class="select">{$=getSearchOptions("foldername,filename")}</select></td>
                 </tr>
                 <tr>
-                  <td class="txt"><input type="button" class="button" value="{$=itake("global.lng_config.search", "lng")}" onclick="manages.tLoad(cls.treparameter(cls.treparameter(manages.ttempArg, 'field', escape($('field').value)), 'keyword', escape($('keyword').value)));" /></td>
+                  <td><input type="button" class="button" value="{$=itake("global.lng_config.search", "lng")}" onclick="manages.tLoad(cls.treparameter(cls.treparameter(manages.ttempArg, 'field', escape($('field').value)), 'keyword', escape($('keyword').value)));" /></td>
                 </tr>
                 <tr>
                   <td height="5"></td>
@@ -130,11 +130,11 @@
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="25">
-                                                    <span id="userlist"><a href="?hspan=userlist"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
+                                                    <span id="nav1"><a href="?hspan=nav1"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="userlock"><a href="?type=list&field=lock&keyword=1&hspan=userlock"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_lock_1", "lng")}</a></span>
+                                                    <span id="nav2"><a href="?type=folder&ftype=add&hspan=nav2"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_folder_add", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="useradd"><a href="?type=add&hspan=useradd"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_add", "lng")}</a></span>
+                                                    <span id="nav3"><a href="?type=file&ftype=add&hspan=nav3"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_file_add", "lng")}</a></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -163,52 +163,237 @@
             <name><![CDATA[list]]></name>
             <tpl_default>
                 <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                                <tr>
+                                    <td width="100%" height="25" class="tbtop">
+                                        {$=itake("manage.list", "lng")}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100%" align="center">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                        </table>
+                                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="28"><span class="ash">{$=itake("config.path", "lng")}: {$path}</span></td>
+                                            </tr>
+                                        </table>
+                                        <table border="0" width="98%" cellspacing="0" cellpadding="0" class="table1">
+                                            <thead>
+                                                <tr>
+                                                    <td>{$=itake("config.filename", "lng")}</td>
+                                                    <td width="140">{$=itake("config.time", "lng")}</td>
+                                                    <td width="80">{$=itake("config.size", "lng")}</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>{@}
+                                                <tr>
+                                                    <td height="24"><img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span></td>
+                                                    <td>{$=formatDate("{$time}", "100")}</td>
+                                                    <td>{$size}</td>
+                                                    <td align="right">
+                                                        <span class="hand" title="{$=itake("global.lng_config.edit", "lng")}" onclick="{$onclick2}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></span>
+                                                        <span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="if(confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString(j('#list-keywords-{$id}').text(), 30) + ']{$=itake("global.lng_common.questionmark", "lng")}')){{$onclick3}};"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span>
+                                                    </td>
+                                                </tr>{@}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4" height="10"></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <script type="text/javascript"> 
+                                j('.table1 tbody tr').hover(
+                                    function() {
+                                        j(this).addClass('bg1');
+                                    },
+                                    function() {
+                                        j(this).removeClass('bg1');
+                                    }
+                                );
+                            </script>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[folder_add]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+    <tr>
+        <td width="100%" height="25" class="tbtop">
+            {$=itake("manage.nav_folder_add", "lng")}
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="center">
+            <form id="form1" method="post" action="manage.aspx?type=action&atype=folder&ftype=add">
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+                <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td width="80">{$=itake("config.folder", "lng")}</td>
+                        <td>
+                            <input type="text" name="folder" size="20" class="text" value="{$=formatDate($now, "7")}" />
+                            &nbsp;
+                            <button type="button" class="button" onclick="manages.tFolderAdd('form1');">{$=itake("global.lng_config.submit", "lng")}</button>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[folder_edit]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+    <tr>
+        <td width="100%" height="25" class="tbtop">
+            {$=itake("manage.nav_folder_edit", "lng")}
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="center">
+            <form id="form2" method="post" action="manage.aspx?type=action&atype=folder&ftype=edit">
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+                <input type="hidden" name="path" value="{$path}" />
+                <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td width="80">{$=itake("config.folder", "lng")}</td>
+                        <td>
+                            <input type="text" name="folder" size="20" class="text" value="{$folder}" />
+                            &nbsp;
+                            <button type="button" class="button" onclick="manages.tFolderEdit('form2');">{$=itake("global.lng_config.submit", "lng")}</button>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[file_add]]></name>
+            <tpl_default>
+                <![CDATA[
+                <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+    <tr>
+        <td width="100%" height="25" class="tbtop">
+            {$=itake("manage.nav_file_add", "lng")}
+        </td>
+    </tr>
+    <tr>
+        <td width="100%" align="center">
+            <form id="form3" method="post" action="manage.aspx?type=action&atype=file&ftype=add">
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+                <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                        <td height="28"><input type="text" name="file" size="40" class="text" value="{$=formatDate($now, "7")}.txt" /></td>
+                    </tr>
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea name="content" style="width: 580px; height: 200px"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                    <tr>
+                        <td height="25">
+                            <button type="button" class="button" onclick="manages.tFileAdd('form3');">{$=itake("global.lng_config.submit", "lng")}</button>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td height="5"></td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+    </tr>
+</table>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[file_edit]]></name>
+            <tpl_default>
+                <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                             <tr>
                                 <td width="100%" height="25" class="tbtop">
-                                    {$=itake("manage.list", "lng")}
+                                    {$=itake("manage.nav_file_edit", "lng")}
                                 </td>
                             </tr>
                             <tr>
                                 <td width="100%" align="center">
-                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td height="5"></td>
-                                        </tr>
-                                    </table>
-                                    <table border="0" width="98%" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td height="28"><span class="ash">{$=itake("config.path", "lng")}: {$path}</span></td>
-                                        </tr>
-                                    </table>
-                                    <table border="0" width="98%" cellspacing="0" cellpadding="0">
-                                        <thead>
+                                    <form id="form4" method="post" action="manage.aspx?type=action&atype=file&ftype=edit">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td class="txt tdl"></td>
-                                                <td class="txt">{$=itake("config.filename", "lng")}</td>
-                                                <td class="txt" width="130">{$=itake("config.time", "lng")}</td>
-                                                <td class="txt" width="80">{$=itake("config.size", "lng")}</td>
-                                                <td class="tdimg"></td>
-                                                <td class="tdimg"></td>
-                                                <td class="txt tdr"></td>
+                                                <td height="5"></td>
                                             </tr>
-                                        </thead>
-                                        <tbody>{@}
+                                        </table>
+                                        <input type="hidden" name="path" value="{$path}" />
+                                        <table width="98%" cellspacing="0" cellpadding="0" border="0">
                                             <tr>
-                                                <td height="22"></td>
-                                                <td class="txt"><img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span></td>
-                                                <td class="txt">{$=formatDate("{$time}", "100")}</td>
-                                                <td class="txt">{$size}</td>
-                                                <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.edit", "lng")}" onclick="{$onclick2}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></span></td>
-                                                <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', '{$onclick3}');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span></td>
-                                                <td></td>
-                                            </tr>{@}
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <td colspan="7" height="10"></td>
+                                                <td height="25"><input type="text" name="file" size="40" class="text" value="{$file}" /></td>
                                             </tr>
-                                        </tfoot>
-                                    </table>
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><textarea name="content" style="width: 580px; height: 200px">{$content}</textarea></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="25">
+                                                    <button type="button" class="button" onclick="manages.tFileEdit('form4');">{$=itake("global.lng_config.submit", "lng")}</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                        </table>
+                                    </form>
                                     <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td height="5"></td>

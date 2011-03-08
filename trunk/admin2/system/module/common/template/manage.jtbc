@@ -105,7 +105,7 @@
             <tpl_default>
                 <![CDATA[<table width="100%" cellspacing="0" cellpadding="0" border="0">{@}
     <tr>
-        <td width="20" height="28"><img src="{$=getActualRoute("{$value}")}/{$=$images}/icon.1.1.png" /></td>
+        <td width="20" height="26"><img src="{$=getActualRoute("{$value}")}/{$=$images}/icon.1.1.png" /></td>
         <td><span class="hand" onclick="cls.tswitchDisplay($('module-child-{$value}'));">{$text}</span><span class="{$-remove-span-class}" onclick="manages.popup.tLoad('?type=remove&genre=' + escape('{$value}'));"><span class="ash1">&nbsp;({$=itake("manage.remove", "lng")})</span></span></td>
     </tr>
     <tr>
@@ -175,7 +175,7 @@
                 </tr>
                 <tr>
                     <td height="28">{$=itake("global.lng_config.upload", "lng")}</td>
-                    <td><iframe src="manage-interface.aspx?type=upload&amp;fid=jtbcinstall&amp;fmode=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
+                    <td><iframe src="manage.aspx?type=upload&amp;fid=jtbcinstall&amp;fmode=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
                 </tr>
                 <tr>
                     <td height="28"></td>
