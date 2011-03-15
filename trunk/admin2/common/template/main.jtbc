@@ -264,9 +264,53 @@
             <name><![CDATA[client_alert]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
+<table border="0" width="100%" cellspacing="5" cellpadding="0">
+    <tr>
+        <td align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                <tr>
+                    <td width="100%" height="25" class="tbtop">
+                        提示
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100%" align="center">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
+                            </tr>
+                        </table>
+                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center">
+                                    <p style="line-height:20px;">
+                                        <strong style="color:red;">{$alert}</strong><br />
+                                        <span>页面将在<span id="secs">1</span>秒内自动跳回<span id="loadInfo" style="display:none;">，请稍候</span>。</span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="15"></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 <script type="text/javascript">
-    alert('{$alert}');
-    {$dispose}
+    function redirect() {
+        j('#secs').text(j('#secs').text() - 1);
+        if (j('#secs').text() == '0') {
+            j('#loadInfo').show();
+            {$dispose}
+            clearInterval(int);
+        }
+    }
+    var int = setInterval('redirect()', 1000);
 </script>
 {$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>

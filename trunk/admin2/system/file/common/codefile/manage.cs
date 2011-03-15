@@ -1,5 +1,6 @@
 using jtbc;
 using jtbc.plus;
+using System;
 
 public partial class module : jpage
 {
@@ -8,26 +9,32 @@ public partial class module : jpage
     private string Module_Action_Folder_Add()
     {
         string tmpstr = "";
-        string tpath = cls.getString(request.querystring("path"));
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        string tpath = cls.getString(request.form("path"));
         string tFolder = cls.getString(request.form("folder"));
         string tFullPath = Server.MapPath(cls.getActualRoute(tpath + tFolder));
-        if (com.directoryCreateNew(tFullPath)) tmpstr = jt.itake("global.lng_common.add-succeed", "lng");
-        else tmpstr = jt.itake("global.lng_common.add-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+
+        tmpstr = jt.itake("manage.add-failed", "lng");
+        if (com.directoryCreateNew(tFullPath)) 
+            tmpstr = jt.itake("manage.add-succeed", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder_Edit()
     {
         string tmpstr = "";
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.form("path"));
         string tFolder = cls.getString(request.form("folder"));
         string tFullPath1 = Server.MapPath(cls.getActualRoute(tpath));
         string tFullPath2 = Server.MapPath(cls.getActualRoute(cls.getLRStr(tpath, "/", "leftr") + "/" + tFolder));
-        if (com.directoryMove(tFullPath1, tFullPath2)) tmpstr = jt.itake("global.lng_common.edit-succeed", "lng");
-        else tmpstr = jt.itake("global.lng_common.edit-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+
+        tmpstr = jt.itake("manage.edit-failed", "lng");
+        if (com.directoryMove(tFullPath1, tFullPath2)) 
+            tmpstr = jt.itake("manage.edit-succeed", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder_Delete()
@@ -36,10 +43,10 @@ public partial class module : jpage
         string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.querystring("path"));
         string tFullPath = Server.MapPath(cls.getActualRoute(tpath));
+
+        tmpstr = jt.itake("manage.delete-succeed", "lng");
         if (!com.directoryDelete(tFullPath))
             tmpstr = jt.itake("manage.delete-failed", "lng");
-        else
-            tmpstr = jt.itake("manage.delete-success", "lng");
 
         return plus_com.clientAlert(tmpstr, tbackurl);
     }
@@ -66,40 +73,50 @@ public partial class module : jpage
     private string Module_Action_File_Add()
     {
         string tmpstr = "";
-        string tpath = cls.getString(request.querystring("path"));
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        string tpath = cls.getString(request.form("path"));
         string tFile = cls.getString(request.form("file"));
         string tContent = cls.getString(request.form("content"));
         string tFullPath = Server.MapPath(cls.getActualRoute(tpath + tFile));
+
+        tmpstr = jt.itake("manage.add-failed", "lng");
         if (!com.fileExists(tFullPath))
         {
-            if (com.filePutContents(tFullPath, tContent)) tmpstr = jt.itake("global.lng_common.add-succeed", "lng");
-            else tmpstr = jt.itake("global.lng_common.add-failed", "lng");
+            if (com.filePutContents(tFullPath, tContent)) 
+                tmpstr = jt.itake("manage.add-succeed", "lng");
         }
-        else tmpstr = jt.itake("global.lng_common.add-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File_Edit()
     {
         string tmpstr = "";
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.form("path"));
         string tFile = cls.getString(request.form("file"));
         string tContent = cls.getString(request.form("content"));
         string tFullPath = Server.MapPath(cls.getActualRoute(cls.getLRStr(tpath, "/", "leftr") + "/" + tFile));
-        if (com.filePutContents(tFullPath, tContent)) tmpstr = jt.itake("global.lng_common.edit-succeed", "lng");
-        else tmpstr = jt.itake("global.lng_common.edit-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+
+        tmpstr = jt.itake("manage.edit-failed", "lng");
+        if (com.filePutContents(tFullPath, tContent)) 
+            tmpstr = jt.itake("manage.edit-succeed", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File_Delete()
     {
-        string tstate = "200";
+        string tmpstr = "";
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.querystring("path"));
         string tFullPath = Server.MapPath(cls.getActualRoute(tpath));
-        if (!com.fileDelete(tFullPath)) tstate = config.ajaxPreContent + jt.itake("global.lng_common.delete-failed", "lng");
-        return tstate;
+
+        tmpstr = jt.itake("manage.delete-succeed", "lng");
+        if (!com.fileDelete(tFullPath))
+            tmpstr = jt.itake("manage.delete-failed", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File()
@@ -139,10 +156,14 @@ public partial class module : jpage
 
     private string Module_Folder_Add()
     {
-        string tmpstr = jt.itake("manage.default2", "tpl");
+        string tmpstr = jt.itake("manage.public", "tpl");
         tmpstr = plus_jt.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.folder_add", "tpl");
+        string tpath = cls.getString(request.querystring("path"));
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        tmpstr2 = tmpstr2.Replace("{$path}", tpath);
+        tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
         tmpstr2 = plus_jt.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
@@ -151,14 +172,16 @@ public partial class module : jpage
 
     private string Module_Folder_Edit()
     {
-        string tmpstr = jt.itake("manage.default2", "tpl");
+        string tmpstr = jt.itake("manage.public", "tpl");
         tmpstr = plus_jt.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.folder_edit", "tpl");
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.querystring("path"));
+        tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
         tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
         tmpstr2 = tmpstr2.Replace("{$folder}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
-        tmpstr2 = jt.creplace(tmpstr2);
+        tmpstr2 = plus_jt.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -182,10 +205,14 @@ public partial class module : jpage
 
     private string Module_File_Add()
     {
-        string tmpstr = jt.itake("manage.default2", "tpl");
+        string tmpstr = jt.itake("manage.public", "tpl");
         tmpstr = plus_jt.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.file_add", "tpl");
+        string tpath = cls.getString(request.querystring("path"));
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        tmpstr2 = tmpstr2.Replace("{$path}", tpath);
+        tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
         tmpstr2 = plus_jt.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
@@ -194,15 +221,17 @@ public partial class module : jpage
 
     private string Module_File_Edit()
     {
-        string tmpstr = jt.itake("manage.default2", "tpl");
-        tmpstr = jt.creplace(tmpstr);
+        string tmpstr = jt.itake("manage.public", "tpl");
+        tmpstr = plus_jt.creplace(tmpstr);
         
         string tmpstr2 = jt.itake("manage.file_edit", "tpl");
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.querystring("path"));
+        tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
         tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
         tmpstr2 = tmpstr2.Replace("{$file}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
         tmpstr2 = tmpstr2.Replace("{$content}", encode.htmlencode(com.fileGetContents(Server.MapPath(cls.getActualRoute(tpath)))));
-        tmpstr2 = jt.creplace(tmpstr2);
+        tmpstr2 = plus_jt.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -235,6 +264,7 @@ public partial class module : jpage
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
+
         #region 文件夹列表
         string[,] tAry1 = com.getFolderList(cls.getActualRoute(tpath));
         if (tAry1 != null && tfield != "filename")
@@ -249,14 +279,15 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$name}", encode.htmlencode(tAry1[ti, 0]));
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry1[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry1[ti, 2]));
-                    tmptstr = tmptstr.Replace("{$onclick1}", "location.href='?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/") + "';");
-                    tmptstr = tmptstr.Replace("{$onclick2}", "location.href='?type=folder&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "';");
+                    tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=list&path={0}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/")));
+                    tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=folder&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
                     tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=folder&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
                     tmprstr += tmptstr;
                 }
             }
         }
         #endregion
+        
         #region 文件列表
         string[,] tAry2 = com.getFileList(cls.getActualRoute(tpath));
         if (tAry2 != null && tfield != "foldername")
@@ -273,29 +304,44 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry2[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry2[ti, 2]));
                     if (cls.cinstr(jt.itake("config.ntextfiletype", "cfg"), tFileType, "."))
-                    {
-                        tmptstr = tmptstr.Replace("{$onclick1}", "manages.popup.tLoad('?type=file&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])) + "');");
-                        tmptstr = tmptstr.Replace("{$onclick2}", "manages.popup.tLoad('?type=file&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])) + "');");
+                    {//可操作的文件
+                        tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
+                        tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
                     }
                     else
-                    {
-                        //tmptstr = tmptstr.Replace("{$onclick1}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
-                        //tmptstr = tmptstr.Replace("{$onclick2}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
-                        tmptstr = tmptstr.Replace("{$onclick1}", "alert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
-                        tmptstr = tmptstr.Replace("{$onclick2}", "alert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
+                    {//不可操作的文件
+                        tmptstr = tmptstr.Replace("{$onclick1}", string.Format("alert('{0}');", jt.itake("manage.edit-file-error-1", "lng")));
+                        tmptstr = tmptstr.Replace("{$onclick2}", string.Format("alert('{0}');", jt.itake("manage.edit-file-error-1", "lng")));
                     }
-                    //tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFileDelete(\\'?type=action&atype=file&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])) + "\\');");
-                    tmptstr = tmptstr.Replace("{$onclick3}", "alert('ddd');");
+                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=file&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
                     tmprstr += tmptstr;
                 }
             }
         }
         #endregion
-        tmpstr = tmpstr.Replace("{$path}", encode.htmlencode(Server.MapPath(cls.getActualRoute(tpath))));
+
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
+
+        #region 生成有导航功能的路径
+        string tbaselinkpath = Server.MapPath(cls.getActualRoute("./"));
+        string tlinkpath = Server.MapPath(cls.getActualRoute("./"));
+        string tpathp = Server.MapPath(cls.getActualRoute(tpath)).Replace(tlinkpath, "");
+        string[] tpathpAry = tpathp.Split('\\');
+        string tpathv = "./";
+        for (int i = 0; i < tpathpAry.Length - 1; i++)
+        {
+            tpathv += tpathpAry[i] + "/";
+            tlinkpath += string.Format("<a href=\"?type=list&path={0}\">{1}</a>\\", encode.urlencode(tpathv), tpathpAry[i]);
+        }
+        tlinkpath = tlinkpath.Replace(tbaselinkpath, string.Format("<a href=\"?type=list&path={0}\">{1}</a>", encode.urlencode("./"), tbaselinkpath));
+        tmpstr = tmpstr.Replace("{$path}", tlinkpath);
+        #endregion
+
         tmpstr = plus_jt.creplace(tmpstr);
 
-        tmpstr = jt.itake("manage.default2", "tpl").Replace("{$content}", tmpstr);
+        tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
+        tmpstr = tmpstr.Replace("{$path2}", encode.urlencode(tpath));
+        tmpstr = tmpstr.Replace("{$backurl}", encode.urlencode("manage.aspx?type=list&path=" + tpath));
         tmpstr = plus_jt.creplace(tmpstr);
 
         return tmpstr;

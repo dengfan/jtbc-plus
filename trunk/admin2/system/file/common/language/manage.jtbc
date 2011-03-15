@@ -39,12 +39,28 @@
             <chinese><![CDATA[指定文件的文件类型不允许被编辑]]></chinese>
         </item>
         <item>
-            <name><![CDATA[delete-success]]></name>
+            <name><![CDATA[delete-succeed]]></name>
             <chinese><![CDATA[删除成功]]></chinese>
         </item>
         <item>
             <name><![CDATA[delete-failed]]></name>
             <chinese><![CDATA[删除失败]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[edit-succeed]]></name>
+            <chinese><![CDATA[编辑成功]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[edit-failed]]></name>
+            <chinese><![CDATA[编辑失败]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[add-succeed]]></name>
+            <chinese><![CDATA[新增成功]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[add-failed]]></name>
+            <chinese><![CDATA[新增失败]]></chinese>
         </item>
     </item_list>
 </xml>
