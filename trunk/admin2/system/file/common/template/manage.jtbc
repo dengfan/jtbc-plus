@@ -177,7 +177,16 @@
                                         </table>
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td height="28"><span class="ash">{$=itake("config.path", "lng")}: {$path}</span></td>
+                                                <td height="16">
+                                                    <span class="ash">{$=itake("config.path", "lng")}: {$path}</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="24">
+                                                    <a href="javascript:history.go(-1);">&lt;</a>
+                                                    &nbsp;
+                                                    <a href="javascript:history.go(1);">&gt;</a>
+                                                </td>
                                             </tr>
                                         </table>
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0" class="table1">
@@ -192,7 +201,7 @@
                                             <tbody>{@}
                                                 <tr>
                                                     <td height="24">
-                                                        <img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <a id="list-keywords-{$id}" href="{$href1}">{$name}</a>
+                                                        <img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span>
                                                     </td>
                                                     <td>{$=formatDate("{$time}", "100")}</td>
                                                     <td>{$size}</td>

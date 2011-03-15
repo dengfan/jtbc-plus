@@ -32,11 +32,16 @@ public partial class module : jpage
 
     private string Module_Action_Folder_Delete()
     {
-        string tstate = "200";
+        string tmpstr = "";
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tpath = cls.getString(request.querystring("path"));
         string tFullPath = Server.MapPath(cls.getActualRoute(tpath));
-        if (!com.directoryDelete(tFullPath)) tstate = config.ajaxPreContent + jt.itake("global.lng_common.delete-failed", "lng");
-        return tstate;
+        if (!com.directoryDelete(tFullPath))
+            tmpstr = jt.itake("manage.delete-failed", "lng");
+        else
+            tmpstr = jt.itake("manage.delete-success", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder()
@@ -230,6 +235,7 @@ public partial class module : jpage
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
+        #region 文件夹列表
         string[,] tAry1 = com.getFolderList(cls.getActualRoute(tpath));
         if (tAry1 != null && tfield != "filename")
         {
@@ -243,13 +249,15 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$name}", encode.htmlencode(tAry1[ti, 0]));
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry1[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry1[ti, 2]));
-                    tmptstr = tmptstr.Replace("{$href1}", "?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/"));
+                    tmptstr = tmptstr.Replace("{$onclick1}", "location.href='?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/") + "';");
                     tmptstr = tmptstr.Replace("{$onclick2}", "location.href='?type=folder&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "';");
-                    tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFolderDelete(\\'?type=action&atype=folder&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "\\');");
+                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=folder&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
                     tmprstr += tmptstr;
                 }
             }
         }
+        #endregion
+        #region 文件列表
         string[,] tAry2 = com.getFileList(cls.getActualRoute(tpath));
         if (tAry2 != null && tfield != "foldername")
         {
@@ -271,14 +279,18 @@ public partial class module : jpage
                     }
                     else
                     {
-                        tmptstr = tmptstr.Replace("{$onclick1}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
-                        tmptstr = tmptstr.Replace("{$onclick2}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
+                        //tmptstr = tmptstr.Replace("{$onclick1}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
+                        //tmptstr = tmptstr.Replace("{$onclick2}", "manage.windows.dialog.tAlert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
+                        tmptstr = tmptstr.Replace("{$onclick1}", "alert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
+                        tmptstr = tmptstr.Replace("{$onclick2}", "alert('" + jt.itake("manage.edit-file-error-1", "lng") + "');");
                     }
-                    tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFileDelete(\\'?type=action&atype=file&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])) + "\\');");
+                    //tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFileDelete(\\'?type=action&atype=file&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])) + "\\');");
+                    tmptstr = tmptstr.Replace("{$onclick3}", "alert('ddd');");
                     tmprstr += tmptstr;
                 }
             }
         }
+        #endregion
         tmpstr = tmpstr.Replace("{$path}", encode.htmlencode(Server.MapPath(cls.getActualRoute(tpath))));
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
         tmpstr = plus_jt.creplace(tmpstr);
