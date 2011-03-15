@@ -191,7 +191,9 @@
                                             </thead>
                                             <tbody>{@}
                                                 <tr>
-                                                    <td height="24"><img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span></td>
+                                                    <td height="24">
+                                                        <img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <a id="list-keywords-{$id}" href="{$href1}">{$name}</a>
+                                                    </td>
                                                     <td>{$=formatDate("{$time}", "100")}</td>
                                                     <td>{$size}</td>
                                                     <td align="right">

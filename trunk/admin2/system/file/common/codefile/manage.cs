@@ -243,7 +243,7 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$name}", encode.htmlencode(tAry1[ti, 0]));
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry1[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry1[ti, 2]));
-                    tmptstr = tmptstr.Replace("{$onclick1}", "manages.tLoad('?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/") + "');");
+                    tmptstr = tmptstr.Replace("{$href1}", "?type=list&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/"));
                     tmptstr = tmptstr.Replace("{$onclick2}", "location.href='?type=folder&ftype=edit&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "';");
                     tmptstr = tmptstr.Replace("{$onclick3}", "manages.tFolderDelete(\\'?type=action&atype=folder&ftype=delete&path=" + encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])) + "\\');");
                     tmprstr += tmptstr;
