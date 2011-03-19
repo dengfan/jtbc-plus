@@ -16,13 +16,13 @@
         public static string webAdminHead(string argKey)
         {
             string str = argKey;
-            return jt.creplace(jt.itake(string.Format("global.{0}:default.{1}", config.adminFolder, str), "tpl"));
+            return jt.creplace(jt.itake(string.Format("global.{0}:common.{1}", config.adminFolder, str), "tpl"));
         }
 
         public static string webAdminFoot(string argKey)
         {
             string str = argKey;
-            return jt.creplace(jt.itake(string.Format("global.{0}:default.{1}", config.adminFolder, str), "tpl"));
+            return jt.creplace(jt.itake(string.Format("global.{0}:common.{1}", config.adminFolder, str), "tpl"));
         }
 
         public static string clientAlert(string argAlert, string argType)

@@ -78,10 +78,8 @@ public partial class module : jpage
             if (tnuninstallAry.Length != 3) tbool = false;
             else
             {
+                #region 清除模块数据表 tState1
                 int tState1 = 0;
-                int tState2 = 0;
-                int tState3 = 0;
-                int tState4 = 0;
                 int tnuninstallMode1 = cls.getNum(tnuninstallAry[0], 0);
                 if (tnuninstallMode1 == 1)
                 {
@@ -101,6 +99,10 @@ public partial class module : jpage
                         }
                     }
                 }
+                #endregion
+
+                #region 清除模块类别数据 tState2
+                int tState2 = 0;
                 int tnuninstallMode2 = cls.getNum(tnuninstallAry[1], 0);
                 if (tnuninstallMode2 == 1)
                 {
@@ -109,6 +111,10 @@ public partial class module : jpage
                     string tsqlstr2 = "DELETE FROM [" + tdatabase2 + "] WHERE " + cls.cfnames(tfpre2, "genre") + "='" + tGenre + "'";
                     if (db.Executes(tsqlstr2) == -101) tState2 = -101;
                 }
+                #endregion
+
+                #region 清除模块上载的文件 tState3
+                int tState3 = 0;
                 int tnuninstallMode3 = cls.getNum(tnuninstallAry[2], 0);
                 if (tnuninstallMode3 == 1)
                 {
@@ -117,8 +123,14 @@ public partial class module : jpage
                     string tsqlstr3 = "DELETE FROM [" + tdatabase3 + "] WHERE " + cls.cfnames(tfpre3, "genre") + "='" + tGenre + "'";
                     if (db.Executes(tsqlstr3) == -101) tState3 = -101;
                 }
+                #endregion
+
+                #region 清除模块程序文件 tState4
+                int tState4 = 0;
                 string tFullPath = Server.MapPath(cls.getActualRoute(tGenre));
                 if (!com.directoryDelete(tFullPath)) tState4 = -101;
+                #endregion
+
                 if (tState1 == -101 || tState2 == -101 || tState3 == -101 || tState4 == -101) tbool = false;
             }
         }
@@ -128,7 +140,8 @@ public partial class module : jpage
     private string Module_Action_Add()
     {
         string tmpstr = "";
-        string turl = cls.getString(request.querystring("url"));
+        string turl = cls.getString(request.form("url"));
+        string tbackurl = cls.getString(request.querystring("backurl"));
         if (com.fileExists(Server.MapPath(turl)))
         {
             try
@@ -195,8 +208,8 @@ public partial class module : jpage
             }
         }
         else tmpstr = jt.itake("manage.add-error-0", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
-        return tmpstr;
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Remove()
@@ -206,7 +219,6 @@ public partial class module : jpage
         string tgenre = cls.getString(request.querystring("genre"));
         if (!cls.isEmpty(tgenre))
         {
-
             string tChildGenre = PP_GetChildModuleString(tgenre);
             string[] tChildGenreAry = tChildGenre.Split('|');
             for (int ti = (tChildGenreAry.Length - 1); ti >= 0; ti--)
@@ -218,13 +230,14 @@ public partial class module : jpage
                 }
             }
         }
+
+        tmpstr = jt.itake("manage.remove-failed", "lng");
         if (tbool == true)
         {
             application.removeall();
             tmpstr = jt.itake("manage.remove-succeed", "lng");
         }
-        else tmpstr = jt.itake("manage.remove-failed", "lng");
-        tmpstr = config.ajaxPreContent + tmpstr;
+        
         return tmpstr;
     }
 
@@ -265,7 +278,7 @@ public partial class module : jpage
     {
         string tmpstr = "";
         string tmpastr, tmprstr, tmptstr;
-        tmpstr = jt.itake("manage-interface.remove", "tpl");
+        tmpstr = jt.itake("manage.remove", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
         string tgenre = cls.getString(request.querystring("genre"));
@@ -291,8 +304,8 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
         tmpstr = tmpstr.Replace("{$-genre}", encode.htmlencode(tgenre));
-        tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        tmpstr = jt.itake("manage.default2", "tpl").Replace("{$content}", tmpstr);
+        tmpstr = plus_jt.creplace(tmpstr);
         return tmpstr;
     }
 
@@ -321,7 +334,7 @@ public partial class module : jpage
                     tmpstr = Module_Remove();
                     break;
                 case "upload":
-                    tmpstr = upfiles.uploadHTML("upload-html-1");
+                    tmpstr = plus_upfiles.uploadHTML("upload-html-1");
                     break;
                 default:
                     tmpstr = Module_List();
