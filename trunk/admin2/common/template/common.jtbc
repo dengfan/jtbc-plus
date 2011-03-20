@@ -93,45 +93,36 @@
                 <![CDATA[{$=webAdminHead("chead")}
 <script type="text/javascript">
     nupload = {
-      tInit: function()
-      {
-        var terrState = "{$errstate}";
-        switch (terrState)
+        tInit: function()
         {
-          case '-1':
-            parent.manage.loading.tClose();
-            var tobj = parent.$('{$fid}');
-            if (tobj)
+            var terrState = "{$errstate}";
+            switch (terrState)
             {
-              if (tobj.getAttribute('itype') == 'select') parent.cls.selects.tAdd('{$fid}', '{$fullfilename}', '{$fullfilename}');
-              if (tobj.getAttribute('itype') == 'text') tobj.value = '{$fullfilename}';
+                case '-1':
+                    j('#upstatus').text('');
+                    var jtobj = parent.j('#{$fid}');
+                    if (jtobj.attr('itype') == 'select') jtobj.append('<option value="{$fullfilename}">{$fullfilename}</option>');
+                    if (jtobj.attr('itype') == 'text') jtobj.val('{$fullfilename}');
+                    break;
+                case '0':
+                    j('#upstatus').text('{$=itake("global.lng_common.upload-error-0", "lng")}');
+                    break;
+                case '1':
+                    j('#upstatus').text('{$=itake("global.lng_common.upload-error-1", "lng")}[{$-fupmaxsize}]');
+                    break;
+                case '2':
+                    j('#upstatus').text('{$=itake("global.lng_common.upload-error-2", "lng")}[{$-fuptype}]');
+                    break;
+                case '3':
+                    j('#upstatus').text('{$=itake("global.lng_common.upload-error-3", "lng")}');
+                    break;
             };
-            break;
-          case '0':
-            parent.manage.loading.tClose();
-            parent.manage.windows.dialog.tAlert('{$=itake("global.lng_common.upload-error-0", "lng")}');
-            break;
-          case '1':
-            parent.manage.loading.tClose();
-            parent.manage.windows.dialog.tAlert('{$=itake("global.lng_common.upload-error-1", "lng")}[{$-fupmaxsize}]');
-            break;
-          case '2':
-            parent.manage.loading.tClose();
-            parent.manage.windows.dialog.tAlert('{$=itake("global.lng_common.upload-error-2", "lng")}[{$-fuptype}]');
-            break;
-          case '3':
-            parent.manage.loading.tClose();
-            parent.manage.windows.dialog.tAlert('{$=itake("global.lng_common.upload-error-3", "lng")}');
-            break;
-        };
-      }
+        }
     };
 </script>
 <style type="text/css">
     * {margin: 0; padding: 0; font-size: 12px; font-family: 微软雅黑, 微軟粗黑體, arial;}
-    table { text-align: left; margin: auto;}
-    input { vertical-align: middle}
-    input.file { height: 22px; line-height: 22px; padding-left: 2px; padding-right: 2px; border: #999999 1px solid; filter: alpha(opacity=0); opacity: 0;}
+    table td * {vertical-align: middle;}
     input.text
     {
         border-top: #ABADB3 1px solid;
@@ -148,25 +139,23 @@
         background: url({$=$admin.theme}bg_button.gif) no-repeat;
         height: 22px;
     }
-    .fileroute { width: 144px }
-    .filebrowse { width: 63px }
-    .filebrowsediv { position: relative;}
-    .filebrowsediv div { position: absolute; top: 1px; left: -65px; background-color: red;}
-    .filebrowsediv div span {position: relative; display: block; width: 63px; height: 22px; overflow: hidden}
-    .filebrowsediv div span input.file { position: absolute; top: 0px; right: 0px}
+    input.file { height: 22px; line-height: 22px; padding-left: 2px; padding-right: 2px; border: #999999 1px solid; filter: alpha(opacity=0); opacity: 0; }
+    .fileroute { width: 144px; }
+    .filebrowse { width: 63px; }
+    .filebrowsediv { position: relative; }
+    .filebrowsediv div { position: absolute; top: 2px; left: -65px; }
+    .filebrowsediv div span { position: relative; display: block; width: 63px; height: 22px; overflow: hidden; }
+    .filebrowsediv div span input.file { position: absolute; top: 0px; right: 0px; }
+    #upstatus { color: #008000; }
 </style>
-<form name="form1" method="post" action="?type=action&atype=upload&fname={$fname}&fid={$fid}&fmode={$fmode}&fuptype={$fuptype}&fupmaxsize={$fupmaxsize}" enctype="multipart/form-data">
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+<form method="post" action="?type=action&atype=upload&fname={$fname}&fid={$fid}&fmode={$fmode}&fuptype={$fuptype}&fupmaxsize={$fupmaxsize}" enctype="multipart/form-data">
+    <table cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td width="144">
-                <input type="text" name="file1-route" id="file1-route" class="text fileroute" readonly="readonly" />
-            </td>
-            <td width="2"></td>
+            <td width="144"><input type="text" name="file1-route" id="file1-route" class="text fileroute" readonly="readonly" /></td>
+            <td width="2">&nbsp;</td>
             <td width="65"><button type="button" class="button filebrowse">{$=itake("global.lng_common.browse", "lng")}</button></td>
             <td width="2" valign="top"><div class="filebrowseDiv"><div><span><input type="file" name="file1" class="file" onchange="j('#file1-route').val(this.value);" /></span></div></div></td>
-            <td>
-                <button type="submit" class="button" onclick="parent.manage.loading.tLoader('{$=itake("global.lng_common.uploading", "lng")}');">{$=itake("global.lng_config.upload", "lng")}</button>
-            </td>
+            <td><button type="submit" class="button" onclick="j('#upstatus').text('{$=itake("global.lng_common.uploading", "lng")}');">{$=itake("global.lng_config.upload", "lng")}</button>&nbsp;<span id="upstatus"></span></td>
         </tr>
     </table>
 </form>

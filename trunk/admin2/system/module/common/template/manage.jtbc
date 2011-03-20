@@ -175,11 +175,11 @@
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
                         <td width="80" height="28">{$=itake("manage.jtbcinstall", "lng")}</td>
-                        <td><input type="text" name="url" class="text" size="40" /></td>
+                        <td><input type="text" name="url" id="url" itype="text" class="text" size="40" /></td>
                     </tr>
                     <tr>
                         <td height="28">{$=itake("global.lng_config.upload", "lng")}</td>
-                        <td><iframe src="manage.aspx?type=upload&amp;fid=jtbcinstall&amp;fmode=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
+                        <td><iframe src="manage.aspx?type=upload&amp;fid=url&amp;fmode=1" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
                     </tr>
                     <tr>
                         <td height="28"></td>

@@ -254,7 +254,7 @@ public partial class module : jpage
                 tmpstr = Module_Action_Remove();
                 break;
             case "upload":
-                tmpstr = upfiles.uploadFiles("file1", 0, admin.username);
+                tmpstr = plus_upfiles.uploadFiles("file1", 0, admin.username);
                 break;
         }
         return tmpstr;
