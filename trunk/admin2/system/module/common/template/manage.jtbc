@@ -216,6 +216,7 @@
                                     <td height="5"></td>
                                 </tr>
                             </table>
+                            <form name="form1" method="post" action="?type=action&atype=remove&genre={$-genre}">
                             <table width="98%" cellspacing="0" cellpadding="0" border="0">
                                 <tr>
                                     <td><span class="ash">{$=itake("manage.removelist", "lng")}</span></td>
@@ -231,7 +232,7 @@
                                 </tr>
                                 <tr>
                                     <td height="28">
-                                        <button type="button" class="button" onclick="manages.tRemove('{$-genre}');">{$=itake("manage.remove", "lng")}</button>
+                                        <button type="submit" class="button">{$=itake("manage.remove", "lng")}</button>
                                         &nbsp;
                                         <button type="button" class="button" onclick="history.go(-1);">取消</button>
                                     </td>
