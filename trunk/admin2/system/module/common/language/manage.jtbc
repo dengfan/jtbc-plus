@@ -44,7 +44,7 @@
     </item>
     <item>
       <name><![CDATA[add-succeed]]></name>
-      <chinese><![CDATA[<!--200-->安装成功]]></chinese>
+      <chinese><![CDATA[安装成功]]></chinese>
     </item>
     <item>
       <name><![CDATA[remove]]></name>
@@ -56,7 +56,7 @@
     </item>
     <item>
       <name><![CDATA[remove-succeed]]></name>
-      <chinese><![CDATA[<!--200-->卸载成功]]></chinese>
+      <chinese><![CDATA[卸载成功]]></chinese>
     </item>
     <item>
       <name><![CDATA[remove-failed]]></name>

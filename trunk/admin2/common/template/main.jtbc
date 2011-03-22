@@ -264,7 +264,7 @@
             <name><![CDATA[client_alert]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
-<table border="0" width="100%" cellspacing="5" cellpadding="0">
+<table border="0" cellspacing="5" cellpadding="0" width="100%">
     <tr>
         <td align="center">
             <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">

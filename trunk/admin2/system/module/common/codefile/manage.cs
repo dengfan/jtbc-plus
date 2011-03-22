@@ -216,6 +216,7 @@ public partial class module : jpage
     {
         string tmpstr = "";
         bool tbool = true;
+        string tbackurl = cls.getString(request.querystring("backurl"));
         string tgenre = cls.getString(request.querystring("genre"));
         if (!cls.isEmpty(tgenre))
         {
@@ -237,8 +238,8 @@ public partial class module : jpage
             application.removeall();
             tmpstr = jt.itake("manage.remove-succeed", "lng");
         }
-        
-        return tmpstr;
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action()
@@ -262,7 +263,7 @@ public partial class module : jpage
 
     private string Module_List()
     {
-        string tmpstr = jt.itake("manage.default2", "tpl");
+        string tmpstr = jt.itake("manage.public", "tpl");
 
         string tmpstr2 = jt.itake("manage.list", "tpl");
         tmpstr2 = tmpstr2.Replace("{$-modulelist}", PP_GetModuleList(""));
@@ -304,7 +305,7 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
         tmpstr = tmpstr.Replace("{$-genre}", encode.htmlencode(tgenre));
-        tmpstr = jt.itake("manage.default2", "tpl").Replace("{$content}", tmpstr);
+        tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
         tmpstr = plus_jt.creplace(tmpstr);
         return tmpstr;
     }
