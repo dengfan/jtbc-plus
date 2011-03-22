@@ -32,8 +32,8 @@
                 tmpdispose = string.Format("history.go({0});", argType); //argType = -1
             else
                 tmpdispose = string.Format("location.href='{0}';", argType); //argType is backurl
-            
-            string tmpstr = jt.itake(string.Format("global.{0}:main.client_alert", config.adminFolder), "tpl");
+
+            string tmpstr = jt.itake(string.Format("global.{0}:common.client_alert", config.adminFolder), "tpl");
             return plus_jt.creplace(tmpstr.Replace("{$alert}", encode.htmlencode(argAlert)).Replace("{$dispose}", encode.htmlencode(tmpdispose)));
         }
     }
