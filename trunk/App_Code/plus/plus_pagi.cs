@@ -53,7 +53,7 @@
             }
 
             tmpstr += string.Format("<a class=\"hand\" href=\"{0}\">&raquo;</a>", baseLink.Replace("[$page]", pageCount.ToString()));
-            tmpstr += string.Format("&nbsp;<input class=\"text absmiddle\" id=\"pager-input\" type=\"text\" size=\"3\" value=\"{0}\" onkeyup=\"var pno=this.value;this.value = isNaN(pno) ? 1 : pno;\" />", ((currentPageNo == tnume) ? currentPageNo : (currentPageNo + 1)));
+            tmpstr += string.Format("&nbsp;<input class=\"text absmiddle\" id=\"pager-input\" type=\"text\" size=\"3\" value=\"{0}\" onkeyup=\"var pno=this.value;if(isNaN(pno))pno={1};this.value=pno>{2}?{3}:pno;\" />", ((currentPageNo == tnume) ? currentPageNo : (currentPageNo + 1)), ((currentPageNo == tnume) ? currentPageNo : (currentPageNo + 1)), pageCount.ToString(), pageCount.ToString());
             tmpstr += string.Format("<a href=\"javascript:;\" onclick=\"var pno=j('#pager-input').val(); var url1='{0}'; var url2=url1.replace(/(\\[\\$page\\])/g, pno); this.href=url2;\" class=\"hand\">GO</a>", baseLink);
             
             return tmpstr;

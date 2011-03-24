@@ -180,6 +180,14 @@ select
     color: #999999;
     font-size: 11px;
 }
+.titlelink 
+{
+    color: White;
+}
+.titlelink:hover
+{
+    color: White;
+}
 .bg1
 {
     background-color: #F4F4F4;

@@ -363,13 +363,16 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
+        #region ·şÎñÆ÷¶Ë·ÖÒ³
         plus_pagi plus_pagi = new plus_pagi(pagi);
         string pager = plus_pagi.pager("manage.aspx?page=[$page]", 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
+        #endregion
+
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
         tmpstr = plus_jt.creplace(tmpstr);
-        
+
         return tmpstr;
     }
 
