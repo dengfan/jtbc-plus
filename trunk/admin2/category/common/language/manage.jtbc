@@ -78,5 +78,13 @@
             <name><![CDATA[edit-failed]]></name>
             <chinese><![CDATA[编辑失败！]]></chinese>
         </item>
+        <item>
+            <name><![CDATA[execute-succeed]]></name>
+            <chinese><![CDATA[执行成功！]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[execute-failed]]></name>
+            <chinese><![CDATA[执行失败！]]></chinese>
+        </item>
     </item_list>
 </xml>

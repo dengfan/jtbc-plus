@@ -7,69 +7,6 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[default]]></name>
-            <tpl_default>
-                <![CDATA[{$=webHead("admin_head_2")}
-<script type="text/javascript" src="{$=$images}/js/manages.js"></script>
-<table onmouseover="manage.windows.tResizePanel();" cellspacing="0" cellpadding="0" class="windowsContent">
-  <tr>
-    <td height="100%" valign="top">
-      <div class="windowsContent-Panel">
-        <div id="windowsContent-Panel-Loading" class="windowsContent-Panel-Loading"><img src="{$=$admin.theme}loading.gif" class="absmiddle" /> {$=itake("global.lng_common.loading", "lng")}</div>
-        <div id="windowsContent-topPanel" class="windowsContent-topPanel">
-          <div class="checked" onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage.windows.tSelectLeftPanel(this);"><span class="hand"><img src="{$=$admin.theme}panel/folder.1.png" class="absmiddle" /> {$=itake("global.lng_common.showleftpanel", "lng")}</span></div>
-          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tRefresh();"><span class="hand"><img src="{$=$admin.theme}panel/refresh.1.png" class="absmiddle" /> {$=itake("global.lng_common.refresh", "lng")}</span></div>
-          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.popup.tLoad('?type=add');"><span class="hand"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" /> {$=itake("manage.nav_add", "lng")}</span></div>
-        </div>
-        <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
-          <tr>
-            <td id="windowsContent-leftPanel" class="windowsContent-leftPanel" valign="top">
-              <table cellspacing="0" cellpadding="0" class="tablel">
-                <tr>
-                  <td class="tit">{$=itake("global.lng_common.slng", "lng")}:</td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-                <tr>
-                  <td id="selslng" class="txt slng"></td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-              <table cellspacing="0" cellpadding="0" class="tablel">
-                <tr>
-                  <td class="tit">{$=itake("config.column", "lng")}:</td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-                <tr>
-                  <td id="selcolumn"></td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-            </td>
-            <td id="windowsContent-rightPanel" class="windowsContent-rightPanel" valign="top">
-              <div id="windowsContent-rightPanel-Content" class="windowsContent-rightPanel-Content"></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-</table>
-<div class="dfn"><textarea id="ErrorMessage-1">{$=itake("manage.errormessage-1", "lng")}</textarea></div>
-<script type="text/javascript">manages.tInit('?genre={$genre}');</script>
-<script type="text/javascript">manages.tSelslng(null);</script>
-<script type="text/javascript">manages.tSelcolumn(null);</script>
-{$=webFoot("admin_foot_2")}]]>
-            </tpl_default>
-        </item>
-        <item>
             <name><![CDATA[public]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
@@ -274,74 +211,73 @@
                     </tr>
                     <tr>
                         <td width="100%" align="center">
-                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td height="5"></td>
-                                </tr>
-                            </table>
-                            <table border="0" width="98%" cellspacing="0" cellpadding="0" class="table1">
-                                <thead>
+                            <form method="post" name="list_form" action="?type=action&atype=switch&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}">
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td height="25" width="30">
-                                            <input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" />
-                                        </td>
-                                        <td width="*">
-                                            {$=itake("config.topic", "lng")}
-                                        </td>
-                                        <td width="40" align="center">
-                                            <span class="hand" onclick="manage.windows.dialog.tConfirm('{$=itake("manage.confirm-reorder", "lng")}', 'manages.tReorder();');">
-                                                {$=itake("global.lng_config.order", "lng")}
-                                            </span>
-                                        </td>
-                                        <td width="80">&nbsp;</td>
+                                        <td height="5"></td>
                                     </tr>
-                                <thead>
-                                <tbody>{@}
+                                </table>
+                                <table border="0" width="98%" cellspacing="0" cellpadding="0" class="table1">
+                                    <thead>
+                                        <tr>
+                                            <td height="25" width="30">
+                                                <input type="checkbox" name="checkall" onclick="cls.tselCheckboxs(this, 'id')" />
+                                            </td>
+                                            <td width="*">
+                                                {$=itake("config.topic", "lng")}
+                                            </td>
+                                            <td width="40" align="center">
+                                                <a class="hand" href="?type=action&atype=reorder&genre={$genre}&fid={$fid}&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}" onclick="return confirm('{$=itake("manage.confirm-reorder", "lng")}');">{$=itake("global.lng_config.order", "lng")}</a>
+                                            </td>
+                                            <td width="80">&nbsp;</td>
+                                        </tr>
+                                    <thead>
+                                    <tbody>{@}
+                                        <tr>
+                                            <td height="25"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
+                                            <td><a id="list-keywords-{$id}" class="hand text-state-{$hidden}" href="?genre={$genre}&fid={$id}" title="ID: {$id}">{$topic}</a></td>
+                                            <td align="center">
+                                                <a class="hand" title="{$=itake("manage.at_up", "lng")}" href="?type=action&atype=order&at=up&id={$id}&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}"><img src="{$=$admin.theme}up.1.png" class="absmiddle" alt="up" /></a>
+                                                <a class="hand" title="{$=itake("manage.at_down", "lng")}" href="?type=action&atype=order&at=down&id={$id}&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}"><img src="{$=$admin.theme}down.1.png" class="absmiddle" alt="down" /></a>
+                                            </td>
+                                            <td align="right">
+                                                <a class="hand" title="{$=itake("global.lng_config.edit", "lng")}" href="?type=edit&id={$id}&genre={$genre}&fid={$fid}&page={$page}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></a>
+                                                <a class="hand" title="{$=itake("global.lng_config.delete", "lng")}" href="?type=action&atype=delete&id={$id}&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}" onclick="return confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span>
+                                            </td>
+                                        </tr>{@}
+                                    </tbody>
+                                </table>
+                                <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                     <tr>
-                                        <td height="25"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
-                                        <td><a id="list-keywords-{$id}" class="hand text-state-{$hidden}" href="?genre={$genre}&fid={$id}" title="ID: {$id}">{$topic}</a></td>
-                                        <td align="center">
-                                            <a class="hand" title="{$=itake("manage.at_up", "lng")}" href="?type=action&atype=order&at=up&id={$id}"><img src="{$=$admin.theme}up.1.png" class="absmiddle" alt="up" /></a>
-                                            <a class="hand" title="{$=itake("manage.at_down", "lng")}" href="?type=action&atype=order&at=down&id={$id}"><img src="{$=$admin.theme}down.1.png" class="absmiddle" alt="down" /></a>
+                                        <td height="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="25" align="right">
+                                            <div class="cutepage">{$pager}</div>
                                         </td>
-                                        <td align="right">
-                                            <a class="hand" title="{$=itake("global.lng_config.edit", "lng")}" href="?type=edit&id={$id}&genre={$genre}&fid={$fid}&page={$page}"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></a>
-                                            <a class="hand" title="{$=itake("global.lng_config.delete", "lng")}" href="?type=action&atype=delete&id={$id}&backurl=manage%2Easpx%3Fgenre%3D{$genre}%26fid%3D{$fid}%26page%3D{$page}" onclick="return confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span>
+                                    </tr>
+                                    <tr>
+                                        <td height="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td height="25" align="right">
+                                            <div class="selected-switch">
+                                                <input type="hidden" id="ids" name="ids" />
+                                                {$=itake("global.lng_common.selected-switch", "lng")}&nbsp;
+                                                <select name="swtype" id="swtype" class="absmiddle">
+                                                    {$=getSwitchOptions("select,hidden")}
+                                                </select>&nbsp;
+                                                <button type="button" class="button absmiddle" onclick="if(confirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}')){j('#ids').val(cls.tgetCheckboxsValue('id'));j(this.form).submit();}">{$=itake("global.lng_common.switch", "lng")}</button>
+                                            </div>
                                         </td>
-                                    </tr>{@}
-                                </tbody>
-                            </table>
-                            <table border="0" width="98%" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td height="5"></td>
-                                </tr>
-                                <tr>
-                                    <td height="25" align="right">
-                                        <div class="cutepage">{$pager}</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="5"></td>
-                                </tr>
-                                <tr>
-                                    <td height="25" align="right">
-                                        <div class="selected-switch">
-                                            <input type="hidden" id="fid" name="fid" value="{$=htmlencode(request.querystring("fid"))}" />
-                                            <input type="hidden" id="genre" name="genre" value="{$=htmlencode(request.querystring("genre"))}" />
-                                            {$=itake("global.lng_common.selected-switch", "lng")}&nbsp;
-                                            <select name="swtype" id="swtype" class="absmiddle">
-                                                {$=getSwitchOptions("select,hidden")}
-                                            </select>&nbsp;
-                                            <button type="button" class="button absmiddle" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}', 'manages.tSwitch($(\'swtype\').value, cls.tgetCheckboxsValue(\'id\'));');">{$=itake("global.lng_common.switch", "lng")}</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td height="5"></td>
-                                </tr>
-                            </table>
+                                    </tr>
+                                </table>
+                                <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td height="5"></td>
+                                    </tr>
+                                </table>
+                            </form>
                         </td>
                     </tr>
                 </table>

@@ -7,59 +7,6 @@
     </configure>
     <item_list>
         <item>
-            <name><![CDATA[default]]></name>
-            <tpl_default>
-                <![CDATA[{$=webHead("admin_head_2")}
-<script type="text/javascript" src="{$=$images}/js/manages.js"></script>
-<table onmouseover="manage.windows.tResizePanel();" cellspacing="0" cellpadding="0" class="windowsContent">
-  <tr>
-    <td height="100%" valign="top">
-      <div class="windowsContent-Panel">
-        <div id="windowsContent-Panel-Loading" class="windowsContent-Panel-Loading"><img src="{$=$admin.theme}loading.gif" class="absmiddle" /> {$=itake("global.lng_common.loading", "lng")}</div>
-        <div id="windowsContent-topPanel" class="windowsContent-topPanel">
-          <div class="checked" onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manage.windows.tSelectLeftPanel(this);"><span class="hand"><img src="{$=$admin.theme}panel/folder.1.png" class="absmiddle" /> {$=itake("global.lng_common.showleftpanel", "lng")}</span></div>
-          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tRefresh();"><span class="hand"><img src="{$=$admin.theme}panel/refresh.1.png" class="absmiddle" /> {$=itake("global.lng_common.refresh", "lng")}</span></div>
-          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tLoad(null);"><span class="hand"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" /> {$=itake("manage.nav_list", "lng")}</span></div>
-          <div onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);" onclick="manages.tLoad('?error=1');"><span class="hand"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" /> {$=itake("manage.nav_islogin_0", "lng")}</span></div>
-        </div>
-        <table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
-          <tr>
-            <td id="windowsContent-leftPanel" class="windowsContent-leftPanel" valign="top">
-              <table cellspacing="0" cellpadding="0" class="tablel">
-                <tr>
-                  <td class="tit">{$=itake("global.lng_config.search", "lng")}:</td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-                <tr>
-                  <td class="txt"><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
-                </tr>
-                <tr>
-                  <td class="txt"><select id="field" name="field" class="select">{$=getSearchOptions("username,ip,id")}</select></td>
-                </tr>
-                <tr>
-                  <td class="txt"><input type="button" class="button" value="{$=itake("global.lng_config.search", "lng")}" onclick="manages.tLoad('?field=' + escape($('field').value) + '&keyword=' + escape($('keyword').value));" /></td>
-                </tr>
-                <tr>
-                  <td height="5"></td>
-                </tr>
-              </table>
-            </td>
-            <td id="windowsContent-rightPanel" class="windowsContent-rightPanel" valign="top">
-              <div id="windowsContent-rightPanel-Content" class="windowsContent-rightPanel-Content"></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </td>
-  </tr>
-</table>
-<script type="text/javascript">manages.tInit(null);</script>
-{$=webFoot("admin_foot_2")}]]>
-            </tpl_default>
-        </item>
-        <item>
             <name><![CDATA[list]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
@@ -77,28 +24,27 @@
                             </tr>
                             <tr>
                                 <td width="100%" align="center">
-                                    <form method="get" name="search" action="manage.aspx">
+                                    <form method="get" name="search" action="?">
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td height="5"></td>
+                                                <td width="5" height="5"></td>
+                                                <td></td>
                                             </tr>
                                             <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<input type="text" name="keyword" size="15" class="text" />
-                                                </td>
+                                                <td width="5" height="28"></td>
+                                                <td><input type="text" name="keyword" size="15" class="text" /></td>
                                             </tr>
                                             <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<select id="field" name="field" class="select">{$=getSearchOptions("username,ip,id")}</select>
-                                                </td>
+                                                <td width="5" height="28"></td>
+                                                <td><select id="field" name="field" class="select">{$=getSearchOptions("username,ip,id")}</select></td>
                                             </tr>
                                             <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<button type="submit" class="button">搜索</button>
-                                                </td>
+                                                <td width="5" height="28"></td>
+                                                <td><button type="submit" class="button">搜索</button></td>
                                             </tr>
                                             <tr>
-                                                <td height="5"></td>
+                                                <td width="5" height="5"></td>
+                                                <td></td>
                                             </tr>
                                         </table>
                                     </form>

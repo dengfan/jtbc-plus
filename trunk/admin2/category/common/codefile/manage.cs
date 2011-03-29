@@ -97,9 +97,8 @@ public partial class module : jpage
         return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
-    private string Module_Action_Order()
+    private void Module_Action_Order()
     {
-        string tstate = "200";
         int tid = cls.getNum(request.querystring("id"));
         string tat = cls.getSafeString(request.querystring("at"));
         string tdatabase = cls.getString(jt.itake("global.config.sys->category-ndatabase", "cfg"));
@@ -137,12 +136,13 @@ public partial class module : jpage
             }
             category.removeCacheData(tgenre, tlng);
         }
-        return tstate;
+
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        Response.Redirect(tbackurl);
     }
 
-    private string Module_Action_Reorder()
+    private void Module_Action_Reorder()
     {
-        string tstate = "200";
         int tfid = cls.getNum(request.querystring("fid"));
         string tgenre = cls.getSafeString(request.querystring("genre"));
         string tdatabase = cls.getString(jt.itake("global.config.sys->category-ndatabase", "cfg"));
@@ -160,7 +160,9 @@ public partial class module : jpage
             }
         }
         category.removeCacheData(tgenre, admin.slng);
-        return tstate;
+
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        Response.Redirect(tbackurl);
     }
 
     private string Module_Action_Delete()
@@ -196,9 +198,11 @@ public partial class module : jpage
 
     private string Module_Action_Switch()
     {
-        string tstate = "200";
-        string tids = cls.getString(request.querystring("ids"));
-        string tswtype = cls.getString(request.querystring("swtype"));
+        string tmpstr = jt.itake("manage.execute-succeed", "lng");
+
+        string tbackurl = cls.getString(request.querystring("backurl"));
+        string tids = cls.getString(request.form("ids"));
+        string tswtype = cls.getString(request.form("swtype"));
         string tdatabase = cls.getString(jt.itake("global.config.sys->category-ndatabase", "cfg"));
         string tfpre = cls.getString(jt.itake("global.config.sys->category-nfpre", "cfg"));
         string tidfield = cls.cfnames(tfpre, "id");
@@ -209,8 +213,9 @@ public partial class module : jpage
                 tstateNum = com.dataSwitch(db, tdatabase, cls.cfnames(tfpre, "hidden"), tidfield, tids);
                 break;
         }
-        if (tstateNum == -101) tstate = "-101";
-        return tstate;
+        if (tstateNum == -101) tmpstr = jt.itake("manage.execute-failed", "lng");
+
+        return plus_com.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Selslng()
@@ -225,7 +230,6 @@ public partial class module : jpage
         else
         {
             tmpstr = admin.selslng();
-            tmpstr = config.ajaxPreContent + tmpstr;
         }
         return tmpstr;
     }
@@ -243,10 +247,10 @@ public partial class module : jpage
                 tmpstr = Module_Action_Edit();
                 break;
             case "order":
-                tmpstr = Module_Action_Order();
+                Module_Action_Order();
                 break;
             case "reorder":
-                tmpstr = Module_Action_Reorder();
+                Module_Action_Reorder();
                 break;
             case "delete":
                 tmpstr = Module_Action_Delete();
