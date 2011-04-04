@@ -167,7 +167,6 @@ public partial class module : jpage
 
     private string Module_Action_Delete()
     {
-        
         int tstateNum = 0;
         string tbackurl = cls.getString(request.querystring("backurl"));
         int tid = cls.getNum(request.querystring("id"));

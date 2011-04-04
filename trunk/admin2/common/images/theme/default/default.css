@@ -154,6 +154,11 @@ a:active
     color: #f6f6f6;
     height: 1px;
 }
+form 
+{
+    margin: 0;
+    padding: 0;
+}
 input.text
 {
     border-top: #ABADB3 1px solid;
