@@ -15,9 +15,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
     <title>{$=itake("config.copyright","lng")}</title>
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
+    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/lib/jquery.js"></script>
+    <script type="text/javascript">var j = jQuery.noConflict();</script>
     <script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
     <script type="text/javascript">
-        <!--
         if (top.location != self.location) top.location = self.location;
 
         var tlists, timages;
@@ -49,7 +50,6 @@
             tlists.style.display = tmpstyle;
             timages.src = tmpimg;
         }
-        //-->
     </script>
 </head>
 <body onload="myobj_load()">
@@ -89,7 +89,7 @@
                         <td width="163" id="lists" name="lists">
                             <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
                         </td>
-                        <td width="10" class="tmenus">
+                        <td width="10" class="hand">
                             <table height="100%" cellspacing="0" cellpadding="0" width="10" border="0">
                                 <tr align="center">
                                     <td onclick="javascript:startscroll('up',30);" height="20">

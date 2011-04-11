@@ -100,16 +100,6 @@
         </td>
     </tr>
 </table>
-<script type="text/javascript">
-    j('.table1 tbody tr').hover(
-        function() {
-            j(this).addClass('bg1');
-        },
-        function() {
-            j(this).removeClass('bg1');
-        }
-    );
-</script>
 {$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>
         </item>

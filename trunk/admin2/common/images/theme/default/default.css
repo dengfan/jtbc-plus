@@ -211,10 +211,9 @@ a img
     position: absolute;
     top: 5px;
     left: 5px;
-    padding: 1px 6px;
+    padding: 2px 6px;
     background-color: #AA0000;
-    color: White;
-    font-size: 10px;
+    color: white;
 }
 .hidden
 {

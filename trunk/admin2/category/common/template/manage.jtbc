@@ -280,17 +280,7 @@
                             </form>
                         </td>
                     </tr>
-                </table>
-                <script type="text/javascript">
-                    j('.table1 tbody tr').hover(
-                        function() {
-                            j(this).addClass('bg1');
-                        },
-                        function() {
-                            j(this).removeClass('bg1');
-                        }
-                    );
-                </script>]]>
+                </table>]]>
             </tpl_default>
         </item>
     </item_list>

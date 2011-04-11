@@ -14,16 +14,12 @@
     <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
     <title>{$=itake("default.channel_title", "lng")}</title>
-    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/lib/jquery.js"></script>
-    <script type="text/javascript">var j = jQuery.noConflict();</script>
-    <script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
-    <script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/main.1.js"></script>
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/selects.1.js"></script>
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.1.js"></script>
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
 </head>
-<body onload="nhrefstate()">]]>
+<body>]]>
             </tpl_default>
         </item>
         <item>
@@ -51,18 +47,18 @@
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
 </head>
 <body onload="nhrefstate()">
-    <div id="loading">Loading...</div>
+    <div id="loading">载入中，请稍候。</div>
     <script type="text/javascript">
-        j("#loading").ajaxStart(function(){ j(this).show(); });
-        j("#loading").ajaxStop(function(){ j(this).hide(); });
-    </script>
-]]>
+        j('#loading').ajaxStart(function () { j(this).show(); });
+        j('#loading').ajaxStop(function () { j(this).hide(); });
+    </script>]]>
             </tpl_default>
         </item>
         <item>
             <name><![CDATA[admin_foot_2]]></name>
             <tpl_default>
-                <![CDATA[</body>
+                <![CDATA[<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/global.js"></script>
+</body>
 </html>]]>
             </tpl_default>
         </item>

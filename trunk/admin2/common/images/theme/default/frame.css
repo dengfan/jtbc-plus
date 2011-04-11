@@ -1,43 +1,9 @@
-*
-{
-    font-size: 12px;
-    font-family: 微软雅黑, Arial;
-}
-body
-{
-    background: #0096d4;
-    margin: 0px;
-    overflow: hidden;
-    font-size: 12px;
-}
-a
-{
-    color: white;
-    font-style: normal;
-    text-decoration: none;
-}
-a:hover
-{
-    color: #f6f6f6;
-    font-style: normal;
-    text-decoration: underline;
-}
-a:active
-{
-    color: white;
-    font-style: normal;
-    text-decoration: underline;
-}
-.table
-{
-    border-right: white 1px solid;
-    border-left: white 1px solid;
-}
-.tmenus
-{
-    cursor: pointer;
-}
-.bg
-{
-    background-color: white;
-}
+*{font-size:12px;font-family:微软雅黑,微軟粗黑體,Arial;}
+body{margin:0px;background-color:#0096D4;overflow:hidden;}
+a{color:white;font-style:normal;text-decoration:none;}
+a:hover{color:#F6F6F6;font-style:normal;text-decoration:underline;}
+a:active{color:white;font-style:normal;text-decoration:underline;}
+.hand{cursor:pointer;}
+.bg{background-color:white;}
+
+
