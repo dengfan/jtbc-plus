@@ -9,7 +9,9 @@
         setTimeout('manages.setImageStyle()', 100);
     },
     setImageStyle: function () {
-        var top = (j('body').height() - j('.show_image img').height()) / 2;
+        //alert(document.documentElement.scrollTop);
+        //alert(document.body.scrollTop);
+        var top = document.body.scrollTop + 150;
         var left = (j('body').width() - j('.show_image img').width()) / 2;
 
         j('.show_image').css({
