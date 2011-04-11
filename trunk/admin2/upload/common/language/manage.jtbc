@@ -38,5 +38,9 @@
             <name><![CDATA[delete-failed]]></name>
             <chinese><![CDATA[删除失败！]]></chinese>
         </item>
+        <item>
+            <name><![CDATA[click_close]]></name>
+            <chinese><![CDATA[点击关闭]]></chinese>
+        </item>
     </item_list>
 </xml>

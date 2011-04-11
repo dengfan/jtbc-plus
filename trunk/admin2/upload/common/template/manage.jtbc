@@ -19,40 +19,38 @@
                     <td width="120" align="center" valign="top">
                         <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                             <tr>
-                                <td width="100%" height="25" class="tbtop">
-                                    搜索
+                                <td height="25" class="tbtop">
+                                    {$=itake("global.lng_config.search", "lng")}
                                 </td>
                             </tr>
                             <tr>
-                                <td width="100%" align="center">
-                                    <form method="get" name="search" action="?action=search">
+                                <td align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
+                                    <form method="get" name="search" action="?">
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td height="5"></td>
+                                                <td width="5" height="28"></td>
+                                                <td><input type="text" name="keyword" size="10" class="text" /></td>
                                             </tr>
                                             <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<input type="text" name="keyword" size="10" value="" class="text" />
-                                                </td>
+                                                <td width="5" height="28"></td>
+                                                <td><select name="field">{$=getSearchOptions("filename,genre,id")}</select></td>
                                             </tr>
                                             <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<select name="field" class="select">
-                                                        <option value="username">按用户名</option>
-                                                        <option value="id">按编号</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<button type="submit" class="button">搜索</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td height="5"></td>
+                                                <td width="5" height="28"></td>
+                                                <td><button type="submit" class="button">{$=itake("global.lng_config.search", "lng")}</button></td>
                                             </tr>
                                         </table>
                                     </form>
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
                                 </td>
                             </tr>
                         </table>
@@ -135,7 +133,7 @@
                                             <tbody>{@}
                                                 <tr>
                                                     <td height="25"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
-                                                    <td><span id="list-keywords-{$id}" class="hand" title="ID: {$id}" onclick="if (cinstr('.jpg.jpeg.png.gif', '{$-filetype}', '.')) manage.img.preview.tShow('{$=getActualRoute("{$genre}/{$filename}")}', '{$=itake("global.lng_common.img-load-error-1", "lng")}');">{$=getLRStr("{$filename}", "/", "right")}</span></td>
+                                                    <td><span id="list-keywords-{$id}" class="hand" title="ID: {$id}" onclick="if(cinstr('.jpg.jpeg.png.gif', '{$-filetype}', '.')){manages.showImage('{$=getActualRoute("{$genre}/{$filename}")}', '{$=itake("global.lng_common.img-load-error-1", "lng")}', '{$=itake("manage.click_close", "lng")}', j(this));}">{$=getLRStr("{$filename}", "/", "right")}</span></td>
                                                     <td>{$genre}</td>
                                                     <td>{$username}</td>
                                                     <td>{$=formatDate("{$time}", "100")}</td>

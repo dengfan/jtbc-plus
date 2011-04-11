@@ -87,9 +87,12 @@ public partial class module : jpage
         int tpage = cls.getNum(request.querystring("page"));
         string tfield = cls.getSafeString(request.querystring("field"));
         string tkeyword = cls.getSafeString(request.querystring("keyword"));
+        string tnav = cls.getSafeString(request.querystring("hspan"));
+
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
+
         string tdatabase = cls.getString(jt.itake("global.config.sys->upload-ndatabase", "cfg"));
         string tfpre = cls.getString(jt.itake("global.config.sys->upload-nfpre", "cfg"));
         string tsqlstr = "select * from " + tdatabase + " where " + cls.cfnames(tfpre, "id") + ">0";
@@ -98,6 +101,7 @@ public partial class module : jpage
         if (tfield == "valid") tsqlstr += " and " + cls.cfnames(tfpre, "valid") + "=" + cls.getNum(tkeyword);
         if (tfield == "id") tsqlstr += " and " + cls.cfnames(tfpre, "id") + "=" + cls.getNum(tkeyword);
         tsqlstr += " order by " + cls.cfnames(tfpre, "time") + " desc";
+
         pagi pagi;
         pagi = new pagi();
         pagi.db = db;
@@ -131,7 +135,17 @@ public partial class module : jpage
 
         #region ·þÎñÆ÷¶Ë·ÖÒ³
         plus_pagi plus_pagi = new plus_pagi(pagi);
-        string pager = plus_pagi.pager("manage.aspx?page=[$page]", 9);
+
+        string pagerUrl = "";
+        if (!cls.isEmpty(tfield) && !cls.isEmpty(tkeyword))
+            pagerUrl = string.Format("{0}?field={1}&keyword={2}&page=[$page]", config.nuri, tfield, tkeyword);
+        else
+            pagerUrl = string.Format("{0}?page=[$page]", config.nuri);
+
+        if (!cls.isEmpty(tnav))
+            pagerUrl = pagerUrl + "&hspan=" + tnav;
+
+        string pager = plus_pagi.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
