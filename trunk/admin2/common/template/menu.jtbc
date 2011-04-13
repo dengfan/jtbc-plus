@@ -102,9 +102,7 @@
         </td>
     </tr>
 </table>
-<script type="text/javascript">
-    j('table td ul').treeview();
-</script>]]>
+<script type="text/javascript">j('table.sec_menu td ul').treeview();</script>]]>
             </tpl_default>
         </item>
         <item>

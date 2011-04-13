@@ -64,15 +64,9 @@
                                 <tr>
                                     <td align="right" width="15"></td>
                                     <td align="right">
-                                        <img src="{$=$admin.theme}desktop.1.png" width="18" height="18" border="0" alt="" align="absmiddle" />
-                                        <a href="admin_main.aspx" target="_top">
-                                            <strong>{$=itake("main.admin_main","lng")}</strong>
-                                        </a>
+                                        <a href="admin_main.aspx" target="_top" class="bold"><img src="{$=$admin.theme}desktop.1.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_main","lng")}</a>
                                         &nbsp;
-                                        <img src="{$=$admin.theme}logout.png" width="18" height="18" border="0" alt="" align="absmiddle" />
-                                        <a href="default.aspx?type=action&atype=logout" target="_top">
-                                            <strong>{$=itake("main.admin_logout","lng")}</strong>
-                                        </a>
+                                        <a href="default.aspx?type=action&atype=logout" target="_top" class="bold"><img src="{$=$admin.theme}logout.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_logout","lng")}</a>
                                     </td>
                                     <td align="right" width="15"></td>
                                 </tr>
@@ -121,7 +115,7 @@
             </tpl_default>
         </item>
         <item>
-            <name><![CDATA[admin_manage]]></name>
+            <name><![CDATA[_admin_manage]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_1")}
 <table border="0" width="100%" cellSpacing="0" cellPadding="0">
@@ -258,6 +252,94 @@
   </tr>
 </table>
 {$=webAdminFoot("admin_foot_1")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_manage]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_2")}
+<table border="0" cellspacing="5" cellpadding="0" width="100%">
+    <tr>
+        <td>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                <tr>
+                    <td width="100%" height="25" class="tbtop">
+                        {$=itake("manage.baseinfo","lng")}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="0" width="98%" cellspacing="5" cellpadding="0">
+                            <tr>
+                                <td>{$=itake("manage.welcomeinfo","lng")}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                <tr>
+                    <td width="100%" height="25" class="tbtop">
+                        {$=itake("manage.shortcut","lng")}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="0" width="100%" cellspacing="5" cellpadding="0">
+                            <tr>
+                                <td>aaa</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                <tr>
+                    <td width="100%" height="25" class="tbtop">
+                        {$=itake("manage.sysinfo","lng")}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table border="0" width="100%" cellspacing="5" cellpadding="0">
+                            <tr>
+                                <td height="22" bgcolor="grey">aaa</td>
+                            </tr>
+                            <tr>
+                                <td height="22" bgcolor="grey">bbb</td>
+                            </tr>
+                            <tr>
+                                <td height="22">ccc</td>
+                            </tr>
+                            <tr>
+                                <td height="22">ddd</td>
+                            </tr>
+                            <tr>
+                                <td height="22">eee</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>
         </item>
     </item_list>
