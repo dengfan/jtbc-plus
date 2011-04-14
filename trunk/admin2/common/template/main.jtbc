@@ -115,146 +115,6 @@
             </tpl_default>
         </item>
         <item>
-            <name><![CDATA[_admin_manage]]></name>
-            <tpl_default>
-                <![CDATA[{$=webAdminHead("admin_head_1")}
-<table border="0" width="100%" cellSpacing="0" cellPadding="0">
-  <tr>
-    <td width="100%" height="5"></td>
-  </tr>
-  <tr>
-    <td width="100%" align="center">
-    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
-      <tr>
-        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_condition','lng')}</td>
-      </tr>
-      <tr>
-        <td width="100%" align="center">
-          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
-            <tr>
-              <td width="100%" height="5" colspan="2"></td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">{$=itake('main.admin_server','lng')}{$=request.servervariables("server_name")}(ip:{$=request.servervariables("local_addr")})</td>
-              <td width="50%" height="25">{$=itake('main.admin_port','lng')}{$=request.servervariables("server_port")}</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">{$=itake('main.admin_time','lng')}{$=now}</td>
-              <td width="50%" height="25">{$=itake('main.admin_iis','lng')}{$=request.servervariables("server_software")}</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">{$=itake('main.admin_timeout','lng')}{$=server.scripttimeout}</td>
-              <td width="50%" height="25">{$=itake('main.admin_path','lng')}{$=request.servervariables("path_translated")}</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">{$=itake('main.admin_script','lng')}{$=scriptengine}/{$=scriptenginemajorversion}.{$=scriptengineminorversion}.{$=scriptenginebuildversion}</td>
-              <td width="50%" height="25">{$=itake('main.admin_os','lng')}{$=adm_get_os}</td>
-            </tr>
-            <tr>
-              <td width="100%" height="5" colspan="2"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" height="5"></td>
-  </tr>
-  <tr>
-    <td width="100%" align="center">
-    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
-      <tr>
-        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_discreteness','lng')}</td>
-      </tr>
-      <tr>
-        <td width="100%" align="center">
-          <table border="0" width="98%" cellSpacing="0" cellPadding="0">
-            <tr>
-              <td width="100%" height="5" colspan="2"></td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.AdRotator"))})MSWC.AdRotator</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.BrowserType"))})MSWC.BrowserType</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.NextLink"))})MSWC.NextLink</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Tools"))})MSWC.Tools</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Status"))})MSWC.Status</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("MSWC.Counters"))})MSWC.Counters</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("CDONTS.NewMail"))})CDONTS.NewMail</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("CDO.Message"))})CDO.Message</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Microsoft.XMLDOM"))})Microsoft.XMLDOM</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Microsoft.XMLHTTP"))})Microsoft.XMLHTTP</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Adodb.Stream"))})Adodb.Stream</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Scripting.FileSystemObject"))})Scripting.FileSystemObject</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("WScript.Shell"))})WScript.Shell</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("JMail.SmtpMail"))})JMail.SmtpMail</td>
-            </tr>
-            <tr>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Persits.Jpeg"))})Persits.Jpeg</td>
-              <td width="50%" height="25">({$=adm_show_isobj(adm_isobj("Persits.Upload"))})Persits.Upload</td>
-            </tr>
-            <tr>
-              <td width="100%" height="5" colspan="2"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" height="5"></td>
-  </tr>
-  <tr>
-    <td width="100%" align="center">
-    <table border="0" width="98%" cellSpacing="0" cellPadding="0" class="lrbtline">
-      <tr>
-        <td width="100%" height="25" class="tbtop">{$=itake('main.admin_ckdiscreteness','lng')}</td>
-      </tr>
-      <tr>
-        <td width="100%" align="center">
-          <table border="0" width="98%" cellSpacing="0" cellpadding="0">
-            <tr>
-              <td width="100%" height="5"></td>
-            </tr>
-            <form method="post" name="ckform">
-            <tr>
-              <td width="100%" height="25">{$=itake('main.admin_ckname','lng')}<input type="text" name="ckname" size="25">&nbsp;<input type="submit" value="{$=itake('main.admin_cksubmit','lng')}" class="button"></td>
-            </tr>
-            </form>
-            <tr>
-              <td width="100%" height="20" class="red">{$=adm_show_ckisobj}</td>
-            </tr>
-            <tr>
-              <td width="100%" height="5"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" height="5"></td>
-  </tr>
-</table>
-{$=webAdminFoot("admin_foot_1")}]]>
-            </tpl_default>
-        </item>
-        <item>
             <name><![CDATA[admin_manage]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
@@ -268,10 +128,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <table border="0" width="98%" cellspacing="5" cellpadding="0">
+                    <td align="center">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
+                            </tr>
+                        </table>
+                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td>{$=itake("manage.welcomeinfo","lng")}</td>
+                            </tr>
+                        </table>
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
                             </tr>
                         </table>
                     </td>
@@ -289,10 +159,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <table border="0" width="100%" cellspacing="5" cellpadding="0">
+                    <td align="center">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
+                            </tr>
+                        </table>
+                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
                             <tr>
                                 <td>aaa</td>
+                            </tr>
+                        </table>
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
                             </tr>
                         </table>
                     </td>
@@ -310,22 +190,47 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <table border="0" width="100%" cellspacing="5" cellpadding="0">
+                    <td align="center">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td height="22" bgcolor="grey">aaa</td>
+                                <td height="5"></td>
+                            </tr>
+                        </table>
+                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="20%" height="25">{$=itake("manage.sysversion","lng")}</td>
+                                <td width="25%">{$sysversion}</td>
+                                <td width="25%">{$=itake("manage.uploadlimit","lng")}</td>
+                                <td width="30%">{$uploadlimit}</td>
                             </tr>
                             <tr>
-                                <td height="22" bgcolor="grey">bbb</td>
+                                <td height="25">{$=itake("manage.dbtype","lng")}</td>
+                                <td>{$dbtype}</td>
+                                <td>{$=itake("manage.hostip","lng")}</td>
+                                <td>{$hostip}</td>
                             </tr>
                             <tr>
-                                <td height="22">ccc</td>
+                                <td height="25">{$=itake("manage.hostos","lng")}</td>
+                                <td>{$hostos}</td>
+                                <td>{$=itake("manage.hosttime","lng")}</td>
+                                <td>{$hosttime}</td>
                             </tr>
                             <tr>
-                                <td height="22">ddd</td>
+                                <td height="25">{$=itake("manage.hosttimeout","lng")}</td>
+                                <td>{$hosttimeout}</td>
+                                <td>{$=itake("manage.hostpath","lng")}</td>
+                                <td>{$hostpath}</td>
                             </tr>
                             <tr>
-                                <td height="22">eee</td>
+                                <td height="25">{$=itake("manage.hostiisversion","lng")}</td>
+                                <td>{$hostiisversion}</td>
+                                <td>{$=itake("manage.hostdotnetversion","lng")}</td>
+                                <td>{$hostdotnetversion}</td>
+                            </tr>
+                        </table>
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td height="5"></td>
                             </tr>
                         </table>
                     </td>

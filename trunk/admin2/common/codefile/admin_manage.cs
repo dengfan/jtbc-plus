@@ -11,9 +11,13 @@ public partial class module : jpage
         if (_admin.ckLogin())
         {
             tmpstr = plus_jt.ireplace("main.admin_manage", "tpl");
+            tmpstr = tmpstr.Replace("{$user}", _admin.username);
+            tmpstr = tmpstr.Replace("{$role}", _admin.popedom);
+            tmpstr = tmpstr.Replace("{$lastip}", "111");
+            tmpstr = tmpstr.Replace("{$lasttime}", "222");
+
             tmpstr = jt.creplace(tmpstr);
         }
-        //tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;
     }
 

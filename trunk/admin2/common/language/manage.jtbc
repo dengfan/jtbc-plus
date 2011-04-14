@@ -35,56 +35,44 @@
             <chinese><![CDATA[您好，{$user}，所属角色：{$role}，最近登录IP地址：{$lastip}，最近登录时间：{$lasttime}]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_condition]]></disinfo>
-            <chinese><![CDATA[网站环境]]></chinese>
+            <disinfo><![CDATA[sysversion]]></disinfo>
+            <chinese><![CDATA[系统版本]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_server]]></disinfo>
-            <chinese><![CDATA[服务器地址：]]></chinese>
+            <disinfo><![CDATA[uploadlimit]]></disinfo>
+            <chinese><![CDATA[上载限制]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_port]]></disinfo>
-            <chinese><![CDATA[端口：]]></chinese>
+            <disinfo><![CDATA[dbtype]]></disinfo>
+            <chinese><![CDATA[数据库类型]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_time]]></disinfo>
-            <chinese><![CDATA[服务器时间：]]></chinese>
+            <disinfo><![CDATA[hostip]]></disinfo>
+            <chinese><![CDATA[服务器IP地址]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_iis]]></disinfo>
-            <chinese><![CDATA[IIS版本：]]></chinese>
+            <disinfo><![CDATA[hostos]]></disinfo>
+            <chinese><![CDATA[服务器操作系统]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_timeout]]></disinfo>
-            <chinese><![CDATA[脚本超时时间：]]></chinese>
+            <disinfo><![CDATA[hosttime]]></disinfo>
+            <chinese><![CDATA[服务器当前时间]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_path]]></disinfo>
-            <chinese><![CDATA[本文件路径：]]></chinese>
+            <disinfo><![CDATA[hosttimeout]]></disinfo>
+            <chinese><![CDATA[服务器脚本超时时间]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_script]]></disinfo>
-            <chinese><![CDATA[服务器脚本解释引擎：]]></chinese>
+            <disinfo><![CDATA[hostpath]]></disinfo>
+            <chinese><![CDATA[服务器网站路径]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_os]]></disinfo>
-            <chinese><![CDATA[服务器操作系统：]]></chinese>
+            <disinfo><![CDATA[hostiisversion]]></disinfo>
+            <chinese><![CDATA[服务器IIS版本号]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[admin_discreteness]]></disinfo>
-            <chinese><![CDATA[常用组件情况]]></chinese>
-        </item>
-        <item>
-            <disinfo><![CDATA[admin_ckdiscreteness]]></disinfo>
-            <chinese><![CDATA[检测组件是否被支持]]></chinese>
-        </item>
-        <item>
-            <disinfo><![CDATA[admin_ckname]]></disinfo>
-            <chinese><![CDATA[请输入要检测的组件：]]></chinese>
-        </item>
-        <item>
-            <disinfo><![CDATA[admin_cksubmit]]></disinfo>
-            <chinese><![CDATA[确认检测]]></chinese>
+            <disinfo><![CDATA[hostdotnetversion]]></disinfo>
+            <chinese><![CDATA[服务器.NET Framework版本号]]></chinese>
         </item>
     </item_list>
 </xml>
