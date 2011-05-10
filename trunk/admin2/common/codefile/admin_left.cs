@@ -4,6 +4,7 @@ using jtbc.plus;
 public partial class module : jpage
 {
     private admin _admin;
+    private admin_plus _admin_plus;
 
     private string Module_Desktop()
     {
@@ -11,10 +12,9 @@ public partial class module : jpage
         if (_admin.ckLogin())
         {
             tmpstr = plus_jt.ireplace("menu.admin_menu", "tpl");
-            tmpstr = tmpstr.Replace("{$MenuHtml}", plus_admin.getMenuHtml(cls.getActualRoute("./"), _admin));
+            tmpstr = tmpstr.Replace("{$MenuHtml}", _admin_plus.getMenuHtml(cls.getActualRoute("./")));
             tmpstr = jt.creplace(tmpstr);
         }
-        //tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;
     }
 
@@ -26,6 +26,8 @@ public partial class module : jpage
         _admin = new admin();
         _admin.Init();
         _admin.adminPstate = "public";
+
+        _admin_plus = new admin_plus(_admin); //扩展admin类
 
         if (!_admin.ckLogin()) Response.Redirect("default.aspx");
 

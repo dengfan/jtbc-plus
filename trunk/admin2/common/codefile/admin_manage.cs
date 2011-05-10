@@ -4,6 +4,7 @@ using jtbc.plus;
 public partial class module : jpage
 {
     private admin _admin;
+    private admin_plus _admin_plus;
 
     private string Module_Desktop()
     {
@@ -11,10 +12,10 @@ public partial class module : jpage
         if (_admin.ckLogin())
         {
             tmpstr = plus_jt.ireplace("main.admin_manage", "tpl");
-            tmpstr = tmpstr.Replace("{$user}", _admin.username);
-            tmpstr = tmpstr.Replace("{$role}", _admin.popedom);
-            tmpstr = tmpstr.Replace("{$lastip}", "111");
-            tmpstr = tmpstr.Replace("{$lasttime}", "222");
+            tmpstr = tmpstr.Replace("{$username}", _admin_plus.UserName);
+            tmpstr = tmpstr.Replace("{$role}", _admin_plus.Role);
+            tmpstr = tmpstr.Replace("{$lastip}", _admin_plus.LastIp);
+            tmpstr = tmpstr.Replace("{$lasttime}", _admin_plus.LastTime);
 
             tmpstr = jt.creplace(tmpstr);
         }
@@ -29,6 +30,8 @@ public partial class module : jpage
         _admin = new admin();
         _admin.Init();
         _admin.adminPstate = "public";
+
+        _admin_plus = new admin_plus(_admin); //扩展admin类
 
         if (!_admin.ckLogin()) Response.Redirect("default.aspx");
 

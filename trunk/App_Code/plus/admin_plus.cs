@@ -3,10 +3,76 @@
     using System;
     using jtbc;
 
-    public static class plus_admin
+    public class admin_plus
     {
+        private admin _admin;
+
+        private string _username = "n/a";
+        public string UserName
+        {
+            get { return _username; }
+        }
+
+        private string _role = "n/a";
+        public string Role
+        {
+            get { return _role; }
+        }
+
+        private string _lastTime = "n/a";
+        public string LastTime
+        {
+            get { return _lastTime; }
+        }
+
+        private string _lastIp = "n/a";
+        public string LastIp
+        {
+            get { return _lastIp; }
+        }
+
+        public admin_plus(admin admin)
+        {
+            _admin = admin;
+            _username = admin.username;
+            _role = jt.itake(string.Format("global.{0}.user.user:sel_utype.{1}", config.adminFolder, _admin.popedom), "lng");
+
+            string sql = "select top 1 a_lasttime, a_lastip from jtbc_admin where a_username = '" + _admin.username + "' order by a_lasttime desc";
+            object[] data = new db().getDataAry(sql);
+            if (data != null)
+            {
+                object[,] d = (object[,])data[0];
+                _lastTime = ((DateTime)d[0, 1]).ToString();
+                _lastIp = d[1, 1].ToString();
+            }
+        }
+
+        private string getLastTime()
+        {
+            string lastTime = "";
+
+            string sql = "select top 1 a_lasttime from jtbc_admin where a_username = '" + _admin.username + "' order by a_lasttime desc";
+            object[] data = new db().getDataAry(sql);
+            if (data != null)
+	        {
+		        object[,] d = (object[,])data[0];
+                lastTime = ((DateTime)d[0, 1]).ToString();
+	        }
+            
+            return lastTime;
+        }
+
+        private string getLastIp()
+        {
+            string lastIp = "";
+
+            string sql = "";
+
+            return lastIp;
+        }
+
         #region 生成后台菜单之HTML
-        public static string getMenuHtml(string argPath, admin admin)
+        public string getMenuHtml(string argPath)
         {
             string tmpstr = "";
             string tPath = argPath;
@@ -21,7 +87,7 @@
 
                 for (int i = 0; i < tActiveGenreAryLength; i++)
                 {
-                    if (admin.ckPopedom(admin.popedom, tActiveGenreAry[i]))
+                    if (_admin.ckPopedom(_admin.popedom, tActiveGenreAry[i]))
                     {
                         tActiveGenreGuideTempAry = jt.itakes("global." + tActiveGenreAry[i] + ":guide.all", "cfg");
                         int num3 = tActiveGenreGuideTempAry.GetLength(0);
@@ -36,7 +102,7 @@
                         tActiveGenreGuideAry = cls.mergeAry(tActiveGenreGuideAry, tActiveGenreGuideTempAry);
                     }
                 }
-                string argKey = "admin_menu_html_" + cls.toString(admin.id);
+                string argKey = "admin_menu_html_" + cls.toString(_admin.id);
                 tmpstr = (string)application.get(argKey);
                 if (tmpstr == null)
                 {
@@ -46,8 +112,7 @@
             }
             return tmpstr;
         }
-
-        public static string formatMenuHtml(string[,] argAry)
+        public string formatMenuHtml(string[,] argAry)
         {
             string[,] strArray = argAry;
             string argTemplate = "";
@@ -76,8 +141,7 @@
             }
             return jt.creplace(argTemplate.Replace(config.jtbccinfo, newValue));
         }
-
-        public static string formatMenuHtml(string[,] argAry, string argGenre)
+        public string formatMenuHtml(string[,] argAry, string argGenre)
         {
             string[,] strArray = argAry;
             string str = argGenre;
