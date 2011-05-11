@@ -154,7 +154,7 @@ a:active
     color: #f6f6f6;
     height: 1px;
 }
-form 
+form
 {
     margin: 0;
     padding: 0;
@@ -185,7 +185,7 @@ select
     color: #999999;
     font-size: 11px;
 }
-.titlelink 
+.titlelink
 {
     color: White;
 }
@@ -274,3 +274,31 @@ a img
     border: #AFAFAF 1px solid;
 }
 */
+#shortcut
+{
+    margin: 8px;
+}
+#shortcut form
+{
+    float: left;
+    padding: 5px;
+    background-color: white;
+    width: 80px;
+    height: 60px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+}
+#shortcut form.hover
+{
+    background-color: #F4F4F4 !important;
+}
+#shortcut form input
+{
+    width: 100%;
+    text-align: center;
+}
+.clear
+{
+    clear: both;
+}

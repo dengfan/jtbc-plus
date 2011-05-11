@@ -35,10 +35,6 @@
             <chinese><![CDATA[您好，{$username}，所属角色：{$role}，最近登录IP地址：{$lastip}，最近登录时间：{$lasttime}]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[sysversion]]></disinfo>
-            <chinese><![CDATA[系统版本]]></chinese>
-        </item>
-        <item>
             <disinfo><![CDATA[uploadlimit]]></disinfo>
             <chinese><![CDATA[上载限制]]></chinese>
         </item>
@@ -60,19 +56,19 @@
         </item>
         <item>
             <disinfo><![CDATA[hosttimeout]]></disinfo>
-            <chinese><![CDATA[服务器脚本超时时间]]></chinese>
+            <chinese><![CDATA[服务器脚本超时时间(秒)]]></chinese>
         </item>
         <item>
             <disinfo><![CDATA[hostpath]]></disinfo>
             <chinese><![CDATA[服务器网站路径]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[hostiisversion]]></disinfo>
-            <chinese><![CDATA[服务器IIS版本号]]></chinese>
+            <disinfo><![CDATA[hostiis]]></disinfo>
+            <chinese><![CDATA[服务器IIS版本]]></chinese>
         </item>
         <item>
-            <disinfo><![CDATA[hostdotnetversion]]></disinfo>
-            <chinese><![CDATA[服务器.NET Framework版本号]]></chinese>
+            <disinfo><![CDATA[hostdotnet]]></disinfo>
+            <chinese><![CDATA[服务器.NET Framework版本]]></chinese>
         </item>
     </item_list>
 </xml>

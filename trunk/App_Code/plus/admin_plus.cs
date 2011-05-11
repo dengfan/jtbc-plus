@@ -37,7 +37,7 @@
             _username = admin.username;
             _role = jt.itake(string.Format("global.{0}.user.user:sel_utype.{1}", config.adminFolder, _admin.popedom), "lng");
 
-            string sql = "select top 1 a_lasttime, a_lastip from jtbc_admin where a_username = '" + _admin.username + "' order by a_lasttime desc";
+            string sql = "select a_lasttime, a_lastip from jtbc_admin where a_username = '" + _admin.username + "'";
             object[] data = new db().getDataAry(sql);
             if (data != null)
             {

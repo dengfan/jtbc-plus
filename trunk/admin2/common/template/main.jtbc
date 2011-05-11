@@ -160,21 +160,7 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td height="5"></td>
-                            </tr>
-                        </table>
-                        <table border="0" width="98%" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td>aaa</td>
-                            </tr>
-                        </table>
-                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td height="5"></td>
-                            </tr>
-                        </table>
+                        <div id="shortcut"></div>
                     </td>
                 </tr>
             </table>
@@ -198,16 +184,17 @@
                         </table>
                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td width="20%" height="25">{$=itake("manage.sysversion","lng")}</td>
-                                <td width="25%">{$sysversion}</td>
-                                <td width="25%">{$=itake("manage.uploadlimit","lng")}</td>
+                                <td width="25%" height="25">{$=itake("manage.hostdotnet","lng")}</td>
+                                <td width="30%">{$hostdotnet}</td>
+                                <td width="15%">{$=itake("manage.uploadlimit","lng")}</td>
                                 <td width="30%">{$uploadlimit}</td>
                             </tr>
                             <tr>
+                                <td>{$=itake("manage.hostpath","lng")}</td>
+                                <td>{$hostpath}</td>
                                 <td height="25">{$=itake("manage.dbtype","lng")}</td>
                                 <td>{$dbtype}</td>
-                                <td>{$=itake("manage.hostip","lng")}</td>
-                                <td>{$hostip}</td>
+                                
                             </tr>
                             <tr>
                                 <td height="25">{$=itake("manage.hostos","lng")}</td>
@@ -218,14 +205,14 @@
                             <tr>
                                 <td height="25">{$=itake("manage.hosttimeout","lng")}</td>
                                 <td>{$hosttimeout}</td>
-                                <td>{$=itake("manage.hostpath","lng")}</td>
-                                <td>{$hostpath}</td>
+                                <td>{$=itake("manage.hostip","lng")}</td>
+                                <td>{$hostip}</td>
                             </tr>
                             <tr>
-                                <td height="25">{$=itake("manage.hostiisversion","lng")}</td>
-                                <td>{$hostiisversion}</td>
-                                <td>{$=itake("manage.hostdotnetversion","lng")}</td>
-                                <td>{$hostdotnetversion}</td>
+                                <td height="25">{$=itake("manage.hostiis","lng")}</td>
+                                <td>{$hostiis}</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                             </tr>
                         </table>
                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -244,6 +231,23 @@
         </td>
     </tr>
 </table>
+<script type="text/javascript">
+    j('#shortcut').load('user/userlnk/manage.aspx', function() {
+        j('#shortcut form').hover(
+            function() {
+                j(this).addClass('hover');
+            },
+            function() {
+                j(this).removeClass('hover');
+            }
+        );
+        
+        j('#shortcut form').click(function() {
+            var href = j(this).attr('url');
+            location.href=href;
+        });
+    });
+</script>
 {$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>
         </item>
