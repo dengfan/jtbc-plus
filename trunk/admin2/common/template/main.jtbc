@@ -13,7 +13,7 @@
 <head>
     <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
-    <title>{$=itake("config.copyright","lng")}</title>
+    <title>{$=itake("default.channel_title", "lng")}</title>
     <link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/lib/jquery.js"></script>
     <script type="text/javascript">var j = jQuery.noConflict();</script>
