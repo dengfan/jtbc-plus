@@ -30,7 +30,7 @@ public partial class module : jpage
         if (tbool == true) tmpstr = jt.itake("manage.settings-succeed", "lng");
         else tmpstr = jt.itake("manage.settings-failed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Selslng()
@@ -72,10 +72,10 @@ public partial class module : jpage
         string tmpstr2 = jt.itake("manage.settings1", "tpl");
         string tnlng = com.getLngText(cls.toString(admin.slng));
         tmpstr2 = tmpstr2.Replace("{$-nlng}", tnlng);
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2); 
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         
         return tmpstr;
     }
@@ -89,10 +89,10 @@ public partial class module : jpage
         string tnvalidate = jt.itake("global.config.nvalidate", "cfg", "", tnlng);
         tmpstr2 = tmpstr2.Replace("{$-nlng}", tnlng);
         tmpstr2 = tmpstr2.Replace("{$-nvalidate}", tnvalidate);
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }

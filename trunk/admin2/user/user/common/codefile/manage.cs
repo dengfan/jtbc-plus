@@ -116,7 +116,7 @@ public partial class module : jpage
     {
         string tmpusername = request.form("username");
         string tbackurl = cls.getSafeString(request.querystring("backurl"));
-        if (cls.isEmpty(tmpusername)) return plus_com.clientAlert(jt.itake("manage.req_username", "lng"), "-1");
+        if (cls.isEmpty(tmpusername)) return com_plus.clientAlert(jt.itake("manage.req_username", "lng"), "-1");
 
         string tmpstr = "";
         string tdatabase = cls.getString(jt.itake("global.config.admin-ndatabase", "cfg"));
@@ -161,7 +161,7 @@ public partial class module : jpage
 
         if (tstateNum != -101) tmpstr = jt.itake("manage.add-succeed", "lng").Replace("{$username}", tmpusername);
         else tmpstr = jt.itake("manage.add-failed", "lng");
-        tmpstr = plus_com.clientAlert(tmpstr, tbackurl);
+        tmpstr = com_plus.clientAlert(tmpstr, tbackurl);
 
         return tmpstr;
     }
@@ -170,7 +170,7 @@ public partial class module : jpage
     {
         string tmpusername = request.form("username");
         string tbackurl = cls.getSafeString(request.querystring("backurl"));
-        if (cls.isEmpty(tmpusername)) return plus_com.clientAlert(jt.itake("manage.req_username", "lng"), "-1");
+        if (cls.isEmpty(tmpusername)) return com_plus.clientAlert(jt.itake("manage.req_username", "lng"), "-1");
 
         string tmpstr = "";
         int tid = cls.getNum(request.querystring("id"));
@@ -210,7 +210,7 @@ public partial class module : jpage
 
         if (tstateNum != -101) tmpstr = jt.itake("manage.edit-succeed", "lng").Replace("{$username}", tmpusername);
         else tmpstr = jt.itake("manage.edit-failed", "lng");
-        tmpstr = plus_com.clientAlert(tmpstr, tbackurl);
+        tmpstr = com_plus.clientAlert(tmpstr, tbackurl);
 
         return tmpstr;
     }
@@ -224,8 +224,8 @@ public partial class module : jpage
         string tfpre = cls.getString(jt.itake("global.config.admin-nfpre", "cfg"));
         string tidfield = cls.cfnames(tfpre, "id");
         int tstateNum = com.dataDelete(db, tdatabase, tidfield, cls.toString(tid));
-        if (tstateNum != -101) tmpstr = plus_com.clientAlert(jt.itake("manage.delete-succeed", "lng"), tbackurl);
-        else tmpstr = plus_com.clientAlert(jt.itake("manage.delete-failed", "lng"), tbackurl);
+        if (tstateNum != -101) tmpstr = com_plus.clientAlert(jt.itake("manage.delete-succeed", "lng"), tbackurl);
+        else tmpstr = com_plus.clientAlert(jt.itake("manage.delete-failed", "lng"), tbackurl);
 
         return tmpstr;
     }
@@ -249,8 +249,8 @@ public partial class module : jpage
                 tstateNum = com.dataDelete(db, tdatabase, tidfield, tids);
                 break;
         }
-        if (tstateNum != -101) tmpstr = plus_com.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
-        else tmpstr = plus_com.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
+        if (tstateNum != -101) tmpstr = com_plus.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
+        else tmpstr = com_plus.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
 
         return tmpstr;
     }
@@ -283,7 +283,7 @@ public partial class module : jpage
         tmpstr = jt.itake("manage.add", "tpl");
         tmpstr = tmpstr.Replace("{$-popedom}", Sub_SelPopedom("", ""));
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         
         return tmpstr;
     }
@@ -311,7 +311,7 @@ public partial class module : jpage
             tmpstr = tmpstr.Replace("{$id}", cls.toString(tId));
             tmpstr = tmpstr.Replace("{$-popedom}", Sub_SelPopedom((string)db.getValue(tAry, "popedom"), ""));
             tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
-            tmpstr = plus_jt.creplace(tmpstr);
+            tmpstr = jt_plus.creplace(tmpstr);
         }
         else tmpstr = jt.itake("global.lng_common.edit-404", "lng");
         
@@ -364,14 +364,14 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
         #region ·þÎñÆ÷¶Ë·ÖÒ³
-        plus_pagi plus_pagi = new plus_pagi(pagi);
-        string pager = plus_pagi.pager("manage.aspx?page=[$page]", 9);
+        pagi_plus pagi_plus = new pagi_plus(pagi);
+        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
 
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }

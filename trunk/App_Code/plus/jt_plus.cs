@@ -7,7 +7,7 @@
     using System.Xml;
     using jtbc;
 
-    public static class plus_jt
+    public static class jt_plus
     {
         public static string cvalue(string argString)
         {
@@ -21,10 +21,10 @@
                 switch (str2)
                 {
                     case "webAdminHead":
-                        return plus_com.webAdminHead(jt.cparameter(str3));
+                        return com_plus.webAdminHead(jt.cparameter(str3));
 
                     case "webAdminFoot":
-                        return plus_com.webAdminFoot(jt.cparameter(str3));
+                        return com_plus.webAdminFoot(jt.cparameter(str3));
                 }
             }
             return str;

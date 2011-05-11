@@ -209,7 +209,7 @@ public partial class module : jpage
         }
         else tmpstr = jt.itake("manage.add-error-0", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Remove()
@@ -239,7 +239,7 @@ public partial class module : jpage
             tmpstr = jt.itake("manage.remove-succeed", "lng");
         }
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action()
@@ -255,7 +255,7 @@ public partial class module : jpage
                 tmpstr = Module_Action_Remove();
                 break;
             case "upload":
-                tmpstr = plus_upfiles.uploadFiles("file1", 0, admin.username);
+                tmpstr = upfiles_plus.uploadFiles("file1", 0, admin.username);
                 break;
         }
         return tmpstr;
@@ -270,7 +270,7 @@ public partial class module : jpage
         tmpstr2 = jt.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }
@@ -306,7 +306,7 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
         tmpstr = tmpstr.Replace("{$-genre}", encode.htmlencode(tgenre));
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         return tmpstr;
     }
 
@@ -335,7 +335,7 @@ public partial class module : jpage
                     tmpstr = Module_Remove();
                     break;
                 case "upload":
-                    tmpstr = plus_upfiles.uploadHTML("upload-html-1");
+                    tmpstr = upfiles_plus.uploadHTML("upload-html-1");
                     break;
                 default:
                     tmpstr = Module_List();

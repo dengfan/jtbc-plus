@@ -11,7 +11,7 @@
     using System.Web;
     using jtbc;
 
-    public static class plus_com
+    public static class com_plus
     {
         public static string webAdminHead(string argKey)
         {
@@ -34,7 +34,7 @@
                 tmpdispose = string.Format("location.href='{0}';", argType); //argType is backurl
 
             string tmpstr = jt.itake(string.Format("global.{0}:common.client_alert", config.adminFolder), "tpl");
-            return plus_jt.creplace(tmpstr.Replace("{$alert}", encode.htmlencode(argAlert)).Replace("{$dispose}", encode.htmlencode(tmpdispose)));
+            return jt_plus.creplace(tmpstr.Replace("{$alert}", encode.htmlencode(argAlert)).Replace("{$dispose}", encode.htmlencode(tmpdispose)));
         }
     }
 }

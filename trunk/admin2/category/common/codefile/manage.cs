@@ -67,7 +67,7 @@ public partial class module : jpage
             else tmpstr = jt.itake("manage.add-failed", "lng");
             category.removeCacheData(tgenre, admin.slng);
         }
-        tmpstr = plus_com.clientAlert(tmpstr, tbackurl);
+        tmpstr = com_plus.clientAlert(tmpstr, tbackurl);
         return tmpstr;
     }
 
@@ -94,7 +94,7 @@ public partial class module : jpage
             if (tstateNum != -101) tmpstr = jt.itake("manage.edit-succeed", "lng");
             else tmpstr = jt.itake("manage.edit-failed", "lng");
         }
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private void Module_Action_Order()
@@ -192,7 +192,7 @@ public partial class module : jpage
             tstateNum = com.dataDelete(db, tdatabase, tidfield, cls.toString(tid));
             if (tstateNum == -101) tmpstr = jt.itake("manage.delete-failed", "lng");
         }
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Switch()
@@ -214,7 +214,7 @@ public partial class module : jpage
         }
         if (tstateNum == -101) tmpstr = jt.itake("manage.execute-failed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Selslng()
@@ -275,7 +275,7 @@ public partial class module : jpage
 
         string tmpstrp = jt.itake("manage.public", "tpl");
         tmpstr = tmpstrp.Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         tmpstr = tmpstr.Replace("{$selcolumn}", Sub_Selcolumn(tgenre));
         tmpstr = tmpstr.Replace("{$category.FaCatHtml}", category.getFaCatHtml(jt.itake("manage.data_fa_category", "tpl"), tgenre, admin.slng, tfid));
@@ -314,7 +314,7 @@ public partial class module : jpage
 
         string tmpstrp = jt.itake("manage.public", "tpl");
         tmpstr = tmpstrp.Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         tmpstr = tmpstr.Replace("{$selcolumn}", Sub_Selcolumn(tgenre));
         tmpstr = tmpstr.Replace("{$category.FaCatHtml}", category.getFaCatHtml(jt.itake("manage.data_fa_category", "tpl"), tgenre, admin.slng, tfid));
@@ -370,8 +370,8 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
         #region ·þÎñÆ÷¶Ë·ÖÒ³
-        plus_pagi plus_pagi = new plus_pagi(pagi);
-        string pager = plus_pagi.pager("manage.aspx?page=[$page]", 9);
+        pagi_plus pagi_plus = new pagi_plus(pagi);
+        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
@@ -381,7 +381,7 @@ public partial class module : jpage
 
         string tmpstrp = jt.itake("manage.public", "tpl");
         tmpstrp = tmpstrp.Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstrp);
+        tmpstr = jt_plus.creplace(tmpstrp);
         tmpstr = tmpstr.Replace("{$selcolumn}", Sub_Selcolumn(tgenre));
         tmpstr = tmpstr.Replace("{$genre}", tgenre);
         tmpstr = tmpstr.Replace("{$fid}", tfid.ToString());

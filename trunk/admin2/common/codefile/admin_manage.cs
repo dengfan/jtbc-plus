@@ -11,7 +11,7 @@ public partial class module : jpage
         string tmpstr = "";
         if (_admin.ckLogin())
         {
-            tmpstr = plus_jt.ireplace("main.admin_manage", "tpl");
+            tmpstr = jt_plus.ireplace("main.admin_manage", "tpl");
             tmpstr = tmpstr.Replace("{$username}", _admin_plus.UserName);
             tmpstr = tmpstr.Replace("{$role}", _admin_plus.Role);
             tmpstr = tmpstr.Replace("{$lastip}", _admin_plus.LastIp);

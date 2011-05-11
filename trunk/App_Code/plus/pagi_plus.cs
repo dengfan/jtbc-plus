@@ -4,11 +4,11 @@
     using System.Text.RegularExpressions;
     using jtbc;
 
-    public class plus_pagi
+    public class pagi_plus
     {
         private pagi _page;
 
-	    public plus_pagi(pagi page)
+	    public pagi_plus(pagi page)
 	    {
             _page = page;
 	    }

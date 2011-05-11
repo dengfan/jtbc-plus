@@ -57,7 +57,7 @@ public partial class module : jpage
     {
         string tmpstr = "";
         tmpstr = jt.itake("manage.default", "tpl");
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }

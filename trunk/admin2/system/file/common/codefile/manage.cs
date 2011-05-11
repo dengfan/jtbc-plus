@@ -18,7 +18,7 @@ public partial class module : jpage
         if (com.directoryCreateNew(tFullPath)) 
             tmpstr = jt.itake("manage.add-succeed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder_Edit()
@@ -34,7 +34,7 @@ public partial class module : jpage
         if (com.directoryMove(tFullPath1, tFullPath2)) 
             tmpstr = jt.itake("manage.edit-succeed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder_Delete()
@@ -48,7 +48,7 @@ public partial class module : jpage
         if (!com.directoryDelete(tFullPath))
             tmpstr = jt.itake("manage.delete-failed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Folder()
@@ -86,7 +86,7 @@ public partial class module : jpage
                 tmpstr = jt.itake("manage.add-succeed", "lng");
         }
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File_Edit()
@@ -102,7 +102,7 @@ public partial class module : jpage
         if (com.filePutContents(tFullPath, tContent)) 
             tmpstr = jt.itake("manage.edit-succeed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File_Delete()
@@ -116,7 +116,7 @@ public partial class module : jpage
         if (!com.fileDelete(tFullPath))
             tmpstr = jt.itake("manage.delete-failed", "lng");
 
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_File()
@@ -157,14 +157,14 @@ public partial class module : jpage
     private string Module_Folder_Add()
     {
         string tmpstr = jt.itake("manage.public", "tpl");
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.folder_add", "tpl");
         string tpath = cls.getString(request.querystring("path"));
         string tbackurl = cls.getString(request.querystring("backurl"));
         tmpstr2 = tmpstr2.Replace("{$path}", tpath);
         tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -173,7 +173,7 @@ public partial class module : jpage
     private string Module_Folder_Edit()
     {
         string tmpstr = jt.itake("manage.public", "tpl");
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.folder_edit", "tpl");
         string tbackurl = cls.getString(request.querystring("backurl"));
@@ -181,7 +181,7 @@ public partial class module : jpage
         tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
         tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
         tmpstr2 = tmpstr2.Replace("{$folder}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -206,14 +206,14 @@ public partial class module : jpage
     private string Module_File_Add()
     {
         string tmpstr = jt.itake("manage.public", "tpl");
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         string tmpstr2 = jt.itake("manage.file_add", "tpl");
         string tpath = cls.getString(request.querystring("path"));
         string tbackurl = cls.getString(request.querystring("backurl"));
         tmpstr2 = tmpstr2.Replace("{$path}", tpath);
         tmpstr2 = tmpstr2.Replace("{$backurl}", encode.urlencode(tbackurl));
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -222,7 +222,7 @@ public partial class module : jpage
     private string Module_File_Edit()
     {
         string tmpstr = jt.itake("manage.public", "tpl");
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         
         string tmpstr2 = jt.itake("manage.file_edit", "tpl");
         string tbackurl = cls.getString(request.querystring("backurl"));
@@ -231,7 +231,7 @@ public partial class module : jpage
         tmpstr2 = tmpstr2.Replace("{$path}", encode.htmlencode(tpath));
         tmpstr2 = tmpstr2.Replace("{$file}", encode.htmlencode(cls.getLRStr(tpath, "/", "right")));
         tmpstr2 = tmpstr2.Replace("{$content}", encode.htmlencode(com.fileGetContents(Server.MapPath(cls.getActualRoute(tpath)))));
-        tmpstr2 = plus_jt.creplace(tmpstr2);
+        tmpstr2 = jt_plus.creplace(tmpstr2);
 
         tmpstr = tmpstr.Replace("{$content}", tmpstr2);
         return tmpstr;
@@ -337,12 +337,12 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace("{$path}", tlinkpath);
         #endregion
 
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
         tmpstr = tmpstr.Replace("{$path2}", encode.urlencode(tpath));
         tmpstr = tmpstr.Replace("{$backurl}", encode.urlencode("manage.aspx?type=list&path=" + tpath));
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }

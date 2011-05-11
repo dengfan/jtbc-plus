@@ -63,7 +63,7 @@ public partial class module : jpage
 
     private string Module_Login()
     {
-        return plus_jt.ireplace("login.login_form", "tpl");
+        return jt_plus.ireplace("login.login_form", "tpl");
     }
 
     protected void Page_Load()

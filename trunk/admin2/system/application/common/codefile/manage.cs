@@ -52,7 +52,7 @@ public partial class module : jpage
         }
         
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         tmpstr = tmpstr.Replace("{$item_count}", i.ToString());
         //tmpstr = config.ajaxPreContent + tmpstr;
         return tmpstr;

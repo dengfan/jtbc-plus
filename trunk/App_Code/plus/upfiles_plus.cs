@@ -4,7 +4,7 @@
     using System.Web;
     using jtbc;
 
-    public static class plus_upfiles
+    public static class upfiles_plus
     {
         //无赖这个方法是 upfiles 类私有的，只能复制一下了。
         private static void CreateDatabaseNote(string argGenre, string argFilename, string argField, int argForeback, string argUserName)
@@ -115,7 +115,7 @@
                 str4 = jt.itake(string.Format("global.{0}:common.{1}", config.adminFolder, argXInfostr), "tpl");
             }
 
-            return plus_jt.creplace(str4.Replace("{$fid}", encode.htmlencode(str6)).
+            return jt_plus.creplace(str4.Replace("{$fid}", encode.htmlencode(str6)).
                 Replace("{$fnid}", encode.htmlencode(str7)).
                 Replace("{$fmode}", encode.htmlencode(str8)).
                 Replace("{$fname}", encode.htmlencode(argXInfostr)).
@@ -138,7 +138,7 @@
             string str6 = cls.getSafeString(request.querystring("fupmaxsize"));
 
             //上传页面的HTML代码在当前后台的模块文件夹下的 common.jtbc 里
-            return plus_jt.creplace(
+            return jt_plus.creplace(
                 jt.itake(string.Format("global.{0}:common.{1}", config.adminFolder, argString), "tpl").
                 Replace("{$fid}", encode.htmlencode(str2)).
                 Replace("{$fnid}", encode.htmlencode(str3)).

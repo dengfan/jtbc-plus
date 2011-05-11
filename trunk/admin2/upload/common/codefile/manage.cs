@@ -64,7 +64,7 @@ public partial class module : jpage
 
         string tmpstr = jt.itake("manage.delete-succeed", "lng");
         if (tstateNum == -101) tmpstr = jt.itake("manage.delete-failed", "lng");
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action()
@@ -134,7 +134,7 @@ public partial class module : jpage
         tmpstr = jt.creplace(tmpstr);
 
         #region ·þÎñÆ÷¶Ë·ÖÒ³
-        plus_pagi plus_pagi = new plus_pagi(pagi);
+        pagi_plus pagi_plus = new pagi_plus(pagi);
 
         string pagerUrl = "";
         if (!cls.isEmpty(tfield) && !cls.isEmpty(tkeyword))
@@ -145,14 +145,14 @@ public partial class module : jpage
         if (!cls.isEmpty(tnav))
             pagerUrl = pagerUrl + "&hspan=" + tnav;
 
-        string pager = plus_pagi.pager(pagerUrl, 9);
+        string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
 
         string tmpstrp = jt.itake("manage.public", "tpl");
         tmpstr = tmpstrp.Replace("{$content}", tmpstr);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }

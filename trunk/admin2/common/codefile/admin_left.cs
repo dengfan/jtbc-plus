@@ -11,7 +11,7 @@ public partial class module : jpage
         string tmpstr = "";
         if (_admin.ckLogin())
         {
-            tmpstr = plus_jt.ireplace("menu.admin_menu", "tpl");
+            tmpstr = jt_plus.ireplace("menu.admin_menu", "tpl");
             tmpstr = tmpstr.Replace("{$MenuHtml}", _admin_plus.getMenuHtml(cls.getActualRoute("./")));
             tmpstr = jt.creplace(tmpstr);
         }

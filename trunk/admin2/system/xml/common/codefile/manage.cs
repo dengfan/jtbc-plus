@@ -87,7 +87,7 @@ public partial class module : jpage
         }
         else tmpstr = jt.itake("manage.edit-failed", "lng");
         
-        return plus_com.clientAlert(tmpstr, tbackurl);
+        return com_plus.clientAlert(tmpstr, tbackurl);
     }
 
     private string Module_Action_Delete()
@@ -220,16 +220,16 @@ public partial class module : jpage
             tmpstr = tmpstr.Replace("{$base}", encode.htmlencode(tbase));
             tmpstr = tmpstr.Replace("{$count}", cls.toString(tXMLNodesCount));
             tmpstr = tmpstr.Replace("{$rootstr}", encode.base64.encodeBase64(trootstr));
-            tmpstr = plus_jt.creplace(tmpstr);
+            tmpstr = jt_plus.creplace(tmpstr);
         }
         else
         {
             tmpstr = jt.itake("manage.list-error", "tpl");
-            tmpstr = plus_jt.creplace(tmpstr);
+            tmpstr = jt_plus.creplace(tmpstr);
         }
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
         tmpstr = tmpstr.Replace("{$xml}", txml);
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
         return tmpstr;
     }
 

@@ -14,8 +14,8 @@ public partial class module : jpage
         string tfpre = cls.getString(jt.itake("global.config.admin-userlog-nfpre", "cfg"));
         string tidfield = cls.cfnames(tfpre, "id");
         int tstateNum = com.dataDelete(db, tdatabase, tidfield, cls.toString(tid));
-        if (tstateNum != -101) tmpstr = plus_com.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
-        else tmpstr = plus_com.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
+        if (tstateNum != -101) tmpstr = com_plus.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
+        else tmpstr = com_plus.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
 
         return tmpstr;
     }
@@ -36,8 +36,8 @@ public partial class module : jpage
                 tstateNum = com.dataDelete(db, tdatabase, tidfield, tids);
                 break;
         }
-        if (tstateNum != -101) tmpstr = plus_com.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
-        else tmpstr = plus_com.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
+        if (tstateNum != -101) tmpstr = com_plus.clientAlert(jt.itake("manage.execute-succeed", "lng"), tbackurl);
+        else tmpstr = com_plus.clientAlert(jt.itake("manage.execute-failed", "lng"), tbackurl);
 
         return tmpstr;
     }
@@ -104,13 +104,13 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
-        plus_pagi plus_pagi = new plus_pagi(pagi);
-        string pager = plus_pagi.pager("manage.aspx?page=[$page]", 9);
+        pagi_plus pagi_plus = new pagi_plus(pagi);
+        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         tmpstr = tmpstr.Replace("{$pagi.pagenum}", cls.toString(pagi.pagenum));
         tmpstr = tmpstr.Replace("{$pagi.pagenums}", cls.toString(pagi.pagenums));
-        tmpstr = plus_jt.creplace(tmpstr);
+        tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
     }
