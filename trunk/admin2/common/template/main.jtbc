@@ -118,6 +118,9 @@
             <name><![CDATA[admin_manage]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
+<script type="text/javascript">
+    
+</script>
 <table border="0" cellspacing="5" cellpadding="0" width="100%">
     <tr>
         <td>
@@ -159,8 +162,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="center">
+                    <td>
                         <div id="shortcut"></div>
+                        <ul id="contextmenu-shortcut" class="contextmenu1">
+                            <li><a href="javascript:;">打开</a></li>
+                            <li><a href="javascript:;">重命名</a></li>
+                            <li><a href="javascript:;">删除</a></li>
+                        </ul>
                     </td>
                 </tr>
             </table>
@@ -231,21 +239,43 @@
         </td>
     </tr>
 </table>
+
 <script type="text/javascript">
+    var shortcutContextMenu = {
+        id: null,
+        obj : j('#contextmenu-shortcut'),
+        getMenu : function(intItemId, e) {
+            var left = cls.mouse.tx(e);
+            var top = cls.mouse.ty(e);
+            shortcutContextMenu.obj.css({'top': top + 'px', 'left': left + 'px'}).show();
+        }
+    };
+
     j('#shortcut').load('user/userlnk/manage.aspx', function() {
-        j('#shortcut form').hover(
-            function() {
-                j(this).addClass('hover');
-            },
-            function() {
-                j(this).removeClass('hover');
-            }
-        );
+        var allItems = j('#shortcut form');
         
-        j('#shortcut form').click(function() {
-            var href = j(this).attr('url');
+        //打开右键菜单
+        allItems.bind('contextmenu', function(event) {
+            var currentItem = j(this);
+            var currentItemId = currentItem.attr('itemid');
+            allItems.removeClass('hover');
+            currentItem.addClass('hover'); //高亮当前项
+            shortcutContextMenu.getMenu(currentItemId, event);
+            return false;
+        });
+        
+        //双击打开
+        allItems.bind('click', function() {
+            var currentItem = j(this);
+            allItems.removeClass('hover');
+            currentItem.addClass('hover'); //高亮当前项
+            var href = currentItem.attr('url');
             location.href=href;
         });
+    });
+    
+    j('body').click(function() {
+        shortcutContextMenu.obj.hide(); //隐藏右键菜单
     });
 </script>
 {$=webAdminFoot("admin_foot_2")}]]>
