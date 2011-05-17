@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[channel_title]]></name>
+      <chinese><![CDATA[产品展示]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[class]]></name>
+      <chinese><![CDATA[产品分类]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[list1]]></name>
+      <chinese><![CDATA[推荐产品]]></chinese>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[manage-add]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$-defmenu}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+        <script type="text/javascript" src="{$=getActualRoute("common")}/editor/ubbeditor/ubbEditor.js"></script>
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("genre={$>this.genre.parents.1}")}{$=$navSpStr}{$=itake("default.nav_manage_add", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <form id="form1" method="post" action="default-interface.aspx?type=action&atype=manage&mtype=add">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="80" height="25">{$=itake("config.ruusername", "lng")}</td>
+                  <td><input type="text" name="ruusername" size="20" class="text" rtype="Require" rmessage="{$=itake("default.req_ruusername", "lng")}" value="{$=htmlencode(request.querystring("ruusername"))}" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake("global.lng_config.topic", "lng")}</td>
+                  <td><input type="text" name="topic" size="40" class="text" rtype="Require" rmessage="{$=itake("default.req_topic", "lng")}" value="{$=htmlencode(request.querystring("topic"))}" /></td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake("global.lng_config.content", "lng")}</td>
+                  <td><textarea id="content" name="content" style="WIDTH: 480px; HEIGHT: 220px"></textarea></td>
+                </tr>{@valcode@}
+                <tr>
+                  <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+                  <td><input type="text" name="valcode" size="5" class="text" /> <span class="hand"><img src="{$=$global.images}/code/code.aspx" onclick="this.src='{$=$global.images}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+                </tr>{@valcode@}
+                <tr>
+                  <td height="25"></td>
+                  <td><input id="ajaxSubmit" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="defaults.tManageAdd('form1');" /> <input type="reset" class="btn" value="{$=itake("global.lng_config.reset", "lng")}" /></td>
+                </tr>
+              </table>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">
+var nEditor = new ubbEditor('content');
+nEditor.tLang = 'zh-cn';
+nEditor.tInit('nEditor', '{$=getActualRoute("common")}/editor/ubbeditor/');
+</script>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[manage-list]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$-defmenu}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("genre={$>this.genre.parents.1}")}{$=$navSpStr}{$=itake("default.nav_manage_list", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="35" height="22"><strong>{$=itake("config.state", "lng")}</strong></td>
+                  <td><strong>{$=itake("global.lng_config.topic", "lng")}</strong></td>
+                  <td width="130"><strong>{$=itake("config.auusername", "lng")}</strong></td>
+                  <td width="130"><strong>{$=itake("global.lng_config.time", "lng")}</strong></td>
+                  <td width="24" align="right"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" /></td>
+                </tr>{@}
+                <tr>
+                  <td height="22"><img src="{$=$images}/read/{$read}.gif" class="absmiddle" alt="{$=itake("default.read{$read}", "lng")}" /></td>
+                  <td><a href="?type=manage&amp;mtype=detail&amp;id={$id}">{$topic}</a></td>
+                  <td>{$auusername}</td>
+                  <td>{$time}</td>
+                  <td align="right"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
+                </tr>{@}
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="5"></td>
+          </tr>
+          <tr>
+            <td height="25" align="right"><input type="button" class="btn" value="{$=itake("default.nav_manage_add", "lng")}" onclick="location.href = '?type=manage&amp;mtype=add';" /> <input id="ajaxDelete" type="button" class="btn" value="{$=itake("default.nav_manage_delete", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}')) defaults.tManageDelete(cls.tgetCheckboxsValue('id'));" /></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", "?type=manage&amp;mtype=list&amp;page=[~page]", "cutepage")}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[manage-detail]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">{$-defmenu}</div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("genre={$>this.genre.parents.1}")}{$=$navSpStr}{$=itake("default.nav_manage_detail", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="80" height="25">{$=itake("config.auusername", "lng")}</td>
+                  <td>{$auusername}</td>
+                </tr>
+                <tr>
+                  <td height="25">{$=itake("global.lng_config.topic", "lng")}</td>
+                  <td>{$topic}</td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td valign="top">{$=itake("global.lng_config.content", "lng")}</td>
+                  <td>{$=ubb2html(repathdecode(getRsValue("rs", "content")))}</td>
+                </tr>
+                <tr>
+                  <td height="15"></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td height="25"></td>
+                  <td><input type="button" class="btn" value="{$=itake("default.nav_manage_reply", "lng")}" onclick="location.href = '?type=manage&amp;mtype=add&amp;ruusername={$=urlencode(getRsValue("rs", "auusername"))}&amp;topic=Re: {$=urlencode(getRsValue("rs", "topic"))}';" /></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                  <td></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

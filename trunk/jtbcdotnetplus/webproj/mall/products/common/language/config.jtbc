@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[snum]]></name>
+      <chinese><![CDATA[编码]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[yprice]]></name>
+      <chinese><![CDATA[原价]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[xprice]]></name>
+      <chinese><![CDATA[现价]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[amount]]></name>
+      <chinese><![CDATA[库存]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[yuan]]></name>
+      <chinese><![CDATA[元]]></chinese>
+    </item>
+  </item_list>
+</xml>

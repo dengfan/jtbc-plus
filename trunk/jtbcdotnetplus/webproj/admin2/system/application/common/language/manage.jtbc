@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,chinese</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[mgtitle]]></name>
+            <chinese><![CDATA[系统缓存]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[list]]></name>
+            <chinese><![CDATA[缓存列表]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[detail]]></name>
+            <chinese><![CDATA[详细]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[delete]]></name>
+            <chinese><![CDATA[删除]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[item_count]]></name>
+            <chinese><![CDATA[({$item_count}个)]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[all]]></name>
+            <chinese><![CDATA[全部缓存]]></chinese>
+        </item>
+    </item_list>
+</xml>

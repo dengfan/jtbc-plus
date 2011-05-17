@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[login]]></name>
+      <chinese><![CDATA[用户登录]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[username]]></name>
+      <chinese><![CDATA[用户名称]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[password]]></name>
+      <chinese><![CDATA[用户密码]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[valcode]]></name>
+      <chinese><![CDATA[验证码]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[submit]]></name>
+      <chinese><![CDATA[提交]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[reset]]></name>
+      <chinese><![CDATA[重置]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[start]]></name>
+      <chinese><![CDATA[开始]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[copyright]]></name>
+      <chinese><![CDATA[JTBC网站内容管理系统(V2.0)]]></chinese>
+    </item>
+  </item_list>
+</xml>

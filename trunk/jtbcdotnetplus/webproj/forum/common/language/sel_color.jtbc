@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[]]></name>
+      <chinese><![CDATA[常规]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[#FF0000]]></name>
+      <chinese><![CDATA[红色]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[#008000]]></name>
+      <chinese><![CDATA[绿色]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[#0000FF]]></name>
+      <chinese><![CDATA[蓝色]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[#800080]]></name>
+      <chinese><![CDATA[紫色]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[#808080]]></name>
+      <chinese><![CDATA[灰色]]></chinese>
+    </item>
+  </item_list>
+</xml>

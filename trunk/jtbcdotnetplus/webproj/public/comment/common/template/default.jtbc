@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake("default.channel_title", "lng")}</h3>
+        <ul>
+          <li>{$=itake("default.message-1", "lng")}</li>
+          <li>{$=itake("default.message-2", "lng")}</li>
+          <li>{$=itake("default.message-3", "lng")}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("")}{$=$navSpStr}{$=itake("default.nav_list", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>{@}
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="25"><img src="{$=$global.images}/public/icon.1.gif" class="absmiddle" /> <strong>{$muusername}</strong></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td class="comment"><div>{$=encodeArticle(htmlencode(getRsValue("rs", "content")))}</div></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td height="25" align="right">{$time} <span class="ash">[{$=getLRStr(htmlencode(getRsValue("rs", "ip")), ".", "leftr")}.*]</span></td>
+                </tr>
+              </table>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="line1"></td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+              </table>{@}
+            </td>
+          </tr>
+          <tr>
+            <td><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", iurl("type=page;page=[~page]"), "cutepage")}</div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

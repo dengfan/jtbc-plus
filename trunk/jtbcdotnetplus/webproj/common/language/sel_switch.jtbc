@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[select]]></name>
+      <chinese><![CDATA[选择]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[commendatory]]></name>
+      <chinese><![CDATA[推荐]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[htop]]></name>
+      <chinese><![CDATA[固顶]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[top]]></name>
+      <chinese><![CDATA[置顶]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[elite]]></name>
+      <chinese><![CDATA[精华]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[lock]]></name>
+      <chinese><![CDATA[锁定]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[hidden]]></name>
+      <chinese><![CDATA[隐藏]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[spprice]]></name>
+      <chinese><![CDATA[特价]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[delete]]></name>
+      <chinese><![CDATA[删除]]></chinese>
+    </item>
+  </item_list>
+</xml>

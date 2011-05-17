@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[default]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_2")}
+<script type="text/javascript" src="{$=$images}/js/jquery.manages.js"></script>
+<table border="0" cellspacing="5" cellpadding="0" width="100%">
+    <tr>
+        <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="120" align="center" valign="top">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                            <tr>
+                                <td width="100%" height="25" class="tbtop">
+                                    {$=itake("global.lng_config.hint", "lng")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" align="center">
+                                    <form method="get" name="search" action="?action=search">
+                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p style="padding: 0 6px; line-height: 20px;" class="ash">
+                                                        {$=itake("manage.hint1", "lng")}<br />
+                                                        {$=itake("manage.hint2", "lng")}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="5"></td>
+                    <td width="*" align="center" valign="top">
+                        <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
+                            <tr>
+                                <td width="100%" height="25" class="tbtop">
+                                    {$=itake("manage.mgtitle", "lng")}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="100%" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
+                                    <table width="98%" cellspacing="0" cellpadding="0" border="0">
+                                        <tr>
+                                            <td id="RunInfo"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><textarea id="sqlstrs" name="sqlstrs" rows="15" cols="90"></textarea></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="button" id="run" onclick="manages.tRunSqlstr($('sqlstrs').value)">{$=itake("manage.run", "lng")}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="15"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+{$=webAdminFoot("admin_foot_2")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[run]]></name>
+            <tpl_default><![CDATA[<div class="conts">{$sqlstr} <img src="{$=$admin.theme}icon/{$state1}.png" class="absmiddle" /> {$state2}</div>]]></tpl_default>
+        </item>
+    </item_list>
+</xml>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+    <configure>
+        <node>item</node>
+        <field>name,tpl_default</field>
+        <base>item_list</base>
+    </configure>
+    <item_list>
+        <item>
+            <name><![CDATA[admin_menu]]></name>
+            <tpl_default>
+                <![CDATA[{$=webAdminHead("admin_head_1")}
+{$MenuHtml}
+{$=webAdminFoot("admin_foot_1")}]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_menu_content]]></name>
+            <tpl_default>
+                <![CDATA[<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.css" />
+<table border="0" cellspacing="5" cellpadding="0" width="100%" height="100%" class="trw">
+    <tr>
+        <td valign="top">{@}
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+                <tr>
+                    <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+                    <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('submenu{$id}')">
+                        <span>{$text}</span>
+                    </td>
+                    <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" id="submenu{$id}" style="display:none;">
+                <tr>
+                    <td valign="top" align="center">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="sec_menu" align="center">
+                            <tr>
+                                <td>
+                                    {$MenuItem}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+                <tr>
+                    <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0" alt="" /></td>
+                    <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+                    <td width="4" align="right"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0" alt="" /></td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+                <tr>
+                    <td height="2"></td>
+                </tr>
+            </table>{@}
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+                <tr>
+                    <td width="4" height="25" background="{$=$admin.theme}menu_topleft.gif"></td>
+                    <td width="*" background="{$=$admin.theme}menu_topbg.gif" class="menu_title" id="menuTitle1" onclick="switch_display('sysinfo')">
+                        <span>
+                            <img class="absmiddle" src="{$=$admin.theme}icon_1_1.png" width="18" height="18" />&nbsp;{$=itake("config.sysinfo","lng")}
+                        </span>
+                    </td>
+                    <td width="4" background="{$=$admin.theme}menu_topright.gif"></td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center" id="sysinfo">
+                <tr>
+                    <td valign="top" align="center">
+                        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="sec_menu" align="center">
+                            <tr>
+                                <td>
+                                    <table cellspacing="0" cellpadding="0" border="0" width="142" align="center">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="20" width="130" align="center">
+                                                <a href="http://www.jetiben.com/" target="_blank" style="font-size: 12px;">{$=itake("config.copyright","lng")}</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+                <tr>
+                    <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0" alt="" /></td>
+                    <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+                    <td width="4" align="right"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0" alt="" /></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">j('table.sec_menu td ul').treeview();</script>]]>
+            </tpl_default>
+        </item>
+        <item>
+            <name><![CDATA[admin_menu_content_child]]></name>
+            <tpl_default>
+                <![CDATA[<ul>{@}
+    <li>{$text}</li>{@}
+</ul>]]>
+            </tpl_default>
+        </item>
+    </item_list>
+</xml>

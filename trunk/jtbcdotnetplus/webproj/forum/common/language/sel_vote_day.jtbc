@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[-1]]></name>
+      <chinese><![CDATA[不限]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[1]]></name>
+      <chinese><![CDATA[一天]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[3]]></name>
+      <chinese><![CDATA[三天]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[7]]></name>
+      <chinese><![CDATA[一周]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[30]]></name>
+      <chinese><![CDATA[一月]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[365]]></name>
+      <chinese><![CDATA[一年]]></chinese>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,1 @@
+<%@ Page Language="C#" Inherits="module" CodeFile="common/codefile/interface.cs"%>

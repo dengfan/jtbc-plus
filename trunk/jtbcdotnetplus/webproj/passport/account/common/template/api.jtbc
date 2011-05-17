@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[jslogin-1]]></name>
+      <tpl_default><![CDATA[<div id="jslogin-1"></div>
+<div class="dfn">
+  <input id="jslogin-1-Message-1" type="hidden" value="{$=itake("{$>this}.checking", "lng")}" />
+  <input id="jslogin-1-Message-2" type="hidden" value="{$=itake("{$>this}.logining", "lng")}" />
+  <input id="jslogin-1-Message-3" type="hidden" value="{$=itake("{$>this}.logouting", "lng")}" />
+  <input id="jslogin-1-Message-4" type="hidden" value="{$=itake("{$>this}.loginerror1", "lng")}" />
+  <input id="jslogin-1-Message-5" type="hidden" value="{$=itake("{$>this}.loginerror2", "lng")}" />
+</div>
+<script type="text/javascript" src="{$=getActualRoute("{$>this.genre}")}/{$=$images}/js/jslogin.js"></script>
+<script type="text/javascript">jslogin.tCkLogin('jslogin-1', '{$=getActualRoute("{$>this.genre}")}');</script>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin-1-login]]></name>
+      <tpl_default><![CDATA[<form id="jslogin-1-login-form" action="{$=getLRStr($nuri, "/", "leftr")}/interface.aspx?type=action&atype=login&namepre=jslogin-1-" onsubmit="return jslogin.tLogin('jslogin-1-login-form');">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td width="60" height="25">{$=itake("global.{$>this.genre}:config.username", "lng")}</td>
+    <td><input type="text" name="jslogin-1-username" size="20" class="text" /></td>
+  </tr>
+  <tr>
+    <td height="25">{$=itake("global.{$>this.genre}:config.password", "lng")}</td>
+    <td><input type="password" name="jslogin-1-password" size="20" class="text" /></td>
+  </tr>{@valcode@}
+  <tr>
+    <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+    <td><input type="text" name="jslogin-1-valcode" size="5" class="text" /> <span class="hand"><img src="{$=getLRStr($nuri, "/", "leftr")}/{$=getActualRouteB($images)}/code/code.aspx" title="{$=itake("global.lng_config.valcode-refresh", "lng")}" onclick="this.src='{$=getLRStr($nuri, "/", "leftr")}/{$=getActualRouteB($images)}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+  </tr>{@valcode@}
+  <tr>
+    <td height="25"></td>
+    <td><input type="submit" value="{$=itake("global.{$>this.genre}:default.login", "lng")}" class="btn" />&nbsp;&nbsp;<a href="{$=getLRStr($nuri, "/", "leftr")}?type=register">{$=itake("global.{$>this.genre}:default.register", "lng")}</a>&nbsp;<a href="{$=getLRStr($nuri, "/", "leftr")}?type=lostpassword">{$=itake("global.{$>this.genre}:default.lostpassword", "lng")}</a></td>
+  </tr>
+</table>
+</form>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin-1-logined]]></name>
+      <tpl_default><![CDATA[<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td width="60" height="25">{$=itake("global.{$>this.genre}:config.username", "lng")}</td>
+    <td>{$username}</td>
+  </tr>
+  <tr>
+    <td height="25">{$=itake("global.{$>this.genre}:config.atime", "lng")}</td>
+    <td>{$=$now}</td>
+  </tr>
+  <tr>
+    <td colspan="2" height="25"><a href="{$=getLRStr($nuri, "/", "leftr")}?type=manage">{$=itake("global.{$>this.genre}:default.membercenter", "lng")}</a> <a href="javascript: if (confirm('{$=itake("global.{$>this.genre}:api.logoutconfirm", "lng")}')) jslogin.tLogout();">{$=itake("global.{$>this.genre}:default.logout", "lng")}</a></td>
+  </tr>
+</table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin-2]]></name>
+      <tpl_default><![CDATA[<div id="jslogin-2"></div>
+<div class="dfn">
+  <input id="jslogin-2-Message-1" type="hidden" value="{$=itake("{$>this}.checking", "lng")}" />
+  <input id="jslogin-2-Message-2" type="hidden" value="{$=itake("{$>this}.logining", "lng")}" />
+  <input id="jslogin-2-Message-3" type="hidden" value="{$=itake("{$>this}.logouting", "lng")}" />
+  <input id="jslogin-2-Message-4" type="hidden" value="{$=itake("{$>this}.loginerror1", "lng")}" />
+  <input id="jslogin-2-Message-5" type="hidden" value="{$=itake("{$>this}.loginerror2", "lng")}" />
+</div>
+<script type="text/javascript" src="{$=getActualRoute("{$>this.genre}")}/{$=$images}/js/jslogin.js"></script>
+<script type="text/javascript">jslogin.tCkLogin('jslogin-2', '{$=getActualRoute("{$>this.genre}")}');</script>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin-2-login]]></name>
+      <tpl_default><![CDATA[<form id="jslogin-2-login-form" action="{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}/interface.aspx?type=action&atype=login&namepre=jslogin-1-" onsubmit="return jslogin.tLogin('jslogin-2-login-form');">{$=itake("global.{$>this.genre}:config.username", "lng")} &nbsp; <input type="text" name="jslogin-1-username" size="20" class="text" /> &nbsp; {$=itake("global.{$>this.genre}:config.password", "lng")} &nbsp; <input type="password" name="jslogin-1-password" size="20" class="text" />{@valcode@} &nbsp; {$=itake("global.lng_config.valcode", "lng")} &nbsp; <input type="text" name="jslogin-1-valcode" size="5" class="text" /> <span class="hand"><img src="{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}/{$=getActualRouteB($images)}/code/code.aspx" title="{$=itake("global.lng_config.valcode-refresh", "lng")}" onclick="this.src='{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}/{$=getActualRouteB($images)}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span>{@valcode@} &nbsp; <input type="submit" value="{$=itake("global.{$>this.genre}:default.login", "lng")}" class="btn" />&nbsp;&nbsp;<a href="{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}?type=register">{$=itake("global.{$>this.genre}:default.register", "lng")}</a>&nbsp;<a href="{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}?type=lostpassword">{$=itake("global.{$>this.genre}:default.lostpassword", "lng")}</a></form>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[jslogin-2-logined]]></name>
+      <tpl_default><![CDATA[{$=itake("global.{$>this.genre}:config.username", "lng")} &nbsp; {$username} &nbsp; {$=itake("global.{$>this.genre}:config.atime", "lng")} &nbsp; {$=$now} &nbsp; <a href="{$=$nurlpre}{$=getLRStr($nuri, "/", "leftr")}?type=manage">{$=itake("global.{$>this.genre}:default.membercenter", "lng")}</a> <a href="javascript: if (confirm('{$=itake("global.{$>this.genre}:api.logoutconfirm", "lng")}')) jslogin.tLogout();">{$=itake("global.{$>this.genre}:default.logout", "lng")}</a>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

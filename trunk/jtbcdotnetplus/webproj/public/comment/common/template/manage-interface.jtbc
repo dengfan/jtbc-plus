@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[add]]></name>
+      <tpl_default><![CDATA[
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="tit tdl"></td>
+                    <td class="tit">{$=itake("manage.nav_add", "lng")}</td>
+                    <td class="tit tdr"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td valign="top">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                      </table>
+                      <form id="form1" method="post" action="manage-interface.aspx?type=action&atype=add">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td width="80" class="txt">{$=itake("config.muusername", "lng")}</td>
+                          <td class="txt"><input type="text" name="muusername" size="40" class="text" rtype="Require" rmessage="{$=itake("manage.req_muusername", "lng")}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.ip", "lng")}</td>
+                          <td class="txt"><input type="text" name="ip" size="20" class="text" value="{$=$nuserip}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt" valign="top">{$=itake("config.content", "lng")}</td>
+                          <td><textarea name="content" class="textarea" rows="5" cols="75"></textarea></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.keyword", "lng")}</td>
+                          <td class="txt"><input type="text" name="keyword" size="20" class="text" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.fid", "lng")}</td>
+                          <td class="txt"><input type="text" name="fid" size="20" class="text" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("global.lng_config.hidden", "lng")}</td>
+                          <td class="txt">{$=xmlSelect("global.sel_yesno.all", "0", "radio", "hidden")}</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td class="txt"><input id="ajaxSubmit" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tAdd('form1');" /> <input type="reset" class="btn" value="{$=itake("global.lng_config.reset", "lng")}" /></td>
+                        </tr>
+                      </table>
+                      </form>
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td height="5"></td>
+                  </tr>
+                </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[edit]]></name>
+      <tpl_default><![CDATA[
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="tit tdl"></td>
+                    <td class="tit">{$=itake("manage.nav_edit", "lng")}</td>
+                    <td class="tit tdr"></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td valign="top">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                      </table>
+                      <form id="form1" method="post" action="manage-interface.aspx?type=action&atype=edit&id={$id}">
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td width="80" class="txt">{$=itake("config.muusername", "lng")}</td>
+                          <td class="txt"><input type="text" name="muusername" size="40" class="text" rtype="Require" rmessage="{$=itake("manage.req_muusername", "lng")}" value="{$muusername}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.ip", "lng")}</td>
+                          <td class="txt"><input type="text" name="ip" size="20" class="text" value="{$ip}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt" valign="top">{$=itake("config.content", "lng")}</td>
+                          <td><textarea name="content" class="textarea" rows="5" cols="75">{$content}</textarea></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.keyword", "lng")}</td>
+                          <td class="txt"><input type="text" name="keyword" size="20" class="text" value="{$keyword}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("config.fid", "lng")}</td>
+                          <td class="txt"><input type="text" name="fid" size="20" class="text" value="{$fid}" /></td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("global.lng_config.hidden", "lng")}</td>
+                          <td class="txt">{$=xmlSelect("global.sel_yesno.all", "{$hidden}", "radio", "hidden")}</td>
+                        </tr>
+                        <tr>
+                          <td class="txt">{$=itake("global.lng_config.time", "lng")}</td>
+                          <td class="txt"><input type="text" name="time" size="20" class="text" value="{$=formatDate("{$time}", "100")}" /></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td class="txt"><input id="ajaxSubmit" type="button" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" onclick="manages.tEdit('form1');" /> <input type="reset" class="btn" value="{$=itake("global.lng_config.reset", "lng")}" /></td>
+                        </tr>
+                      </table>
+                      </form>
+                      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td height="5"></td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td height="5"></td>
+                  </tr>
+                </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="tit tdl"></td>
+                    <td class="tit">{$=itake("manage.list", "lng")}</td>
+                    <td class="tit tdr"></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="txt tdl"></td>
+                    <td class="txt" width="24"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" /></td>
+                    <td class="txt">{$=itake("config.muusername", "lng")}</td>
+                    <td class="txt" width="200">{$=itake("config.keyword", "lng")}</td>
+                    <td class="txt" width="130">{$=itake("global.lng_config.time", "lng")}</td>
+                    <td class="tdimg"></td>
+                    <td class="tdimg"></td>
+                    <td class="txt tdr"></td>
+                  </tr>{@}
+                  <tr onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);">
+                    <td></td>
+                    <td class="txt"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
+                    <td class="txt"><span id="list-keywords-{$id}" class="hand text-state-{$hidden}" onclick="manages.tLoad('?type=edit&id={$id}');" title="ID: {$id}">{$muusername}</span></td>
+                    <td class="txt">{$keyword}</td>
+                    <td class="txt">{$=formatDate("{$time}", "100")}</td>
+                    <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.edit", "lng")}" onclick="manages.tLoad('?type=edit&id={$id}');"><img src="{$=$admin.theme}edit.1.png" class="absmiddle" /></span></td>
+                    <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', 'manages.tDelete({$id});');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span></td>
+                    <td></td>
+                  </tr>{@}
+                  <tr>
+                    <td colspan="7" id="cutepage" class="cutepage"><div class="dfn"><dfn><textarea>cls.pagi.tpagi({$pagi.pagenum}, {$pagi.pagenums}, 'manages.tLoad(cls.treparameter(manages.ttempArg, \'page\', [$page]));', 'cutepage');</textarea></dfn></div></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="7" class="selected-switch">{$=itake("global.lng_common.selected-switch", "lng")} <select name="swtype" id="swtype" class="select">{$=getSwitchOptions("select,hidden,delete")}</select> <input type="button" class="button" value="{$=itake("global.lng_common.switch", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}', 'manages.tSwitch($(\'swtype\').value, cls.tgetCheckboxsValue(\'id\'));');" /></td>
+                    <td></td>
+                  </tr>
+                </table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[data_top]]></name>
+      <tpl_default><![CDATA[
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$-inavigation}</td>
+      </tr>
+      <tr>
+        <td height="25">{$=ireplace("global.passport/account:api.jslogin-2", "tpl")}</td>
+      </tr>
+    </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[data_foot]]></name>
+      <tpl_default><![CDATA[
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.forum_img", "lng")}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="5"></td>
+            </tr>
+            <tr>
+              <td align="center"><img src="{$=$images}/state/0.gif" class="absmiddle" /> {$=itake("default.forum_null", "lng")} <img src="{$=$images}/state/1.gif" class="absmiddle" /> {$=itake("default.forum_new", "lng")} <img src="{$=$images}/state/2.gif" class="absmiddle" /> {$=itake("default.forum_lock", "lng")}</td>
+            </tr>
+            <tr>
+              <td height="5"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[data_fa_category]]></name>
+      <tpl_default><![CDATA[{$=inavigation("null")}{@}{$=$navSpStr}<a href="{$=iurl("type=list;key={$id}")}">{$topic}</a>{@}&nbsp;]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[release]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.txt-rule", "lng")}</td>
+      </tr>
+      <tr>
+        <td>{$rule}</td>
+      </tr>
+    </table>
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td class="tbn" height="30"><a href="{$=$nurlpre}{$=$nuri}?type=release&amp;class={$id}"><img src="{$=$images}/post/topic_{$=$nlng}.gif" alt="{$=itake("default.txt-newtopic", "lng")}" /></a> &nbsp; <a href="{$=$nurlpre}{$=$nuri}?type=release&amp;class={$id}&amp;vote=1"><img src="{$=$images}/post/vote_{$=$nlng}.gif" alt="{$=itake("default.txt-newvote", "lng")}" /></a></td>
+        <td class="tbn" align="right"><a href="{$=getActualRoute($ngenre)}/manager.aspx?type=list&amp;class={$id}"><img src="{$=$images}/icon/admin.gif" class="absmiddle" /></a> {$=formatText(htmlencode(getRsValue('rs', 'manager')), "<a href="#">[text]</a> &nbsp;", ",")}</td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.txt-newtopic", "lng")}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+          <script type="text/javascript" src="{$=getActualRoute("common")}/editor/ubbeditor/ubbEditor.js"></script>
+          <form id="form1" method="post" action="default-interface.aspx?type=action&atype=release" onsubmit="return false;">
+          <input type="hidden" name="class" value="{$id}" />
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="100" height="25">{$=itake("default.txt-author", "lng")}</td>
+              <td>{$-nusername}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("default.txt-topic", "lng")}</td>
+              <td><input type="text" name="topic" class="text" size="60" rtype="Require" rmessage="{$=itake("default.release-error-3", "lng")}" /></td>
+            </tr>{@vote@}
+            <tr>
+              <td height="25">{$=itake("default.txt-voteop", "lng")}</td>
+              <td>{$=xmlSelect("sel_vote_type.all", "0", "radio", "vote_type")} &nbsp; {$=itake("default.txt-backday", "lng")} <select name="vote_day" class="select">{$=xmlSelect("sel_vote_day.all", "0", "select")}</select></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td valign="top">
+                <input type="hidden" name="votesnum" id="votesnum" value="2" />
+                <div id="votesList">
+                  <table id="votes-0" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td width="250" height="25"><input type="text" name="votes_topic_0" size="20" class="text" style="width: 230px" /></td>
+                      <td><span class="hand" onclick="defaults.votes.tDelete('0');"><img src="{$=$images}/icon/delete.gif" class="absmiddle" /></span></td>
+                    </tr>
+                  </table>
+                  <table id="votes-1" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td width="250" height="25"><input type="text" name="votes_topic_1" size="20" class="text" style="width: 230px" /></td>
+                      <td><span class="hand" onclick="defaults.votes.tDelete('1');"><img src="{$=$images}/icon/delete.gif" class="absmiddle" /></span></td>
+                    </tr>
+                  </table>
+                </div>
+                <div id="votesListFactory" class="dfn"></div>
+              </td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+              <td><span class="ash hand" onclick="defaults.votes.tAdd();"><img src="{$=$images}/icon/icon.gif" class="absmiddle" /> {$=itake("default.txt-voteadd", "lng")}</span></td>
+            </tr>{@vote@}
+            <tr>
+              <td height="25">{$=itake("default.txt-mood", "lng")}</td>
+              <td>{$=xmlSelect("sel_mood.all", "0", "radio_image", "icon")}</td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td valign="top">{$=itake("default.txt-content", "lng")}</td>
+              <td><textarea id="content" name="content" style="WIDTH: 550px; HEIGHT: 280px"></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>{@user_upload@}
+            <tr>
+              <td height="25">{$=itake("default.txt-content_files", "lng")}</td>
+              <td><select class="select" name="content_files" id="content_files" itype="select" vtype="all" onkeydown="cls.selects.tDisplace(this, this.selectedIndex, event.keyCode);"></select> <input type="button" class="button" value="{$=itake("global.lng_config.delete", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}{$=itake("global.lng_common.questionmark", "lng")}')) cls.selects.tRemove('content_files');" /> <input type="button" class="button" value="{$=itake("global.lng_config.insert", "lng")}" onclick="defaults.tInsert(nEditor, $('content_files').value, '{$=itake("default.txt-c-download", "lng")}')" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("global.lng_config.upload", "lng")}</td>
+              <td><iframe src="default-interface.aspx?type=upload&amp;fid=content_files" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
+            </tr>{@user_upload@}{@valcode@}
+            <tr>
+              <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+              <td><input type="text" name="valcode" size="5" class="text" /> <span class="hand"><img src="{$=$global.images}/code/code.aspx" title="{$=itake("global.lng_config.valcode-refresh", "lng")}" onclick="this.src='{$=$global.images}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+            </tr>{@valcode@}
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+              <td><input id="ajaxSubmit" type="submit" class="button" value="{$=itake("default.txt-submit", "lng")}" onclick="defaults.tRelease('form1');" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<script type="text/javascript">
+var nEditor = new ubbEditor('content');
+nEditor.tLang = 'zh-cn';
+nEditor.tInit('nEditor', '{$=getActualRoute("common")}/editor/ubbeditor/');
+</script>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[edit]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.txt-edittopic", "lng")}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+          <script type="text/javascript" src="{$=getActualRoute("common")}/editor/ubbeditor/ubbEditor.js"></script>
+          <form id="form1" method="post" action="default-interface.aspx?type=action&atype=edit&id={$id}" onsubmit="return false;">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="100" height="25">{$=itake("default.txt-author", "lng")}</td>
+              <td>{$-nusername}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("default.txt-topic", "lng")}</td>
+              <td><input type="text" name="topic" class="text" size="60" value="{$topic}" rtype="Require" rmessage="{$=itake("default.edit-error-2", "lng")}" /></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("default.txt-mood", "lng")}</td>
+              <td>{$=xmlSelect("sel_mood.all", "{$icon}", "radio_image", "icon")}</td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td valign="top">{$=itake("default.txt-content", "lng")}</td>
+              <td><textarea id="content" name="content" style="WIDTH: 550px; HEIGHT: 280px">{$=htmlencode(repathdecode(getRsValue("rs", "content")))}</textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>{@user_upload@}
+            <tr>
+              <td height="25">{$=itake("default.txt-content_files", "lng")}</td>
+              <td><select class="select" name="content_files" id="content_files" itype="select" vtype="all" onkeydown="cls.selects.tDisplace(this, this.selectedIndex, event.keyCode);"></select> <input type="button" class="button" value="{$=itake("global.lng_config.delete", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.deleteconfirm", "lng")}{$=itake("global.lng_common.questionmark", "lng")}')) cls.selects.tRemove('content_files');" /> <input type="button" class="button" value="{$=itake("global.lng_config.insert", "lng")}" onclick="defaults.tInsert(nEditor, $('content_files').value, '{$=itake("default.txt-c-download", "lng")}');" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("global.lng_config.upload", "lng")}</td>
+              <td><iframe src="default-interface.aspx?type=upload&amp;fid=content_files" width="100%" height="25" scrolling="no" marginwidth="0" marginheight="0" align="absmiddle" frameborder="0"></iframe></td>
+            </tr>{@user_upload@}{@valcode@}
+            <tr>
+              <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+              <td><input type="text" name="valcode" size="5" class="text" /> <span class="hand"><img src="{$=$global.images}/code/code.aspx" title="{$=itake("global.lng_config.valcode-refresh", "lng")}" onclick="this.src='{$=$global.images}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+            </tr>{@valcode@}
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+              <td><input id="ajaxSubmit" type="submit" class="button" value="{$=itake("default.txt-submit-edit", "lng")}" onclick="defaults.tEdit('form1');" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+          </table>
+          <script type="text/javascript">wfront.img.tinsertSelects('content_files', '{$content_files}');</script>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<script type="text/javascript">
+var nEditor = new ubbEditor('content');
+nEditor.tLang = 'zh-cn';
+nEditor.tInit('nEditor', '{$=getActualRoute("common")}/editor/ubbeditor/');
+</script>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.txt-rule", "lng")}</td>
+      </tr>
+      <tr>
+        <td>{$rule}</td>
+      </tr>
+    </table>{@}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="3">{$topic}</td>
+      </tr>{@@}
+      <tr>
+        <td width="8%" align="center"><img src="{$=$images}/state/{$-p-state}.gif" /></td>
+        <td width="62%">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="22"><a href="{$=iurl("type=list;key={$-id}")}"><strong>{$-topic}</strong></a></td>
+              <td rowspan="3" align="right">{$-image}</td>
+            </tr>
+            <tr>
+              <td class="ash">{$-explain}</td>
+            </tr>
+            <tr>
+              <td height="22">{$=itake("default.txt-admin", "lng")}: {$=formatText(htmlencode(getRsValue('rs', 'manager')), "[text] &nbsp;", ",")}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="30%">{@@@}
+          <table width="96%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="22" colspan="3"><img src="{$=$images}/icon/topic.gif" class="absmiddle" /> <a href="{$=iurl("type=detail;key={$-last_topic_id};time={$-last_topic_time}")}">{$-last_topic}</a></td>
+            </tr>
+            <tr>
+              <td height="22" colspan="3"><img src="{$=$images}/icon/time.gif" class="absmiddle" /> {$=formatDate("{$-last_topic_time}")}</td>
+            </tr>
+            <tr>
+              <td width="33%" height="22"><img src="{$=$images}/icon/num_new.gif" class="absmiddle" /> {$-p-num_note_new}</td>
+              <td width="33%"><img src="{$=$images}/icon/num_topic.gif" class="absmiddle" /> {$-num_topic}</td>
+              <td width="34%"><img src="{$=$images}/icon/num_note.gif" class="absmiddle" /> {$-num_note}</td>
+            </tr>
+          </table>{@-@-@}
+          <table width="96%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" class="ash">{$=itake("default.statistics-error-1", "lng")}</td>
+            </tr>
+          </table>{@@@}
+        </td>
+      </tr>{@@}
+    </table>{@}{~}
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td class="tbn" height="30"><a href="{$=$nurlpre}{$=$nuri}?type=release&amp;class={$id}"><img src="{$=$images}/post/topic_{$=$nlng}.gif" alt="{$=itake("default.txt-newtopic", "lng")}" /></a> &nbsp; <a href="{$=$nurlpre}{$=$nuri}?type=release&amp;class={$id}&amp;vote=1"><img src="{$=$images}/post/vote_{$=$nlng}.gif" alt="{$=itake("default.txt-newvote", "lng")}" /></a></td>
+        <td class="tbn" align="right"><a href="{$=getActualRoute($ngenre)}/manager.aspx?type=list&amp;class={$id}"><img src="{$=$images}/icon/admin.gif" class="absmiddle" /></a> {$=formatText(htmlencode(getRsValue('rs', 'manager')), "[text] &nbsp;", ",")}</td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="7">{$=itake("default.txt-topiclist", "lng")}</td>
+      </tr>
+      <tr>
+        <td width="3%" align="center"><img src="{$=$images}/topic/ico.gif" /></td>
+        <td width="3%" align="center"><img src="{$=$images}/topic/ico.gif" /></td>
+        <td width="47%">{$=itake("default.txt-topic", "lng")}</td>
+        <td width="13%">{$=itake("default.txt-author", "lng")}</td>
+        <td width="7%" align="center">{$=itake("default.txt-reply", "lng")}</td>
+        <td width="7%" align="center">{$=itake("default.txt-count", "lng")}</td>
+        <td width="20%">{$=itake("default.txt-lastreply", "lng")}</td>
+      </tr>{~~}
+      <tr>
+        <td align="center"><img src="{$=$images}/topic/{$-p-icon}.gif" /></td>
+        <td align="center"><span class="hand" onclick="defaults.tLoadReply('{$-id}');"><img src="{$=$images}/tp/{$-icon}.gif" class="absmiddle" /></span></td>
+        <td><a href="{$=iurl("type=detail;key={$-id};time={$-time}")}">{$-p-topic}</a> <img src="{$=$images}/icon/new.gif" class="{$-p-new-class}" /></td>
+        <td>{$-author}</td>
+        <td align="center">{$-reply}</td>
+        <td align="center">{$-count}</td>
+        <td>{$-last_username} <span class="ash">{$-p-last-time}</span></td>
+      </tr>
+      <tr id="reply-tr-{$-id}" class="hidden">
+        <td colspan="2" align="center">&nbsp;</td>
+        <td colspan="5" id="reply-td-{$-id}"><img src="{$=$images}/loading.gif" alt="Loading" class="absmiddle" /> <span class="ash">{$=itake("default.txt-loadreply", "lng")}</span></td>
+      </tr>{~~}
+      <tr>
+        <td colspan="7"><div id="cutepage" class="cutepage">{$pagi.url}</div></td>
+      </tr>
+    </table>
+    <form method="get" action="{$=$nurlpre}{$=$nuri}">
+    <input type="hidden" name="type" value="list" />
+    <input type="hidden" name="class" value="{$id}" />
+    <table cellpadding="0" cellspacing="0" class="tables">
+      <tr>
+        <td class="tbn" height="40" valign="middle">
+          <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+              <td width="25"><img src="{$=$images}/topic/normal.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-normal", "lng")}</td>
+              <td width="27"><img src="{$=$images}/topic/hot.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-hot", "lng")}</td>
+              <td width="25"><img src="{$=$images}/topic/elite.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-elite", "lng")}</td>
+              <td width="25"><img src="{$=$images}/topic/lock.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-lock", "lng")}</td>
+              <td width="25"><img src="{$=$images}/topic/top.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-top", "lng")}</td>
+              <td width="25"><img src="{$=$images}/topic/htop.gif" border="0"></td>
+              <td width="70">{$=itake("default.txt-topic-htop", "lng")}</td>
+              <td align="right"><input type="text" name="keyword" class="text" size="20" value="{$=htmlencode(request.querystring("keyword"))}" /> <input type="submit" value="{$=itake("global.lng_config.search", "lng")}" class="btn" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </form>{~}
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<script type="text/javascript" src="{$=$images}/js/defaults.js"></script>
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}{@vote@}
+    <form id="form-vote" method="post" action="default-interface.aspx?type=action&atype=vote&id={$-id}" onsubmit="return false;">
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("default.txt-votedetail", "lng")}</td>
+      </tr>
+      <tr>
+        <td>{$-topic}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">{@vote@data@}
+            <tr>
+              <td width="30" height="40" align="center"><input type="{$-type}" name="votes" value="{$-o-id}" class="radio" /></td>
+              <td valign="middle">
+                <div style="LINE-HEIGHT: 22px; COLOR: #333333">{$-o-topic} ({$-o-per}%)</div>
+                <div style="MARGIN-LEFT: 0px; DISPLAY: {$-o-per-d}; WIDTH: {$-o-per}%; HEIGHT: 10px; BACKGROUND: url({$=$images}/bar.gif)"></div>
+              </td>
+            </tr>{@vote@data@}
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="25">{$=itake("default.vote-all-1", "lng")} <strong>{$-count}</strong>{$=itake("default.vote-all-2", "lng")}{$-endtime}</td>
+              <td width="120" align="right"><input id="ajaxVoteSubmit" type="submit" value="{$=itake("default.vote-submit", "lng")}" class="button" onclick="defaults.tVote('form-vote');" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    </form>{@vote@}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="2" class="tbt">{$=itake("default.txt-topicdetail", "lng")}</td>
+      </tr>{@}
+      <tr>
+        <td width="20%" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="2" height="20" class="ash">{$-p-floor} {$=itake("default.txt-floor", "lng")}</td>
+            </tr>
+            <tr>
+              <td colspan="2" height="20"><img src="{$=$images}/group/{$-author-group}.gif" class="absmiddle" / > <u>{$-author}</u></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="left"><img src="{$=$images}/loading.gif" srcs="{$-author-face}" class="absmiddle" onload="wfront.tloadImgSrcs(this, 100, 100);" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td width="40" height="20">{$=itake("default.txt-integral", "lng")}</td>
+              <td>{$-author-integral}</td>
+            </tr>
+            <tr>
+              <td height="20">{$=itake("default.txt-reg-time", "lng")}</td>
+              <td>{$=formatDate("{$-author-time}", "4")}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="80%" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" style="TABLE-LAYOUT: fixed">
+            <tr>
+              <td height="25"><a href="{$-p-account-pm-url}"><img src="{$=$images}/icon/mail.gif" class="absmiddle" /></a> &nbsp <a href="mailto:{$-author-email}"><img src="{$=$images}/icon/email.gif" class="absmiddle" /></a> &nbsp; <a href="{$=$nurlpre}{$=$nuri}?type=edit&amp;id={$-id}"><img src="{$=$images}/icon/edit.gif" class="absmiddle" /></a> &nbsp; <a href="javascript:defaults.tLoadQuote('{$-id}');"><img src="{$=$images}/icon/quote.gif" class="absmiddle" /></a></td>
+            </tr>
+            <tr>
+              <td height="25"><strong>{$-topic}</strong></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td class="content"><div>{$=ubb2html(repathdecode(getRsValue("rsb", "content")))}</div></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td class="ash" align="right">{$-p-edit-info}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="{$=$images}/icon/time.gif" class="absmiddle" /> {$=formatDate("{$-time}")}</td>
+        <td><img src="{$=$images}/icon/sign.gif" class="absmiddle" /> <span class="ash">{$-author-sign}</span></td>
+      </tr>{@}
+      <tr>
+        <td colspan="2"><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", iurl("type=ctpage;key={$id};ctpage=[~page];time={$time}"), "cutepage")}</div></td>
+      </tr>
+    </table>{@reply@}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt"><a name="reply">{$=itake("default.txt-newreply", "lng")}</a></td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <script type="text/javascript" src="{$=getActualRoute("common")}/editor/ubbeditor/ubbEditor.js"></script>
+          <form id="form1" method="post" action="default-interface.aspx?type=action&atype=release" onsubmit="return false;">
+          <input type="hidden" name="class" value="{$class}" />
+          <input type="hidden" name="fid" value="{$id}" />
+          <input type="hidden" name="backurl" value="{$=iurl("type=ctpage;key={$id};ctpage={$-backurl-ctpage};time={$time}")}" />
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="100" height="25">{$=itake("default.txt-author", "lng")}</td>
+              <td>{$-nusername}</td>
+            </tr>
+            <tr>
+              <td height="25">{$=itake("default.txt-topic", "lng")}</td>
+              <td><input type="text" name="topic" class="text" size="60" value="{$=htmlencode(itake("default.txt-reply", "lng"))}: {$topic}" rtype="Require" rmessage="{$=itake("default.release-error-3", "lng")}" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td valign="top">{$=itake("default.txt-content", "lng")}</td>
+              <td><textarea id="content" name="content" style="WIDTH: 550px; HEIGHT: 240px"></textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>{@valcode@}
+            <tr>
+              <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+              <td><input type="text" name="valcode" size="5" class="text" /> <span class="hand"><img src="{$=$global.images}/code/code.aspx" title="{$=itake("global.lng_config.valcode-refresh", "lng")}" onclick="this.src='{$=$global.images}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+            </tr>{@valcode@}
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td height="25"></td>
+              <td><input id="ajaxSubmit" type="submit" class="button" value="{$=itake("default.txt-submit-reply", "lng")}" onclick="defaults.tRelease('form1');" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+<script type="text/javascript">
+var nEditor = new ubbEditor('content');
+nEditor.tLang = 'zh-cn';
+nEditor.tInit('nEditor', '{$=getActualRoute("common")}/editor/ubbeditor/');
+</script>{@reply@}
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[default]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}{@}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="3">{$topic}</td>
+      </tr>{@@}
+      <tr>
+        <td width="8%" align="center"><img src="{$=$images}/state/{$-p-state}.gif" /></td>
+        <td width="62%">
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="22"><a href="{$=iurl("type=list;key={$-id}")}"><strong>{$-topic}</strong></a></td>
+              <td rowspan="3" align="right">{$-image}</td>
+            </tr>
+            <tr>
+              <td class="ash">{$-explain}</td>
+            </tr>
+            <tr>
+              <td height="22">{$=itake("default.txt-admin", "lng")}: {$=formatText(htmlencode(getRsValue('rsb', 'manager')), "[text] &nbsp;", ",")}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="30%">{@@@}
+          <table width="96%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td height="22" colspan="3"><img src="{$=$images}/icon/topic.gif" class="absmiddle" /> <a href="{$=iurl("type=detail;key={$-last_topic_id};time={$-last_topic_time}")}">{$-last_topic}</a></td>
+            </tr>
+            <tr>
+              <td height="22" colspan="3"><img src="{$=$images}/icon/time.gif" class="absmiddle" /> {$=formatDate("{$-last_topic_time}")}</td>
+            </tr>
+            <tr>
+              <td width="33%" height="22"><img src="{$=$images}/icon/num_new.gif" class="absmiddle" /> {$-p-num_note_new}</td>
+              <td width="33%"><img src="{$=$images}/icon/num_topic.gif" class="absmiddle" /> {$-num_topic}</td>
+              <td width="34%"><img src="{$=$images}/icon/num_note.gif" class="absmiddle" /> {$-num_note}</td>
+            </tr>
+          </table>{@-@-@}
+          <table width="96%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td align="center" class="ash">{$=itake("default.statistics-error-1", "lng")}</td>
+            </tr>
+          </table>{@@@}
+        </td>
+      </tr>{@@}
+    </table>{@}
+{$-footHtml}
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>
