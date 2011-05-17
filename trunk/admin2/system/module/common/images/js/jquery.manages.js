@@ -1,4 +1,0 @@
-﻿manages = {
-    tinterfaceURL: 'manage.aspx'
-    
-};

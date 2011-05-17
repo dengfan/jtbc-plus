@@ -1,1 +1,0 @@
-<%@ Page Language="C#" CodeFile="common/codefile/manager.cs" Inherits="module" %>

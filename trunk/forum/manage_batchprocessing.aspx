@@ -1,1 +1,0 @@
-<%@ Page Language="C#" CodeFile="common/codefile/manage_batchprocessing.cs" Inherits="module" %>
