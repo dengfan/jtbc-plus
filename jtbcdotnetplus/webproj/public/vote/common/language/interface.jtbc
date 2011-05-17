@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[vote-error-0]]></name>
+      <chinese><![CDATA[您已经投过票了]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-error-1]]></name>
+      <chinese><![CDATA[您还没有选择任何选项]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-error-2-1]]></name>
+      <chinese><![CDATA[当前的投票已经结束了]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-error-2-2]]></name>
+      <chinese><![CDATA[当前的投票还没有开始]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-error-3]]></name>
+      <chinese><![CDATA[当前的投票并不存在]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-error-4]]></name>
+      <chinese><![CDATA[您所在的IP地址已经投过票了]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vote-done]]></name>
+      <chinese><![CDATA[投票成功]]></chinese>
+    </item>
+  </item_list>
+</xml>
