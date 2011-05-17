@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[vote]]></name>
+      <tpl_default><![CDATA[{@}<form id="vote_form_{$id}" method="post" action="{$=getActualRoute("{$-genre}")}/interface.aspx?type=action&atype=vote&id={$id}">
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td><strong>{$topic}</strong></td>
+  </tr>
+  <tr>
+    <td height="15"></td>
+  </tr>
+  <tr>
+    <td valign="top">{$=itransfer("genre={$-genre};tpl=global.{$-genre}:transfer.vote-options;type=-top;ocname=options;topx=100;vars=vid={$id}|vtype={$vtype};osql= and pvo_vote_id={$id}")}</td>
+  </tr>
+  <tr>
+    <td height="5"></td>
+  </tr>
+  <tr>
+    <td align="right"><input type="button" value="{$=itake("global.{$-genre}:default.text-vote", "lng")}" class="button" onclick="wfront.tloadAjaxSubmit('vote_form_{$id}', this);" /></td>
+  </tr>
+  <tr>
+    <td height="5"></td>
+  </tr>
+</table>
+</form>{@}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[vote-options]]></name>
+      <tpl_default><![CDATA[
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">{@}
+        <tr>
+          <td width="20"><input id="vote_options_{$vid}_{$id}" name="vote_options_{$vid}" type="{$=itake("global.{$-genre}:sel_vtype_type.{$vtype}", "lng")}" class="radio" value="{$id}" /></td>
+          <td><label for="vote_options_{$vid}_{$id}"><span>{$topic}</span>&nbsp;<span class="ash">({$vote_count})</span></label></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td height="5"><input type="hidden" name="vote_count_{$vid}" value="{$vote_count}" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td height="12" bgcolor="#efefef"><div id="vote_count_{$vid}_{$id}" class="bar"><img src="{$=$global.images}/space.gif" onload="setTimeout('wfront.tloadBarPercent(\'vote_count_{$vid}\', \'{$vote_count}\', \'{$id}\');', 2000);" /></div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td height="10"></td>
+        </tr>{@}
+      </table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

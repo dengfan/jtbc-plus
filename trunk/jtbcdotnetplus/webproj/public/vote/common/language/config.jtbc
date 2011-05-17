@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[topic]]></name>
+      <chinese><![CDATA[投票标题]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[vtype]]></name>
+      <chinese><![CDATA[类型]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[starttime]]></name>
+      <chinese><![CDATA[开始时间]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[endtime]]></name>
+      <chinese><![CDATA[结束时间]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[options]]></name>
+      <chinese><![CDATA[选项]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[options_topic]]></name>
+      <chinese><![CDATA[选项标题]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[options_count]]></name>
+      <chinese><![CDATA[得票数]]></chinese>
+    </item>
+  </item_list>
+</xml>
