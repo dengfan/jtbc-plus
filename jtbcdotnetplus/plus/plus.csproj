@@ -53,7 +53,7 @@
   <ItemGroup>
     <ProjectReference Include="..\core\core.csproj">
       <Project>{B3745CCE-5BBA-4881-B28A-6FB99E426709}</Project>
-      <Name>core %28core\core%29</Name>
+      <Name>core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
