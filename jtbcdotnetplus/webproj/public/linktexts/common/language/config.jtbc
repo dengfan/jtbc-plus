@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[keywords]]></name>
+      <chinese><![CDATA[关键字]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[url]]></name>
+      <chinese><![CDATA[链接地址]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[intro]]></name>
+      <chinese><![CDATA[文字介绍]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[js_name]]></name>
+      <chinese><![CDATA[文件名]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[js_tpl]]></name>
+      <chinese><![CDATA[模板名]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[js_create]]></name>
+      <chinese><![CDATA[确认生成]]></chinese>
+    </item>
+  </item_list>
+</xml>

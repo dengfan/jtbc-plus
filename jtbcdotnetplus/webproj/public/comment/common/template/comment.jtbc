@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[api-list]]></name>
+      <tpl_default><![CDATA[
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake("global.{$>this.genre}:default.channel_title", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td valign="top">{@}
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td height="25"><img src="{$=$global.images}/public/icon.1.gif" class="absmiddle" /> <strong>{$muusername}</strong></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td class="comment"><div>{$=encodeArticle(htmlencode(getRsValue("rst", "content")))}</div></td>
+                </tr>
+                <tr>
+                  <td height="5"></td>
+                </tr>
+                <tr>
+                  <td height="25" align="right">{$time} <span class="ash">[{$=getLRStr(htmlencode(getRsValue("rst", "ip")), ".", "leftr")}.*]</span></td>
+                </tr>
+              </table>{@}
+            </td>
+          </tr>
+        </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[api-add]]></name>
+      <tpl_default><![CDATA[
+        <script type="text/javascript" src="{$=getActualRoute("{$>this.genre}")}/{$=$images}/js/comment.js"></script>
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=itake("global.{$>this.genre}:default.nav_add", "lng")}</span></td>
+          </tr>
+          <tr>
+            <td height="25"><img src="{$=$global.images}/public/icon.1.gif" class="absmiddle" /> <a href="{$=getActualRoute("{$>this.genre}")}?type=list&amp;keyword={$-keyword}&amp;fid={$-fid}" target="_blank">{$=itake("global.{$>this.genre}:default.nav_alist", "lng")}</a></td>
+          </tr>
+          <tr>
+            <td valign="top">
+              <form id="form-comment" method="post" action="{$=getActualRoute("{$>this.genre}")}/default-interface.aspx?type=action&atype=add" onsubmit="return comment.tAdd('form-comment');">
+              <input type="hidden" name="keyword" value="{$-keyword}" />
+              <input type="hidden" name="fid" value="{$-fid}" />
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td width="80">{$=itake("global.{$>this.genre}:config.content", "lng")}</td>
+                  <td><textarea rows="5" name="content" cols="75" class="textarea"></textarea></td>
+                </tr>{@valcode@}
+                <tr>
+                  <td height="25">{$=itake("global.lng_config.valcode", "lng")}</td>
+                  <td><input type="text" name="valcode" size="5" class="text" /> <span class="hand"><img src="{$=$global.images}/code/code.aspx" onclick="this.src='{$=$global.images}/code/code.aspx?' + Math.floor(Math.random() * 99999 + 1)" class="absmiddle" /></span></td>
+                </tr>{@valcode@}
+                <tr>
+                  <td height="25"></td>
+                  <td><input id="ajaxCommentSubmit" type="submit" class="btn" value="{$=itake("global.lng_config.submit", "lng")}" /> <input type="reset" class="btn" value="{$=itake("global.lng_config.reset", "lng")}" /></td>
+                </tr>
+              </table>
+              </form>
+            </td>
+          </tr>
+        </table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

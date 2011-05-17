@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbcf" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[nsearch]]></name>
+      <chinese><![CDATA[articles,downloads,products,mall/products]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[npagesize]]></name>
+      <chinese><![CDATA[20]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nlisttopx]]></name>
+      <chinese><![CDATA[2000]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nuninstall]]></name>
+      <chinese><![CDATA[0|0|0]]></chinese>
+    </item>
+  </item_list>
+</xml>

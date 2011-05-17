@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbcf" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[ndatabase]]></name>
+      <chinese><![CDATA[jtbc_public_linkimages]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nfpre]]></name>
+      <chinese><![CDATA[pl_]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[npagesize]]></name>
+      <chinese><![CDATA[20]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nlisttopx]]></name>
+      <chinese><![CDATA[2000]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nuppath]]></name>
+      <chinese><![CDATA[common/upload/]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nuptype]]></name>
+      <chinese><![CDATA[.bmp.jpg.gif.png]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[nuninstall]]></name>
+      <chinese><![CDATA[1|0|1]]></chinese>
+    </item>
+  </item_list>
+</xml>

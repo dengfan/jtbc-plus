@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbcf" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[{$folder}:description]]></name>
+      <chinese><![CDATA[text=<img src="{$=getActualRoute("{$folder}")}/{$=$images}/icon.1.1.png" width="18" height="18" class="absmiddle" />&nbsp;{$=itake("global.{$folder}:manage.mgtitle", "lng")}@link=manage.windows.tAdd('{$folder}', this.innerHTML, '{$=getActualRoute("{$folder}")}/manage_category.aspx', -1, -1)]]></chinese>
+    </item>
+  </item_list>
+</xml>

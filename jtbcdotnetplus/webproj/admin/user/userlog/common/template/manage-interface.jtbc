@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="tit tdl"></td>
+                    <td class="tit">{$=itake("manage.list", "lng")}</td>
+                    <td class="tit tdr"></td>
+                  </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" class="tabler">
+                  <tr>
+                    <td class="txt tdl"></td>
+                    <td class="txt" width="24"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" /></td>
+                    <td class="txt">{$=itake("config.username", "lng")}</td>
+                    <td class="txt" width="130">{$=itake("config.ip", "lng")}</td>
+                    <td class="txt" width="130">{$=itake("config.time", "lng")}</td>
+                    <td class="tdimg"></td>
+                    <td class="txt tdr"></td>
+                  </tr>{@}
+                  <tr onmouseover="cls.style.tover(this);" onmouseout="cls.style.tout(this);">
+                    <td></td>
+                    <td class="txt"><input type="checkbox" name="id" class="checkbox" value="{$id}" /></td>
+                    <td class="txt"><span id="list-keywords-{$id}" class="text-state-{$error}" title="ID: {$id}">{$username}</span></td>
+                    <td class="txt">{$ip}</td>
+                    <td class="txt">{$=formatDate("{$time}", "100")}</td>
+                    <td class="nimg"><span class="hand" title="{$=itake("global.lng_config.delete", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.deleteconfirm", "lng")}[' + cls.tgetMBcString($('list-keywords-{$id}').innerHTML, 30) + ']{$=itake("global.lng_common.questionmark", "lng")}', 'manages.tDelete({$id});');"><img src="{$=$admin.theme}delete.1.png" class="absmiddle" /></span></td>
+                    <td></td>
+                  </tr>{@}
+                  <tr>
+                    <td colspan="6" id="cutepage" class="cutepage"><div class="dfn"><dfn><textarea>cls.pagi.tpagi({$pagi.pagenum}, {$pagi.pagenums}, 'manages.tLoad(cls.treparameter(manages.ttempArg, \'page\', [$page]));', 'cutepage');</textarea></dfn></div></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="6" class="selected-switch">{$=itake("global.lng_common.selected-switch", "lng")} <select name="swtype" id="swtype" class="select">{$=getSwitchOptions("select,delete")}</select> <input type="button" class="button" value="{$=itake("global.lng_common.switch", "lng")}" onclick="manage.windows.dialog.tConfirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}', 'manages.tSwitch($(\'swtype\').value, cls.tgetCheckboxsValue(\'id\'));');" /></td>
+                    <td></td>
+                  </tr>
+                </table>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

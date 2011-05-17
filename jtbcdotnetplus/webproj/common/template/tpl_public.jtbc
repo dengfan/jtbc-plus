@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[base]]></name>
+      <tpl_default><![CDATA[<base id="base" href="{$-base}" />]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[default_head]]></name>
+      <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{$=webBase($ngenre)}<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<meta name="keywords" content="{$=itake("global.default.keywords", "lng")}" />
+<meta name="description" content="{$=itake("global.default.description", "lng")}" />
+<title>{$=$ntitle}</title>
+<script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/wfront.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$global.images}/theme/{$=getActiveThings("theme")}/layout.css" />
+</head>
+<body>
+<div id="top">
+  <div id="topContent">
+    <h2><a href="{$=getActualRoute("./")}">{$=itake("global.default.web_title", "lng")}</a></h2>
+    <div id="menu">
+      <ul>
+        <li><a href="{$=getActualRoute("./")}">{$=itake("global.default.channel_title", "lng")}</a></li>
+        <li><a href="{$=getActualRoute("articles")}">{$=itake("global.articles:default.channel_title", "lng")}</a></li>
+        <li><a href="{$=getActualRoute("products")}">{$=itake("global.products:default.channel_title", "lng")}</a></li>
+        <li><a href="{$=getActualRoute("downloads")}">{$=itake("global.downloads:default.channel_title", "lng")}</a></li>
+        <li><a href="{$=getActualRoute("mall/products")}">{$=itake("global.mall/products:default.channel_title", "lng")}</a></li>
+        <li><a href="{$=getActualRoute("forum")}">{$=itake("global.forum:default.channel_title", "lng")}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[default_foot]]></name>
+      <tpl_default><![CDATA[<div id="bottom">
+  <div id="bottomContent">
+    <p>{$=itransfer("genre=aboutus;tpl=2;type=new;topx=10")}<a href="{$=getActualRoute("public/guestbook")}">{$=itake("global.public/guestbook:default.channel_title", "lng")}</a></p>
+    <p>&copy; 2004-{$=formatDate($now, "-1")} JTBC(<a href="http://www.jtbc.net.cn/" target="_blank">CMS</a>) <a href="http://www.jetiben.com/" target="_blank">Jetiben.Com</a> All Rights Reserved.</p>
+  </div>
+</div>
+</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_head_1]]></name>
+      <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("default.channel_title", "lng")}</title>
+<script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
+<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}layout.css" />
+</head>
+<body onresize="manage.windows.tResize();" onkeydown="manage.tApikeyCode(event.keyCode);" oncontextmenu="return manage.tContextmenu();">]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_foot_1]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_head_2]]></name>
+      <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("manage.mgtitle", "lng")}</title>
+<script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
+<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.js"></script>
+<link type="text/css" rel="stylesheet" href="{$=$admin.theme}layout.css" />
+</head>
+<body onresize="manage.windows.tResizePanel();" oncontextmenu="return manage.tContextmenu();">]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[admin_foot_2]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[chead]]></name>
+      <tpl_default><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
+<title>{$=itake("global.default.web_title", "lng")}</title>
+<script type="text/javascript" src="{$=$global.images}/js/com.js"></script>
+<script type="text/javascript" src="{$=$global.images}/js/cls.js"></script>
+</head>
+<body oncontextmenu="return false;">]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[cfoot]]></name>
+      <tpl_default><![CDATA[</body>
+</html>]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

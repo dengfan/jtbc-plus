@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<div id="middle">
+  <div id="middleContent">
+    <div class="middleSide">
+      <div class="box1">
+        <h3>{$=itake("default.channel_title", "lng")}</h3>{$=itransfer("tpl=1;type=new;topx=10")}
+      </div>
+    </div>
+    <div class="middleMain">
+      <div class="middleMainContent">
+        <table cellpadding="0" cellspacing="0" class="tablen">
+          <tr>
+            <td class="nav"><span>{$=inavigation("genrelink=&hidden")}{$=$navSpStr}{$topic}</span></td>
+          </tr>
+          <tr>
+            <td height="20"></td>
+          </tr>
+          <tr>
+            <td class="content"><div>{$=getCuteContent(repathdecode(getRsValue("rs", "content")), "{$-ctpage}")}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+          <tr>
+            <td><div id="ct-cutepage" class="cutepage">{$=pagi("{$-ctpage}", "{$-ctpages}", iurl("type=ctpage;key={$id};ctpage=[~page];time={$time}"), "ct-cutepage")}</div></td>
+          </tr>
+          <tr>
+            <td height="10"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<script type="text/javascript">cls.tigets('{$=getActualRoute("public/count")}?genre={$-genre}&id={$id}', nll);</script>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

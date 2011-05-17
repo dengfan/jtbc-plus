@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[userlogin]]></name>
+      <chinese><![CDATA[用户登录]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[checking]]></name>
+      <chinese><![CDATA[正在检查登录状态..]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[logining]]></name>
+      <chinese><![CDATA[正在尝试登录网站..]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[logouting]]></name>
+      <chinese><![CDATA[正在尝试退出登录..]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[loginerror1]]></name>
+      <chinese><![CDATA[验证码对比错误]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[loginerror2]]></name>
+      <chinese><![CDATA[用户名密码错误]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[logoutconfirm]]></name>
+      <chinese><![CDATA[确认退出登录吗？]]></chinese>
+    </item>
+  </item_list>
+</xml>

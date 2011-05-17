@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[data_top]]></name>
+      <tpl_default><![CDATA[
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$-inavigation}</td>
+      </tr>
+      <tr>
+        <td height="25">{$=ireplace("global.passport/account:api.jslogin-2", "tpl")}</td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("manager.txt-manage", "lng")}</td>
+      </tr>
+      <tr>
+        <td><img src="{$=$images}/icon/icon2.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$=getNum(request.querystring('class'), "0")}">{$=itake("manager.txt-manage-topic", "lng")}</a>&nbsp;&nbsp;&nbsp;<img src="{$=$images}/icon/icon2.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=blacklist&amp;class={$=getNum(request.querystring('class'), "0")}">{$=itake("manager.txt-manage-blacklist", "lng")}</a></td>
+      </tr>
+    </table>]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[data_fa_category]]></name>
+      <tpl_default><![CDATA[{$=inavigation("null")}{@}{$=$navSpStr}<a href="{$=iurl("type=list;key={$id}")}">{$topic}</a>{@}&nbsp;]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[list]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<script type="text/javascript" src="{$=$images}/js/managers.js"></script>
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="7">{$=itake("default.txt-topiclist", "lng")}</td>
+      </tr>
+      <tr>
+        <td colspan="7" align="right"><img src="{$=$images}/topic/elite.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$id}&amp;att=elite">{$=itake("manager.txt-topic-elite", "lng")}</a>&nbsp;<img src="{$=$images}/topic/lock.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$id}&amp;att=lock">{$=itake("manager.txt-topic-lock", "lng")}</a>&nbsp;<img src="{$=$images}/topic/top.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$id}&amp;att=top">{$=itake("manager.txt-topic-top", "lng")}</a>&nbsp;<img src="{$=$images}/topic/htop.gif" class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$id}&amp;att=htop" target="_self">{$=itake("manager.txt-topic-htop", "lng")}</a>&nbsp;<img src="{$=$images}/icon/hidden.gif"  class="absmiddle" />&nbsp;<a href="{$=$nurlpre}{$=$nuri}?type=list&amp;class={$id}&amp;att=hidden">{$=itake("manager.txt-topic-hidden", "lng")}</a></td>
+      </tr>
+      <tr>
+        <td width="3%" align="center"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" /></td>
+        <td width="3%" align="center"><img src="{$=$images}/topic/ico.gif" /></td>
+        <td width="47%">{$=itake("default.txt-topic", "lng")}</td>
+        <td width="13%">{$=itake("default.txt-author", "lng")}</td>
+        <td width="7%" align="center">{$=itake("default.txt-reply", "lng")}</td>
+        <td width="7%" align="center">{$=itake("default.txt-count", "lng")}</td>
+        <td width="20%">{$=itake("default.txt-lastreply", "lng")}</td>
+      </tr>{@}
+      <tr>
+        <td align="center"><input type="checkbox" name="id" value="{$-id}" class="checkbox" /></td>
+        <td align="center"><img src="{$=$images}/tp/{$-icon}.gif" class="absmiddle" /></td>
+        <td><span class="ash">{$-p-state-strings}</span><a href="{$=$nurlpre}{$=$nuri}?type=detail&amp;class={$id}&amp;id={$-id}">{$-p-topic}</a></td>
+        <td>{$-author}</td>
+        <td align="center">{$-reply}</td>
+        <td align="center">{$-count}</td>
+        <td>{$-last_username}<br /><span class="ash">{$=formatDate("{$-last_time}")}</span></td>
+      </tr>{@}
+      <tr>
+        <td colspan="7"><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", "manager.aspx?type=list&class={$id}&att={$-att}&page=[~page]", "cutepage")}</div></td>
+      </tr>
+      <tr>
+        <td colspan="7" align="right">{$=itake("global.lng_common.selected-switch", "lng")} <select name="swtype" id="swtype" class="select">{$=getSwitchOptions("{$-controlstring}")}</select> <select name="swcolor" id="swcolor" class="select">{$=xmlSelect("sel_color.all", "0", "select")}</select> <select name="swstrong" id="swstrong" class="select">{$=xmlSelect("sel_strong.all", "0", "select")}</select> <input type="button" class="button" value="{$=itake("global.lng_common.switch", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}')) managers.tSwitch($('swtype').value, $('swcolor').value, $('swstrong').value, '{$id}', cls.tgetCheckboxsValue('id'));" /></td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[detail]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<script type="text/javascript" src="{$=$images}/js/managers.js"></script>
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td colspan="2" class="tbt"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" />{$=itake("default.txt-topicdetail", "lng")}</td>
+      </tr>{@}
+      <tr>
+        <td width="20%" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td colspan="2" height="20" class="ash">{$-p-floor} {$=itake("default.txt-floor", "lng")}</td>
+            </tr>
+            <tr>
+              <td colspan="2" height="20"><img src="{$=$images}/group/{$-author-group}.gif" class="absmiddle" / > <u>{$-author}</u></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td colspan="2" align="left"><img src="{$=$images}/loading.gif" srcs="{$-author-face}" class="absmiddle" onload="wfront.tloadImgSrcs(this, 100, 100);" /></td>
+            </tr>
+            <tr>
+              <td colspan="2" height="5"></td>
+            </tr>
+            <tr>
+              <td width="40" height="20">{$=itake("default.txt-integral", "lng")}</td>
+              <td>{$-author-integral}</td>
+            </tr>
+            <tr>
+              <td height="20">{$=itake("default.txt-reg-time", "lng")}</td>
+              <td>{$=formatDate("{$-author-time}", "4")}</td>
+            </tr>
+          </table>
+        </td>
+        <td width="80%" valign="top">
+          <table width="100%" cellpadding="0" cellspacing="0" style="TABLE-LAYOUT: fixed">
+            <tr>
+              <td height="25"><input type="checkbox" name="id" value="{$-id}" class="checkbox" /><span class="ash">{$-p-state-strings}</span><strong>{$-topic}</strong></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td class="content"><div>{$=ubb2html(repathdecode(getRsValue("rsb", "content")))}</div></td>
+            </tr>
+            <tr>
+              <td height="10"></td>
+            </tr>
+            <tr>
+              <td class="ash" align="right">{$-p-edit-info}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td><img src="{$=$images}/icon/time.gif" class="absmiddle" /> {$=formatDate("{$-time}")}</td>
+        <td><img src="{$=$images}/icon/sign.gif" class="absmiddle" /> <span class="ash">{$-author-sign}</span></td>
+      </tr>{@}
+      <tr>
+        <td colspan="2"><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", "manager.aspx?type=detail&class={$class}&amp;id={$id}&ctpage=[~page]", "cutepage")}</div></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right">{$=itake("global.lng_common.selected-switch", "lng")} <select name="swtype" id="swtype" class="select">{$=getSwitchOptions("select,hidden")}</select> <input type="button" class="button" value="{$=itake("global.lng_common.switch", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}')) managers.tSwitch2($('swtype').value, '{$class}', cls.tgetCheckboxsValue('id'));" /></td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+    <item>
+      <name><![CDATA[blacklist]]></name>
+      <tpl_default><![CDATA[{$=webHead("default_head")}
+<script type="text/javascript" src="{$=$images}/js/managers.js"></script>
+<div id="middle">
+  <div id="middleContent">
+{$-topHtml}
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt" colspan="5">{$=itake("manager.txt-blacklistlist", "lng")}</td>
+      </tr>
+      <tr>
+        <td width="3%" align="center"><input type="checkbox" name="ids" class="checkbox" value="1" onclick="cls.tselCheckboxs(this, 'id')" /></td>
+        <td width="17%">{$=itake("manager.blacklist-username", "lng")}</td>
+        <td width="17%">{$=itake("manager.blacklist-manager", "lng")}</td>
+        <td width="20%">{$=itake("manager.blacklist-time", "lng")}</td>
+        <td width="43%">{$=itake("manager.blacklist-remark", "lng")}</td>
+      </tr>{@}
+      <tr>
+        <td align="center"><input type="checkbox" name="id" value="{$-id}" class="checkbox" /></td>
+        <td>{$-username}</td>
+        <td>{$-manager}</td>
+        <td>{$=formatDate("{$-time}")}</td>
+        <td>{$-remark}</td>
+      </tr>{@}
+      <tr>
+        <td colspan="5"><div id="cutepage" class="cutepage">{$=pagi("{$pagi.pagenum}", "{$pagi.pagenums}", "manager.aspx?type=blacklist&class={$-class}&page=[~page]", "cutepage")}</div></td>
+      </tr>
+      <tr>
+        <td colspan="5" align="right">{$=itake("global.lng_common.selected-switch", "lng")} <select name="swtype" id="swtype" class="select">{$=getSwitchOptions("select,delete")}</select> <input type="button" class="button" value="{$=itake("global.lng_common.switch", "lng")}" onclick="if (confirm('{$=itake("global.lng_common.selected-switch-attentions", "lng")}')) managers.tBlacklistSwitch($('swtype').value, '{$id}', cls.tgetCheckboxsValue('id'));" /></td>
+      </tr>
+    </table>
+    <table cellpadding="5" cellspacing="1" class="tables">
+      <tr>
+        <td class="tbt">{$=itake("manager.txt-blacklistadd", "lng")}</td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <form id="form1" method="post" action="manager-interface.aspx?type=action&atype=blacklist&btype=add" onsubmit="return false;">
+          <input type="hidden" name="fid" value="{$id}" />
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="90" height="25" align="right">{$=itake("manager.blacklist-username", "lng")}</td>
+              <td width="10"></td>
+              <td><input type="text" name="username" size="20" class="text" /></td>
+            </tr>
+            <tr>
+              <td height="25" align="right">{$=itake("manager.blacklist-remark", "lng")}</td>
+              <td></td>
+              <td><input type="text" name="remark" size="40" class="text" /></td>
+            </tr>
+            <tr>
+              <td height="25" align="right"></td>
+              <td></td>
+              <td><input id="ajaxSubmit" type="submit" class="button" value="{$=itake("manager.blacklist-submit", "lng")}" onclick="managers.tBlacklistAdd('form1');" /></td>
+            </tr>
+          </table>
+          </form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{$=webFoot("default_foot")}]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

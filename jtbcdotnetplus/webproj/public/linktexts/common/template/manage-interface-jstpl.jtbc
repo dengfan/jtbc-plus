@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,tpl_default</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[tpl-1]]></name>
+      <tpl_default><![CDATA[document.write('<ul>');{@}
+document.write('  <li><span><a href="{$url}" title="{$intro}" target="_blank">{$topic}</a></span></li>');{@}
+document.write('</ul>');]]></tpl_default>
+    </item>
+  </item_list>
+</xml>

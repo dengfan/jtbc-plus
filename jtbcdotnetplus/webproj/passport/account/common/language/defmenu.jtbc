@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[{$=getActualRoute("{$-genre}")}?type=manage&mtype=member]]></name>
+      <chinese><![CDATA[我的信息]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[{$=getActualRoute("{$-genre}")}?type=manage&mtype=setting]]></name>
+      <chinese><![CDATA[个人设置]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[{$=getActualRoute("{$-genre}")}?type=manage&mtype=password]]></name>
+      <chinese><![CDATA[密码修改]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[{$=getActualRoute(getLRStr("{$-genre}", "/", "leftr"))}/message?type=manage&mtype=list]]></name>
+      <chinese><![CDATA[我的短信]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[{$=getActualRoute(getLRStr("{$-genre}", "/", "leftr"))}/friend?type=manage&mtype=list]]></name>
+      <chinese><![CDATA[我的好友]]></chinese>
+    </item>
+  </item_list>
+</xml>

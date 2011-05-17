@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml mode="jtbc" author="jetiben">
+  <configure>
+    <node>item</node>
+    <field>name,chinese</field>
+    <base>item_list</base>
+  </configure>
+  <item_list>
+    <item>
+      <name><![CDATA[Win2000]]></name>
+      <chinese><![CDATA[Win2000]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[Win2003]]></name>
+      <chinese><![CDATA[Win2003]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[WinXP]]></name>
+      <chinese><![CDATA[WinXP]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[WinVista]]></name>
+      <chinese><![CDATA[WinVista]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[Linux]]></name>
+      <chinese><![CDATA[Linux]]></chinese>
+    </item>
+    <item>
+      <name><![CDATA[Unix]]></name>
+      <chinese><![CDATA[Unix]]></chinese>
+    </item>
+  </item_list>
+</xml>
