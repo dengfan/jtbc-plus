@@ -47,30 +47,6 @@
             }
         }
 
-        private string getLastTime()
-        {
-            string lastTime = "";
-
-            string sql = "select top 1 a_lasttime from jtbc_admin where a_username = '" + _admin.username + "' order by a_lasttime desc";
-            object[] data = new db().getDataAry(sql);
-            if (data != null)
-	        {
-		        object[,] d = (object[,])data[0];
-                lastTime = ((DateTime)d[0, 1]).ToString();
-	        }
-            
-            return lastTime;
-        }
-
-        private string getLastIp()
-        {
-            string lastIp = "";
-
-            string sql = "";
-
-            return lastIp;
-        }
-
         #region 生成后台菜单之HTML
         public string getMenuHtml(string argPath)
         {
