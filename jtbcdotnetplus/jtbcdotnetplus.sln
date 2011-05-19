@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "webproj", "webproj\", "{168FDEA9-E0FF-425D-A813-47243A4BED72}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{B3745CCE-5BBA-4881-B28A-6FB99E426709}|core.dll;{B98C8077-9B83-41D5-AC5F-B8820E4068D1}|plus.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/webproj"
+		Debug.AspNetCompiler.PhysicalPath = "webproj\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\webproj\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/webproj"
+		Release.AspNetCompiler.PhysicalPath = "webproj\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\webproj\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2028"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core", "core\core.csproj", "{B3745CCE-5BBA-4881-B28A-6FB99E426709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plus", "plus\plus.csproj", "{B98C8077-9B83-41D5-AC5F-B8820E4068D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{B9A5082B-CAE4-4A05-B64C-5B9E8D0598AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{168FDEA9-E0FF-425D-A813-47243A4BED72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168FDEA9-E0FF-425D-A813-47243A4BED72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168FDEA9-E0FF-425D-A813-47243A4BED72}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{168FDEA9-E0FF-425D-A813-47243A4BED72}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{B3745CCE-5BBA-4881-B28A-6FB99E426709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3745CCE-5BBA-4881-B28A-6FB99E426709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3745CCE-5BBA-4881-B28A-6FB99E426709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3745CCE-5BBA-4881-B28A-6FB99E426709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B98C8077-9B83-41D5-AC5F-B8820E4068D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B98C8077-9B83-41D5-AC5F-B8820E4068D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B98C8077-9B83-41D5-AC5F-B8820E4068D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B98C8077-9B83-41D5-AC5F-B8820E4068D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B98C8077-9B83-41D5-AC5F-B8820E4068D1} = {B9A5082B-CAE4-4A05-B64C-5B9E8D0598AF}
+		{B3745CCE-5BBA-4881-B28A-6FB99E426709} = {B9A5082B-CAE4-4A05-B64C-5B9E8D0598AF}
+	EndGlobalSection
+EndGlobal
