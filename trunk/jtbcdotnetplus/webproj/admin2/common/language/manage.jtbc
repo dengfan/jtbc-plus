@@ -70,5 +70,21 @@
             <disinfo><![CDATA[hostdotnet]]></disinfo>
             <chinese><![CDATA[服务器.NET Framework版本]]></chinese>
         </item>
+        <item>
+            <disinfo><![CDATA[shortcut-tips]]></disinfo>
+            <chinese><![CDATA[当前没有任何快捷方式，您可以在左侧导航菜单中，通过右键菜单为相应的页面创建一个快捷方式。]]></chinese>
+        </item>
+        <item>
+            <disinfo><![CDATA[shortcut-open]]></disinfo>
+            <chinese><![CDATA[打开]]></chinese>
+        </item>
+        <item>
+            <disinfo><![CDATA[shortcut-rename]]></disinfo>
+            <chinese><![CDATA[重命名]]></chinese>
+        </item>
+        <item>
+            <disinfo><![CDATA[shortcut-remove]]></disinfo>
+            <chinese><![CDATA[删除]]></chinese>
+        </item>
     </item_list>
 </xml>

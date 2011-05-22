@@ -278,27 +278,27 @@ a img
 {
     margin: 8px;
 }
-#shortcut form
+#shortcut div.shortcutitem
 {
     float: left;
     padding: 5px 0;
     background-color: white;
     width: 80px;
-    height: 70px;
+    height: 60px;
     overflow: hidden;
     text-align: center;
     cursor: pointer;
 }
-#shortcut form.hover
+#shortcut div.hover
 {
     background-color: #F4F4F4 !important;
 }
-#shortcut form img
+#shortcut div.shortcutitem img
 {
     display: block;
     margin: 0 auto;
 }
-#shortcut form input
+#shortcut div.shortcutitem input
 {
     width: 60px;
     border: 0;

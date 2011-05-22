@@ -13,10 +13,10 @@
         <item>
             <name><![CDATA[load]]></name>
             <tpl_default>
-                <![CDATA[{@}<form id="form-shortcut-{$id}" itemid="{$id}" url="{$url}">
+                <![CDATA[{@}<div id="div-shortcut-{$id}" class="shortcutitem" itemid="{$id}" url="{$url}">
     <img src="{$icon}" alt="{$topic}" />
-    <input id="input-shortcut-{$id}" type="text" value="{$topic}" maxlength="10" readonly="readonly" />
-</form>{@}
+    <input id="shortcutname" type="text" value="{$topic}" maxlength="10" disabled="disabled" />
+</div>{@}
 <div class="clear"></div>]]></tpl_default>
         </item>
     </item_list>

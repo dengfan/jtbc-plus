@@ -118,9 +118,6 @@
             <name><![CDATA[admin_manage]]></name>
             <tpl_default>
                 <![CDATA[{$=webAdminHead("admin_head_2")}
-<script type="text/javascript">
-    
-</script>
 <table border="0" cellspacing="5" cellpadding="0" width="100%">
     <tr>
         <td>
@@ -165,9 +162,9 @@
                     <td>
                         <div id="shortcut"></div>
                         <ul id="contextmenu-shortcut" class="contextmenu1">
-                            <li><a href="javascript:;">打开</a></li>
-                            <li><a href="javascript:;">重命名</a></li>
-                            <li><a href="javascript:;">删除</a></li>
+                            <li><a id="contextmenu-shortcut-open" href="javascript:shortcutContextMenu.open();">{$=itake("manage.shortcut-open","lng")}</a></li>
+                            <li><a id="contextmenu-shortcut-rename" href="javascript:shortcutContextMenu.rename();">{$=itake("manage.shortcut-rename","lng")}</a></li>
+                            <li><a id="contextmenu-shortcut-remove" href="javascript:shortcutContextMenu.actionRemove();">{$=itake("manage.shortcut-remove","lng")}</a></li>
                         </ul>
                     </td>
                 </tr>
@@ -239,40 +236,79 @@
         </td>
     </tr>
 </table>
-
 <script type="text/javascript">
     var shortcutContextMenu = {
-        id: null,
         obj : j('#contextmenu-shortcut'),
-        getMenu : function(intItemId, e) {
+        id: null,
+        currentItem: null,
+        show : function(intItemId, e) {
+            shortcutContextMenu.id = intItemId;
+            shortcutContextMenu.currentItem = j('#div-shortcut-' + intItemId);
             var left = cls.mouse.tx(e);
             var top = cls.mouse.ty(e);
             shortcutContextMenu.obj.css({'top': top + 'px', 'left': left + 'px'}).show();
+        },
+        open: function() {
+            var url = shortcutContextMenu.currentItem.attr('url');
+            location.href = url;
+        },
+        rename: function() {
+            var jinput = shortcutContextMenu.currentItem.find('#shortcutname');
+            jinput.attr('disabled', false).select();
+        },
+        actionRename: function() {
+            var jinput = shortcutContextMenu.currentItem.find('#shortcutname');
+            var newname = jinput.val();
+            j.get('user/userlnk/manage.aspx', {type: 'action', atype: 'rename', id: shortcutContextMenu.id, topic: newname}, function() {
+                jinput.attr('disabled', true);
+            });
+        },
+        actionRemove: function() {
+            j.get('user/userlnk/manage.aspx', {type: 'action', atype: 'remove', id: shortcutContextMenu.id}, function() {
+                loadshortcut();
+            });
         }
     };
 
-    j('#shortcut').load('user/userlnk/manage.aspx', function() {
-        var allItems = j('#shortcut form');
+    var loadshortcut = function() { 
+        j('#shortcut').load('user/userlnk/manage.aspx', function() {
+            var allItems = j('#shortcut div.shortcutitem');
         
-        //打开右键菜单
-        allItems.bind('contextmenu', function(event) {
-            var currentItem = j(this);
-            var currentItemId = currentItem.attr('itemid');
-            allItems.removeClass('hover');
-            currentItem.addClass('hover'); //高亮当前项
-            shortcutContextMenu.getMenu(currentItemId, event);
-            return false;
-        });
+            //打开右键菜单
+            allItems.bind('contextmenu', function(event) {
+                var currentItem = j(this);
+                var currentItemId = currentItem.attr('itemid');
+                allItems.removeClass('hover');
+                currentItem.addClass('hover'); //高亮当前项
+                shortcutContextMenu.show(currentItemId, event);
+                return false;
+            });
         
-        //双击打开
-        allItems.bind('click', function() {
-            var currentItem = j(this);
-            allItems.removeClass('hover');
-            currentItem.addClass('hover'); //高亮当前项
-            var href = currentItem.attr('url');
-            location.href=href;
+            //单击选中
+            allItems.bind('click', function() {
+                var currentItem = j(this);
+                allItems.removeClass('hover');
+                currentItem.addClass('hover'); //高亮当前项
+                return false;
+            });
+        
+            //双击打开
+            allItems.bind('dblclick', function() {
+                var currentItem = j(this);
+                allItems.removeClass('hover');
+                currentItem.addClass('hover'); //高亮当前项
+                var url = currentItem.attr('url');
+                location.href = url;
+            });
+        
+            //提交重命名
+            allItems.find('input#shortcutname').bind('blur', function() {
+                shortcutContextMenu.actionRename();
+            });
         });
-    });
+    };
+    
+    loadshortcut();
     
     j('body').click(function() {
         shortcutContextMenu.obj.hide(); //隐藏右键菜单
