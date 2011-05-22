@@ -134,10 +134,16 @@ public partial class module : jpage
                     tmprstr += tmptstr;
                 }
             }
+
+            tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
+            tmpstr = jt.creplace(tmpstr);
         }
-        tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
-        tmpstr = jt.creplace(tmpstr);
-        tmpstr = config.ajaxPreContent + tmpstr;
+        else
+        {
+            string tmppstr = string.Format("global.{0}:manage.shortcut-tips", config.adminFolder);
+            tmpstr = jt.itake(tmppstr, "lng");
+        }
+
         return tmpstr;
     }
 
