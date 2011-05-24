@@ -8,7 +8,7 @@
   <item_list>
     <item>
       <name><![CDATA[{$folder}:description]]></name>
-      <chinese><![CDATA[text=<img src="{$=getActualRoute("{$folder}")}/{$=$images}/icon.1.1.png" alt="" class="absmiddle" />&nbsp;<a href="{$link}" target="main">{$=itake("global.{$folder}:manage.mgtitle", "lng")}</a>@link={$=getActualRoute("{$folder}")}/manage.aspx]]></chinese>
+      <chinese><![CDATA[text=<img src="{$=getActualRoute("{$folder}")}/{$=$images}/icon.1.1.png" alt="" class="absmiddle" />&nbsp;<a href="{$link}" target="main" oncontextmenu="alert('aa');return false;">{$=itake("global.{$folder}:manage.mgtitle", "lng")}</a>@link={$=getActualRoute("{$folder}")}/manage.aspx]]></chinese>
     </item>
   </item_list>
 </xml>
