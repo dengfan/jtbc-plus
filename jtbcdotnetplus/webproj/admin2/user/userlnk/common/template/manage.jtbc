@@ -14,8 +14,8 @@
             <name><![CDATA[load]]></name>
             <tpl_default>
                 <![CDATA[{@}<div id="div-shortcut-{$id}" class="shortcutitem" itemid="{$id}" url="{$url}">
-    <img src="{$icon}" alt="{$topic}" />
-    <input id="shortcutname" type="text" value="{$topic}" maxlength="10" disabled="disabled" />
+    <img src="{$icon}" height="32" width="32" alt="{$topic}" onerror="this.src='{$=$admin.theme}lnk.default.png'" />
+    <input id="shortcutname" type="text" value="{$topic}" maxlength="10" readonly="readonly" />
 </div>{@}
 <div class="clear"></div>]]></tpl_default>
         </item>
