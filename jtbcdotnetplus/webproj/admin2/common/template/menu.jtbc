@@ -19,6 +19,10 @@
             <tpl_default>
                 <![CDATA[<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
 <link type="text/css" rel="stylesheet" href="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.css" />
+<ul id="contextmenu-leftmenu" class="contextmenu1">
+    <li><a id="contextmenu-leftmenu-open" href="javascript:;">打开</a></li>
+    <li><a id="contextmenu-leftmenu-createshortcut" href="javascript:;">创建快捷方式</a></li>
+</ul>
 <table border="0" cellspacing="5" cellpadding="0" width="100%" height="100%" class="trw">
     <tr>
         <td valign="top">{@}
