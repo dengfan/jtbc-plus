@@ -254,13 +254,13 @@
         },
         rename: function() {
             var jinput = shortcutContextMenu.currentItem.find('#shortcutname');
-            jinput.attr('disabled', false).select();
+            jinput.attr('readonly', false).select().css({'cursor':'text'});
         },
         actionRename: function() {
             var jinput = shortcutContextMenu.currentItem.find('#shortcutname');
             var newname = jinput.val();
             j.get('user/userlnk/manage.aspx', {type: 'action', atype: 'rename', id: shortcutContextMenu.id, topic: newname}, function() {
-                jinput.attr('disabled', true);
+                loadshortcut();
             });
         },
         actionRemove: function() {
