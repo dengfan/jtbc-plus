@@ -245,6 +245,15 @@ a img
 .selected-switch
 {
 }
+a.topmenu1
+{
+    color: white;
+    font-weight: bold;
+}
+a.topmenu1:hover
+{
+    color: white;
+}
 /*
 .cutepage
 {
@@ -319,8 +328,8 @@ ul.contextmenu1
     list-style-type: none;
     margin: 0;
     padding: 1px;
-    background-color: #F9F9F9;
-    border: 1px solid #F1F1F1;
+    background-color: white;
+    border: 1px solid #005C8F;
     width: 100px;
     color: black;
     font-weight: normal;
@@ -333,13 +342,15 @@ ul.contextmenu1 li
 ul.contextmenu1 li a
 {
     display: block;
-    padding-left: 10px;
+    padding-left: 6px;
+    border:1px solid white;
     height: 20px;
     line-height: 20px;
 }
 ul.contextmenu1 li a:hover
 {
-    background-color: #F1F1F1;
+    border:1px solid #005C8F;
+    background-color:#C4E1FF;
+    color: black;
     text-decoration: none;
 }
-
