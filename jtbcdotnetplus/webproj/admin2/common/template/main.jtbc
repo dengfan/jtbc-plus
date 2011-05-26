@@ -14,10 +14,12 @@
     <meta http-equiv="x-ua-compatible" content="IE=EmulateIE7" />
     <meta http-equiv="Content-Type" content="text/html; charset={$=$charset}" />
     <title>{$=itake("default.channel_title", "lng")}</title>
-    <link type="text/css" rel="stylesheet" href="{$=$admin.theme}frame.css" />
     <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/lib/jquery.js"></script>
     <script type="text/javascript">var j = jQuery.noConflict();</script>
-    <script type="text/javascript" src="{$=$images}/js/main.1.js"></script>
+    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/main.1.js"></script>
+    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/selects.1.js"></script>
+    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/manage.1.js"></script>
+    <link type="text/css" rel="stylesheet" href="{$=$admin.theme}default.css" />
     <script type="text/javascript">
         if (top.location != self.location) top.location = self.location;
 
@@ -64,9 +66,9 @@
                                 <tr>
                                     <td align="right" width="15"></td>
                                     <td align="right">
-                                        <a href="admin_main.aspx" target="_top" class="bold"><img src="{$=$admin.theme}desktop.1.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_main","lng")}</a>
+                                        <a href="admin_main.aspx" target="_top" class="topmenu1"><img src="{$=$admin.theme}desktop.1.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_main","lng")}</a>
                                         &nbsp;
-                                        <a href="default.aspx?type=action&atype=logout" target="_top" class="bold"><img src="{$=$admin.theme}logout.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_logout","lng")}</a>
+                                        <a href="default.aspx?type=action&atype=logout" target="_top" class="topmenu1"><img src="{$=$admin.theme}logout.png" width="18" height="18" border="0" alt="" align="absmiddle" /> {$=itake("manage.admin_logout","lng")}</a>
                                     </td>
                                     <td align="right" width="15"></td>
                                 </tr>
@@ -81,7 +83,7 @@
                 <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
                     <tr width="100%" height="100%">
                         <td width="163" id="lists" name="lists">
-                            <iframe id="list" name="list" src="admin_left.aspx" frameborder="0" scrolling="no" width="100%" height="100%"></iframe>
+                            {$leftmenu}
                         </td>
                         <td width="10" class="hand">
                             <table height="100%" cellspacing="0" cellpadding="0" width="10" border="0">
@@ -110,6 +112,7 @@
             </td>
         </tr>
     </table>
+    <script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/js/global.js"></script>
 </body>
 </html>]]>
             </tpl_default>
@@ -309,10 +312,6 @@
     };
     
     loadshortcut();
-    
-    j('body').click(function() {
-        shortcutContextMenu.obj.hide(); //隐藏右键菜单
-    });
 </script>
 {$=webAdminFoot("admin_foot_2")}]]>
             </tpl_default>
