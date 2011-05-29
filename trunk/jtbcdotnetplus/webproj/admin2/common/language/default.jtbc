@@ -68,7 +68,7 @@
         </item>
         <item>
             <name><![CDATA[sendlnk]]></name>
-            <chinese><![CDATA[发送到桌面]]></chinese>
+            <chinese><![CDATA[创建快捷方式]]></chinese>
         </item>
     </item_list>
 </xml>
