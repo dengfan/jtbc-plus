@@ -245,15 +245,6 @@ a img
 .selected-switch
 {
 }
-a.topmenu1
-{
-    color: white;
-    font-weight: bold;
-}
-a.topmenu1:hover
-{
-    color: white;
-}
 /*
 .cutepage
 {
@@ -308,12 +299,12 @@ a.topmenu1:hover
 }
 #shortcut div.shortcutitem input
 {
-    margin-top: -2px;
+    margin-top:-2px;
     border: 0;
     background: none;
     width: 60px;
     height: 22px;
-    line-height: 22px;
+    line-height:22px;
     text-align: center;
     cursor: default;
 }
@@ -328,8 +319,8 @@ ul.contextmenu1
     list-style-type: none;
     margin: 0;
     padding: 1px;
-    background-color: white;
-    border: 1px solid #005C8F;
+    background-color: #F9F9F9;
+    border: 1px solid #F1F1F1;
     width: 100px;
     color: black;
     font-weight: normal;
@@ -337,20 +328,18 @@ ul.contextmenu1
 ul.contextmenu1 li
 {
     height: 20px;
-    line-height: 20px;
+    line-height : 20px;
 }
 ul.contextmenu1 li a
 {
     display: block;
-    padding-left: 6px;
-    border:1px solid white;
+    padding-left:10px;
     height: 20px;
-    line-height: 20px;
+    line-height : 20px;
 }
 ul.contextmenu1 li a:hover
 {
-    border:1px solid #005C8F;
-    background-color:#C4E1FF;
-    color: black;
+    background-color: #F1F1F1;
     text-decoration: none;
 }
+
