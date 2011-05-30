@@ -21,8 +21,10 @@
 <script type="text/javascript">
     function sendlnk(data) {
         j.post('user/userlnk/manage.aspx?type=action&atype=add', data, function() {
-            alert(data.topic + ' -> 快捷方式创建成功！');
-            if(j('iframe[name="main"]', window.parent.document).attr('src') == 'admin_manage.aspx') {
+            alert('{$=itake("default.sendlnk-succeed", "lng")}'.replace('{0}', data.topic));
+            
+            //如果是在后台首页，则重新载入
+            if(j('iframe[name="main"]', window.parent.document)[0].contentWindow.location.href.toString().indexOf('admin_manage.aspx') > 0) {
                 j('iframe[name="main"]', window.parent.document).attr('src', 'admin_manage.aspx');
             }
         });
@@ -114,6 +116,14 @@
 </table>
 <script type="text/javascript">
     j('table.sec_menu td ul').treeview();
+    j('table.sec_menu td ul.treeview li').hover(
+        function() {
+            j(this).find('a[class="hidden"]').fadeIn();
+        },
+        function() {
+            j(this).find('a[class="hidden"]').fadeOut();
+        }
+    );
 </script>]]>
             </tpl_default>
         </item>
