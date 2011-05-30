@@ -70,5 +70,9 @@
             <name><![CDATA[sendlnk]]></name>
             <chinese><![CDATA[创建快捷方式]]></chinese>
         </item>
+        <item>
+            <name><![CDATA[sendlnk-succeed]]></name>
+            <chinese><![CDATA[【{0}】创建快捷方式成功！]]></chinese>
+        </item>
     </item_list>
 </xml>
