@@ -18,18 +18,6 @@
             <name><![CDATA[admin_menu_content]]></name>
             <tpl_default>
                 <![CDATA[<script type="text/javascript" src="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.min.js"></script>
-<script type="text/javascript">
-    function sendlnk(data) {
-        j.post('user/userlnk/manage.aspx?type=action&atype=add', data, function() {
-            alert('{$=itake("default.sendlnk-succeed", "lng")}'.replace('{0}', data.topic));
-            
-            //如果是在后台首页，则重新载入
-            if(j('iframe[name="main"]', window.parent.document)[0].contentWindow.location.href.toString().indexOf('admin_manage.aspx') > 0) {
-                j('iframe[name="main"]', window.parent.document).attr('src', 'admin_manage.aspx');
-            }
-        });
-    }
-</script>
 <link type="text/css" rel="stylesheet" href="{$=getActualRoute($adminFolder)}/{$=$images}/jquery-treeview/jquery.treeview.css" />
 <table border="0" cellspacing="5" cellpadding="0" width="100%" height="100%" class="trw">
     <tr>
@@ -114,14 +102,34 @@
         </td>
     </tr>
 </table>
-<script type="text/javascript">
+<script type="text/javascript">    
+    //生成菜单树
     j('table.sec_menu td ul').treeview();
-    j('table.sec_menu td ul.treeview li').hover(
+    
+    //为菜单项绑定创建快捷方式的方法
+    j('table.sec_menu td ul.treeview li:not(.collapsable)').hover(
         function() {
-            j(this).find('a[class="hidden"]').fadeIn();
+            var icon = j(this).find('img').attr('src');
+            var topic = j(this).find('a').text();
+            var url = j(this).find('a').attr('href');
+            //alert(icon + '\n' + topic + '\n' + url);
+            var data = {icon:icon, topic:topic, url:url};
+            var jshortcuticon = j('<img id="shortcuticon" src="{$=$admin.theme}shortcut.gif" width="11" height="11" class="absmiddle" alt="{$=itake("default.sendlnk","lng")}" />');
+            jshortcuticon.bind('click', function() {
+                j.post('user/userlnk/manage.aspx?type=action&atype=add', data, function() {
+                    alert('{$=itake("default.sendlnk-succeed", "lng")}'.replace('{0}', data.topic));
+            
+                    //如果是在后台首页，则重新载入
+                    if(j('iframe[name="main"]', window.parent.document)[0].contentWindow.location.href.toString().indexOf('admin_manage.aspx') > 0) {
+                        j('iframe[name="main"]', window.parent.document).attr('src', 'admin_manage.aspx');
+                    }
+                });
+            });
+            j(this).append(jshortcuticon);
         },
         function() {
-            j(this).find('a[class="hidden"]').fadeOut();
+            var jshortcuticon = j(this).find('#shortcuticon');
+            jshortcuticon.remove();
         }
     );
 </script>]]>
