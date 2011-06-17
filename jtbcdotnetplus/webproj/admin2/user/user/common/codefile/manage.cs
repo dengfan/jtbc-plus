@@ -325,6 +325,7 @@ public partial class module : jpage
         int tpage = cls.getNum(request.querystring("page"));
         string tfield = cls.getSafeString(request.querystring("field"));
         string tkeyword = cls.getSafeString(request.querystring("keyword"));
+        string tnav = cls.getSafeString(request.querystring("hspan"));
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
@@ -365,7 +366,17 @@ public partial class module : jpage
 
         #region ·þÎñÆ÷¶Ë·ÖÒ³
         pagi_plus pagi_plus = new pagi_plus(pagi);
-        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
+
+        string pagerUrl = "";
+        if (!cls.isEmpty(tfield) && !cls.isEmpty(tkeyword))
+            pagerUrl = string.Format("{0}?field={1}&keyword={2}&page=[$page]", config.nuri, tfield, tkeyword);
+        else
+            pagerUrl = string.Format("{0}?page=[$page]", config.nuri);
+
+        if (!cls.isEmpty(tnav))
+            pagerUrl = pagerUrl + "&hspan=" + tnav;
+
+        string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
