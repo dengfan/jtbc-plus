@@ -139,7 +139,7 @@
                         </table>
                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td>{$=itake("manage.welcomeinfo","lng")}</td>
+                                <td height="25">{$=itake("manage.welcomeinfo","lng")}</td>
                             </tr>
                         </table>
                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -192,17 +192,16 @@
                         </table>
                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td width="25%" height="25">{$=itake("manage.hostdotnet","lng")}</td>
-                                <td width="30%">{$hostdotnet}</td>
-                                <td width="15%">{$=itake("manage.uploadlimit","lng")}</td>
-                                <td width="30%">{$uploadlimit}</td>
+                                <td height="25">{$=itake("manage.hostdotnet","lng")}</td>
+                                <td>{$hostdotnet}</td>
+                                <td>{$=itake("manage.uploadlimit","lng")}</td>
+                                <td>{$uploadlimit}</td>
                             </tr>
                             <tr>
-                                <td>{$=itake("manage.hostpath","lng")}</td>
+                                <td height="25">{$=itake("manage.hostpath","lng")}</td>
                                 <td>{$hostpath}</td>
-                                <td height="25">{$=itake("manage.dbtype","lng")}</td>
+                                <td>{$=itake("manage.dbtype","lng")}</td>
                                 <td>{$dbtype}</td>
-                                
                             </tr>
                             <tr>
                                 <td height="25">{$=itake("manage.hostos","lng")}</td>

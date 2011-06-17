@@ -11,6 +11,10 @@
             <chinese><![CDATA[用户帐户]]></chinese>
         </item>
         <item>
+            <name><![CDATA[nav]]></name>
+            <chinese><![CDATA[管理导航]]></chinese>
+        </item>
+        <item>
             <name><![CDATA[list]]></name>
             <chinese><![CDATA[用户列表]]></chinese>
         </item>
@@ -29,6 +33,14 @@
         <item>
             <name><![CDATA[nav_edit]]></name>
             <chinese><![CDATA[编辑用户]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[username]]></name>
+            <chinese><![CDATA[用户名称]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[time]]></name>
+            <chinese><![CDATA[时间]]></chinese>
         </item>
         <item>
             <name><![CDATA[nav_category]]></name>
