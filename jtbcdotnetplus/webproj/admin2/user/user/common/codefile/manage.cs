@@ -364,17 +364,21 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
-        #region 服务器端分页
+        #region 分页
         pagi_plus pagi_plus = new pagi_plus(pagi);
 
-        string pagerUrl = "";
-        if (!cls.isEmpty(tfield) && !cls.isEmpty(tkeyword))
-            pagerUrl = string.Format("{0}?field={1}&keyword={2}&page=[$page]", config.nuri, tfield, tkeyword);
-        else
-            pagerUrl = string.Format("{0}?page=[$page]", config.nuri);
+        string pagerUrl = config.nuri + "?";
+
+        if (!cls.isEmpty(tfield))
+            pagerUrl += string.Format("{0}field={1}", pagerUrl.EndsWith("?") ? "" : "&", tfield);
+
+        if (!cls.isEmpty(tkeyword))
+            pagerUrl += string.Format("{0}keyword={1}", pagerUrl.EndsWith("?") ? "" : "&", tkeyword);
 
         if (!cls.isEmpty(tnav))
-            pagerUrl = pagerUrl + "&hspan=" + tnav;
+            pagerUrl += string.Format("{0}hspan={1}", pagerUrl.EndsWith("?") ? "" : "&", tnav);
+
+        pagerUrl += pagerUrl.EndsWith("?") ? "page=[$page]" : "&page=[$page]";
 
         string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
