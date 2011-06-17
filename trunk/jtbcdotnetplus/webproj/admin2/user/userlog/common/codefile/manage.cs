@@ -66,6 +66,8 @@ public partial class module : jpage
         int terror = cls.getNum(request.querystring("error"), -1);
         string tfield = cls.getSafeString(request.querystring("field"));
         string tkeyword = cls.getSafeString(request.querystring("keyword"));
+        string tnav = cls.getSafeString(request.querystring("hspan"));
+
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
@@ -104,12 +106,31 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
+        #region ·þÎñÆ÷¶Ë·ÖÒ³
         pagi_plus pagi_plus = new pagi_plus(pagi);
-        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
+
+        string pageUrlParameters = string.Empty;
+        if (terror != -1)
+            pageUrlParameters += pageUrlParameters == string.Empty ? "error=" + terror : "&error=" + terror;
+
+        if (!cls.isEmpty(tfield))
+            pageUrlParameters += pageUrlParameters == string.Empty ? "field=" + tfield : "&field=" + tfield;
+
+        if (!cls.isEmpty(tkeyword))
+            pageUrlParameters += pageUrlParameters == string.Empty ? "keyword=" + tkeyword : "&keyword=" + tkeyword;
+
+        if (!cls.isEmpty(tnav))
+            pageUrlParameters += pageUrlParameters == string.Empty ? "hspan=" + tnav : "&hspan=" + tnav;
+
+        pageUrlParameters += pageUrlParameters == string.Empty ? "page=[$page]" : "&page=[$page]";
+
+        string pagerUrl = config.nuri + "?" + pageUrlParameters;
+
+        string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
-        tmpstr = tmpstr.Replace("{$pagi.pagenum}", cls.toString(pagi.pagenum));
-        tmpstr = tmpstr.Replace("{$pagi.pagenums}", cls.toString(pagi.pagenums));
+        #endregion
+
         tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
