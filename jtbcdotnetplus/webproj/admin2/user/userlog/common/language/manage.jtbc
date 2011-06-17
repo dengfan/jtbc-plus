@@ -11,6 +11,10 @@
             <chinese><![CDATA[登录日志]]></chinese>
         </item>
         <item>
+            <name><![CDATA[nav]]></name>
+            <chinese><![CDATA[管理导航]]></chinese>
+        </item>
+        <item>
             <name><![CDATA[list]]></name>
             <chinese><![CDATA[内容列表]]></chinese>
         </item>
