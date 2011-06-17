@@ -106,25 +106,23 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
-        #region 服务器端分页
+        #region 分页
         pagi_plus pagi_plus = new pagi_plus(pagi);
 
-        string pageUrlParameters = string.Empty;
+        string pagerUrl = config.nuri + "?";
         if (terror != -1)
-            pageUrlParameters += pageUrlParameters == string.Empty ? "error=" + terror : "&error=" + terror;
+            pagerUrl += string.Format("{0}error={1}", pagerUrl.EndsWith("?") ? "" : "&", terror);
 
         if (!cls.isEmpty(tfield))
-            pageUrlParameters += pageUrlParameters == string.Empty ? "field=" + tfield : "&field=" + tfield;
+            pagerUrl += string.Format("{0}field={1}", pagerUrl.EndsWith("?") ? "" : "&", tfield);
 
         if (!cls.isEmpty(tkeyword))
-            pageUrlParameters += pageUrlParameters == string.Empty ? "keyword=" + tkeyword : "&keyword=" + tkeyword;
+            pagerUrl += string.Format("{0}keyword={1}", pagerUrl.EndsWith("?") ? "" : "&", tkeyword);
 
         if (!cls.isEmpty(tnav))
-            pageUrlParameters += pageUrlParameters == string.Empty ? "hspan=" + tnav : "&hspan=" + tnav;
+            pagerUrl += string.Format("{0}hspan={1}", pagerUrl.EndsWith("?") ? "" : "&", tnav);
 
-        pageUrlParameters += pageUrlParameters == string.Empty ? "page=[$page]" : "&page=[$page]";
-
-        string pagerUrl = config.nuri + "?" + pageUrlParameters;
+        pagerUrl += pagerUrl.EndsWith("?") ? "page=[$page]" : "&page=[$page]";
 
         string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
