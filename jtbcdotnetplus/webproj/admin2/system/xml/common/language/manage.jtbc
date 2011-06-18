@@ -11,6 +11,10 @@
             <chinese><![CDATA[配置管理]]></chinese>
         </item>
         <item>
+            <name><![CDATA[nav]]></name>
+            <chinese><![CDATA[管理导航]]></chinese>
+        </item>
+        <item>
             <name><![CDATA[nav_xml]]></name>
             <chinese><![CDATA[代号]]></chinese>
         </item>
