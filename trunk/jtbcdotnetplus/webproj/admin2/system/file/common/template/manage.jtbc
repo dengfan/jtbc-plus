@@ -28,25 +28,24 @@
                                         <form method="get" name="search" action="?">
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                                 <tr>
-                                                    <td height="5"></td>
+                                                    <td width="5" height="5"></td>
+                                                    <td></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="100%" height="28">
-                                                        &nbsp;<input type="text" id="keyword" name="keyword" class="text" size="15" />
-                                                    </td>
+                                                    <td width="5" height="28"></td>
+                                                    <td><input type="text" id="keyword" name="keyword" class="text" size="15" /></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="100%" height="28">
-                                                        &nbsp;<select id="field" name="field" class="select">{$=getSearchOptions("foldername,filename")}</select>
-                                                    </td>
+                                                    <td width="5" height="28"></td>
+                                                    <td><select id="field" name="field" class="select">{$=getSearchOptions("foldername,filename")}</select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="100%" height="28">
-                                                        &nbsp;<button type="submit" class="button">{$=itake("global.lng_config.search", "lng")}</button>
-                                                    </td>
+                                                    <td width="5" height="28"></td>
+                                                    <td><button type="submit" class="button">{$=itake("global.lng_config.search", "lng")}</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td height="5"></td>
+                                                    <td width="5" height="5"></td>
+                                                    <td></td>
                                                 </tr>
                                             </table>
                                         </form>
@@ -59,7 +58,7 @@
                             <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                                 <tr>
                                     <td width="100%" height="25" class="tbtop">
-                                        管理导航
+                                        {$=itake("manage.nav","lng")}
                                     </td>
                                 </tr>
                                 <tr>
@@ -74,9 +73,9 @@
                                                 <td height="25">
                                                     <span id="nav1"><a href="?type=list&path=./&hspan=nav1"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="nav2"><a href="?type=folder&ftype=add&path={$path2}&hspan=nav2&backurl={$backurl}"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_folder_add", "lng")}</a></span>
+                                                    <span id="nav2"><a href="?type=folder&ftype=add&path={$path}&hspan=nav2&backurl={$=urlencode($nurl)}"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_folder_add", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="nav3"><a href="?type=file&ftype=add&path={$path2}&hspan=nav3&backurl={$backurl}"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_file_add", "lng")}</a></span>
+                                                    <span id="nav3"><a href="?type=file&ftype=add&path={$path}&hspan=nav3&backurl={$=urlencode($nurl)}"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_file_add", "lng")}</a></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -106,12 +105,12 @@
             <tpl_default>
                 <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                                 <tr>
-                                    <td width="100%" height="25" class="tbtop">
+                                    <td height="25" class="tbtop">
                                         {$=itake("manage.list", "lng")}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="100%" align="center">
+                                    <td align="center">
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="5"></td>
@@ -120,7 +119,7 @@
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="28">
-                                                    <span class="ash">{$=itake("config.path", "lng")}: {$path}</span>
+                                                    <span class="ash">{$=itake("config.path", "lng")}: {$pathnav}</span>
                                                 </td>
                                             </tr>
                                         </table>
@@ -136,7 +135,7 @@
                                             <tbody>{@}
                                                 <tr>
                                                     <td height="24">
-                                                        <img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src = '{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span>
+                                                        <img src="{$=$images}/files/{$filetype}.gif" class="absmiddle" onerror="this.src='{$=$images}/files/default.gif';" /> <span id="list-keywords-{$id}" class="hand" onclick="{$onclick1}">{$name}</span>
                                                     </td>
                                                     <td>{$=formatDate("{$time}", "100")}</td>
                                                     <td>{$size}</td>
@@ -146,15 +145,10 @@
                                                     </td>
                                                 </tr>{@}
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="4" height="10"></td>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
-                                                <td height="5"></td>
+                                                <td height="10"></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -173,12 +167,12 @@
     </tr>
     <tr>
         <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
             <form id="form1" method="post" action="manage.aspx?type=action&atype=folder&ftype=add&backurl={$backurl}">
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
                 <input type="hidden" name="path" value="{$path}" />
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
@@ -190,12 +184,12 @@
                         </td>
                     </tr>
                 </table>
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
             </form>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="10"></td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>]]>
@@ -212,12 +206,12 @@
     </tr>
     <tr>
         <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
             <form id="form2" method="post" action="manage.aspx?type=action&atype=folder&ftype=edit&backurl={$backurl}">
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
                 <input type="hidden" name="path" value="{$path}" />
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
@@ -229,12 +223,12 @@
                         </td>
                     </tr>
                 </table>
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
             </form>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="10"></td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>]]>
@@ -252,12 +246,12 @@
     </tr>
     <tr>
         <td width="100%" align="center">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
             <form id="form3" method="post" action="manage.aspx?type=action&atype=file&ftype=add&backurl={$backurl}">
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
                 <input type="hidden" name="path" value="{$path}" />
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
@@ -278,12 +272,12 @@
                         </td>
                     </tr>
                 </table>
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
             </form>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="10"></td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>]]>
@@ -300,12 +294,12 @@
                             </tr>
                             <tr>
                                 <td width="100%" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td height="5"></td>
+                                        </tr>
+                                    </table>
                                     <form id="form4" method="post" action="manage.aspx?type=action&atype=file&ftype=edit&backurl={$backurl}">
-                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td height="5"></td>
-                                            </tr>
-                                        </table>
                                         <input type="hidden" name="path" value="{$path}" />
                                         <table width="98%" cellspacing="0" cellpadding="0" border="0">
                                             <tr>
@@ -326,15 +320,10 @@
                                                 </td>
                                             </tr>
                                         </table>
-                                        <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td height="5"></td>
-                                            </tr>
-                                        </table>
                                     </form>
                                     <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                         <tr>
-                                            <td height="5"></td>
+                                            <td height="10"></td>
                                         </tr>
                                     </table>
                                 </td>

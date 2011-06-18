@@ -70,9 +70,9 @@
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="25">
-                                                    <span id="loginlist"><a href="?hspan=loginlist"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
+                                                    <span id="nav1"><a href="?hspan=nav1"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="error1"><a href="?error=1&hspan=error1"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_islogin_0", "lng")}</a></span>
+                                                    <span id="nav2"><a href="?error=1&hspan=nav2"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_islogin_0", "lng")}</a></span>
                                                 </td>
                                             </tr>
                                             <tr>

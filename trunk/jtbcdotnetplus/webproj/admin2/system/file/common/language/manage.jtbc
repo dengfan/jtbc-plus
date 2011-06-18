@@ -15,6 +15,10 @@
             <chinese><![CDATA[文件列表]]></chinese>
         </item>
         <item>
+            <name><![CDATA[nav]]></name>
+            <chinese><![CDATA[管理导航]]></chinese>
+        </item>
+        <item>
             <name><![CDATA[nav_list]]></name>
             <chinese><![CDATA[文件管理]]></chinese>
         </item>
