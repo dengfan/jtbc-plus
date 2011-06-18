@@ -40,20 +40,20 @@
                                     <form method="get" name="search" action="manage.aspx">
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
+                                                <td width="5" height="5"></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="28"></td>
+                                                <td><input type="text" id="xml" name="xml" class="text" size="15" value="{$xml}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="28"></td>
+                                                <td><button type="submit" class="button">{$=itake("global.lng_config.submit", "lng")}</button></td>
+                                            </tr>
+                                            <tr>
                                                 <td height="5"></td>
-                                            </tr>
-                                            <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<input type="text" id="xml" name="xml" class="text" size="15" value="{$xml}" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td width="100%" height="28">
-                                                    &nbsp;<button type="submit" class="button">{$=itake("global.lng_config.submit", "lng")}</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td height="5"></td>
+                                                <td></td>
                                             </tr>
                                         </table>
                                     </form>
@@ -66,11 +66,11 @@
                         <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                             <tr>
                                 <td width="100%" height="25" class="tbtop">
-                                    管理导航
+                                    {$=itake("manage.nav","lng")}
                                 </td>
                             </tr>
                             <tr>
-                                <td width="100%" align="center">
+                                <td align="center">
                                     <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td height="5"></td>
@@ -127,7 +127,7 @@
             <table border="0" width="98%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
-                        <form id="form1" method="post" action="manage.aspx?type=action&atype=edit&backurl=manage%2Easpx%3Fxml%3D{$xml}">
+                        <form id="form1" method="post" action="manage.aspx?type=action&atype=edit&backurl={$=urlencode($nurl)}">
                             <input type="hidden" name="xmlconfig_node" value="{$node}" />
                             <input type="hidden" name="xmlconfig_field" value="{$field}" />
                             <input type="hidden" name="xmlconfig_base" value="{$base}" />
@@ -153,7 +153,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table id="tableNewXmlRecord" width="100%" cellspacing="0" cellpadding="0" border="0" style="display: none;">
+                            <table id="tableNewXmlRecord" width="100%" cellspacing="0" cellpadding="0" border="0" style="display:none;">
                                 <tr>
                                     <td width="80">{$=itake("config.name", "lng")}</td>
                                     <td>{$=itake("config.value", "lng")}</td>
@@ -184,7 +184,7 @@
             </table>
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td height="5"></td>
+                    <td height="10"></td>
                 </tr>
             </table>
         </td>
@@ -196,12 +196,12 @@
             <tpl_default>
                 <![CDATA[<table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
     <tr>
-        <td width="100%" height="25" class="tbtop">
+        <td height="25" class="tbtop">
             {$=itake("manage.nav_list", "lng")}
         </td>
     </tr>
     <tr>
-        <td width="100%" align="center">
+        <td align="center">
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td height="5"></td>
@@ -214,7 +214,7 @@
             </table>
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td height="15"></td>
+                    <td height="10"></td>
                 </tr>
             </table>
         </td>

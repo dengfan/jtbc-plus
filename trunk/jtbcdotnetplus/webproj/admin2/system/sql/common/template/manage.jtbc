@@ -38,6 +38,9 @@
                                                     </p>
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td height="5"></td>
+                                            </tr>
                                         </table>
                                     </form>
                                 </td>
@@ -76,7 +79,7 @@
                                             <td><button type="button" class="button" id="run" onclick="manages.tRunSqlstr($('sqlstrs').value)">{$=itake("manage.run", "lng")}</button></td>
                                         </tr>
                                         <tr>
-                                            <td height="15"></td>
+                                            <td height="10"></td>
                                         </tr>
                                     </table>
                                 </td>
