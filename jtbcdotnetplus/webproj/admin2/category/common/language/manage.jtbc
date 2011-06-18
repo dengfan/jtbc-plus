@@ -15,6 +15,10 @@
             <chinese><![CDATA[分类列表]]></chinese>
         </item>
         <item>
+            <name><![CDATA[nav]]></name>
+            <chinese><![CDATA[管理导航]]></chinese>
+        </item>
+        <item>
             <name><![CDATA[nav_list]]></name>
             <chinese><![CDATA[全部分类]]></chinese>
         </item>
@@ -29,6 +33,10 @@
         <item>
             <name><![CDATA[nav_edit]]></name>
             <chinese><![CDATA[编辑分类]]></chinese>
+        </item>
+        <item>
+            <name><![CDATA[cancel]]></name>
+            <chinese><![CDATA[取消]]></chinese>
         </item>
         <item>
             <name><![CDATA[at_up]]></name>

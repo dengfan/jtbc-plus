@@ -141,11 +141,11 @@
                                         <table border="0" width="98%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td height="25">
-                                                    <span id="userlist"><a href="?hspan=userlist"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
+                                                    <span id="nav1"><a href="?hspan=nav1"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_list", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="userlock"><a href="?field=lock&keyword=1&hspan=userlock"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_lock_1", "lng")}</a></span>
+                                                    <span id="nav2"><a href="?field=lock&keyword=1&hspan=nav2"><img src="{$=$admin.theme}panel/list.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_lock_1", "lng")}</a></span>
                                                     &nbsp;
-                                                    <span id="useradd"><a href="?type=add&hspan=useradd"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_add", "lng")}</a></span>
+                                                    <span id="nav3"><a href="?type=add&hspan=nav3"><img src="{$=$admin.theme}panel/add.1.png" class="absmiddle" alt="" />{$=itake("manage.nav_add", "lng")}</a></span>
                                                 </td>
                                             </tr>
                                             <tr>

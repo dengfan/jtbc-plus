@@ -48,7 +48,7 @@
                         <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                             <tr>
                                 <td width="100%" height="25" class="tbtop">
-                                    管理导航
+                                    {$=itake("manage.nav","lng")}
                                 </td>
                             </tr>
                             <tr>
@@ -100,13 +100,13 @@
     </tr>
     <tr>
         <td width="100%" align="center">
-            <form id="form1" method="post" action="manage.aspx?type=action&atype=settings&backurl=manage%2Easpx%3Ftype%3Dsettings1">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <form id="form1" method="post" action="manage.aspx?type=action&atype=settings&backurl={$=urlencode($nurl)}">
                 <input type="hidden" name="settings" value="global.default.web_title:lng,global.default.keywords:lng,global.default.description:lng" />
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
                         <td width="80" height="28">{$=itake("manage.settings1_web_title", "lng")}</td>
@@ -132,7 +132,7 @@
             </form>
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td height="5"></td>
+                    <td height="10"></td>
                 </tr>
             </table>
         </td>
@@ -151,12 +151,12 @@
     </tr>
     <tr>
         <td width="100%" align="center">
-            <form id="form1" method="post" action="manage.aspx?type=action&atype=settings&backurl=manage%2Easpx%3Ftype%3Dsettings2">
-                <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td height="5"></td>
-                    </tr>
-                </table>
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td height="5"></td>
+                </tr>
+            </table>
+            <form id="form1" method="post" action="manage.aspx?type=action&atype=settings&backurl={$=urlencode($nurl)}">
                 <input type="hidden" name="settings" value="global.config.nvalidate:cfg,global.config.nupmaxsize:cfg,global.config.mail-smtpcharset:cfg,global.config.mail-smtpserver:cfg,global.config.mail-smtpusername:cfg,global.config.mail-smtppassword:cfg" />
                 <table width="98%" cellspacing="0" cellpadding="0" border="0">
                     <tr>
@@ -194,7 +194,7 @@
                 </table>
                 <table border="0" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td height="5"></td>
+                        <td height="10"></td>
                     </tr>
                 </table>
             </form>

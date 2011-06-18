@@ -279,9 +279,9 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$name}", encode.htmlencode(tAry1[ti, 0]));
                     tmptstr = tmptstr.Replace("{$size}", cls.formatByte(tAry1[ti, 1]));
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry1[ti, 2]));
-                    tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=list&path={0}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/")));
-                    tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=folder&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
-                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=folder&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
+                    tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=list&path={0}&hspan=nav1';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0]) + "/")));
+                    tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=folder&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1")));
+                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=folder&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry1[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1")));
                     tmprstr += tmptstr;
                 }
             }
@@ -305,15 +305,15 @@ public partial class module : jpage
                     tmptstr = tmptstr.Replace("{$time}", encode.htmlencode(tAry2[ti, 2]));
                     if (cls.cinstr(jt.itake("config.ntextfiletype", "cfg"), tFileType, "."))
                     {//可操作的文件
-                        tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
-                        tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
+                        tmptstr = tmptstr.Replace("{$onclick1}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1")));
+                        tmptstr = tmptstr.Replace("{$onclick2}", string.Format("location.href='?type=file&ftype=edit&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1")));
                     }
                     else
                     {//不可操作的文件
                         tmptstr = tmptstr.Replace("{$onclick1}", string.Format("alert('{0}');", jt.itake("manage.edit-file-error-1", "lng")));
                         tmptstr = tmptstr.Replace("{$onclick2}", string.Format("alert('{0}');", jt.itake("manage.edit-file-error-1", "lng")));
                     }
-                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=file&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath)));
+                    tmptstr = tmptstr.Replace("{$onclick3}", string.Format("location.href='?type=action&atype=file&ftype=delete&path={0}&backurl={1}';", encode.urlencode(tpath + encode.htmlencode(tAry2[ti, 0])), encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1")));
                     tmprstr += tmptstr;
                 }
             }
@@ -334,14 +334,14 @@ public partial class module : jpage
             tlinkpath += string.Format("<a href=\"?type=list&path={0}\">{1}</a>\\", encode.urlencode(tpathv), tpathpAry[i]);
         }
         tlinkpath = tlinkpath.Replace(tbaselinkpath, string.Format("<a href=\"?type=list&path={0}\">{1}</a>", encode.urlencode("./"), tbaselinkpath));
-        tmpstr = tmpstr.Replace("{$path}", tlinkpath);
+        tmpstr = tmpstr.Replace("{$pathnav}", tlinkpath);
         #endregion
 
         tmpstr = jt_plus.creplace(tmpstr);
 
         tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
-        tmpstr = tmpstr.Replace("{$path2}", encode.urlencode(tpath));
-        tmpstr = tmpstr.Replace("{$backurl}", encode.urlencode("manage.aspx?type=list&path=" + tpath));
+        tmpstr = tmpstr.Replace("{$path}", encode.urlencode(tpath));
+        //tmpstr = tmpstr.Replace("{$backurl}", encode.urlencode("manage.aspx?type=list&path=" + tpath + "&hspan=nav1"));
         tmpstr = jt_plus.creplace(tmpstr);
 
         return tmpstr;
