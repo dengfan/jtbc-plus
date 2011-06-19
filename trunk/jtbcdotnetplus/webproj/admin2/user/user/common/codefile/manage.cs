@@ -290,12 +290,15 @@ public partial class module : jpage
 
     private string Module_Edit()
     {
+        //接收参数
         int tId = cls.getNum(request.querystring("id"), 0);
+        string tbackurl = encode.urlencode(request.querystring("backurl"));
+
+        //读取模板和数据以生成HTML
         string tmpstr = "";
         string tdatabase = cls.getString(jt.itake("global.config.admin-ndatabase", "cfg"));
         string tfpre = cls.getString(jt.itake("global.config.admin-nfpre", "cfg"));
         string tidfield = cls.cfnames(tfpre, "id");
-
         string tsqlstr = "select * from " + tdatabase + " where " + tidfield + "=" + tId;
         object[] tArys = db.getDataAry(tsqlstr);
         if (tArys != null)
@@ -312,6 +315,7 @@ public partial class module : jpage
             tmpstr = tmpstr.Replace("{$-popedom}", Sub_SelPopedom((string)db.getValue(tAry, "popedom"), ""));
             tmpstr = jt.itake("manage.public", "tpl").Replace("{$content}", tmpstr);
             tmpstr = jt_plus.creplace(tmpstr);
+            tmpstr = tmpstr.Replace("{$backurl}", tbackurl);
         }
         else tmpstr = jt.itake("global.lng_common.edit-404", "lng");
         

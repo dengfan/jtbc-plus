@@ -12,7 +12,7 @@
                 <![CDATA[{$=webAdminHead("admin_head_1")}
 <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0">
     <tr>
-        <td width="100%" align="center">
+        <td align="center">
             <table border="0" width="400" class="lrbtline" cellspacing="1" cellpadding="0">
                 <tr>
                     <td height="25" class="tbtop" colspan="2">{$=itake("config.login","lng")}</td>
@@ -23,7 +23,7 @@
                         <form method="post" name="login" action="default.aspx?type=action&atype=login">
                             <table border="0" width="100%" cellspacing="1" cellpadding="0">
                                 <tr>
-                                    <td width="100%" height="20" colspan="2"></td>
+                                    <td height="20" colspan="2"></td>
                                 </tr>
                                 <tr>
                                     <td width="25%" height="25" align="right">{$=itake("config.username","lng")}</td>
@@ -41,7 +41,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="100%" height="10" colspan="2"></td>
+                                    <td height="10" colspan="2"></td>
                                 </tr>
                                 <tr>
                                     <td width="25%" height="25" align="right"></td>
@@ -51,7 +51,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="100%" height="20" colspan="2"></td>
+                                    <td height="20" colspan="2"></td>
                                 </tr>
                             </table>
                         </form>
