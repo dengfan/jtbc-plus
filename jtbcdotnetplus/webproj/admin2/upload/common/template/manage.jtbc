@@ -13,7 +13,7 @@
 <script type="text/javascript" src="{$=$images}/js/jquery.manages.js"></script>
 <table border="0" cellspacing="5" cellpadding="0" width="100%">
     <tr>
-        <td width="100%" align="center">
+        <td align="center">
             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="120" align="center" valign="top">
@@ -34,7 +34,7 @@
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td width="5" height="28"></td>
-                                                <td><input type="text" name="keyword" size="10" class="text" /></td>
+                                                <td><input type="text" name="keyword" size="15" class="text" /></td>
                                             </tr>
                                             <tr>
                                                 <td width="5" height="28"></td>
@@ -59,12 +59,12 @@
                     <td width="*" align="center" valign="top">
                         <table border="0" width="100%" cellspacing="0" cellpadding="0" class="lrbtline">
                             <tr>
-                                <td width="100%" height="25" class="tbtop">
-                                    管理导航
+                                <td height="25" class="tbtop">
+                                    {$=itake("manage.nav","lng")}
                                 </td>
                             </tr>
                             <tr>
-                                <td width="100%" align="center">
+                                <td align="center">
                                     <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td height="5"></td>
@@ -126,8 +126,8 @@
                                                     <td>{$=itake("config.filename", "lng")}</td>
                                                     <td width="100">{$=itake("config.genre", "lng")}</td>
                                                     <td width="100">{$=itake("config.username", "lng")}</td>
-                                                    <td width="130">{$=itake("config.time", "lng")}</td>
-                                                    <td width="110">{$=itake("config.validity", "lng")}</td>
+                                                    <td width="150">{$=itake("config.time", "lng")}</td>
+                                                    <td width="150">{$=itake("config.validity", "lng")}</td>
                                                 </tr>
                                             </thead>
                                             <tbody>{@}
