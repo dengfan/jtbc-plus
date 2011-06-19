@@ -8,8 +8,7 @@
   <item_list>
     <item>
       <name><![CDATA[1]]></name>
-      <tpl_default><![CDATA[
-        <ul>{@}
+      <tpl_default><![CDATA[        <ul>{@}
           <li><a href="{$=curl("{$-baseurl}", iurl("genre={$-genre};type=detail;key={$id};time={$time}"))}">{$topic}</a></li>{@}
         </ul>]]></tpl_default>
     </item>
@@ -19,8 +18,7 @@
     </item>
     <item>
       <name><![CDATA[s1]]></name>
-      <tpl_default><![CDATA[
-        <ul>{@}
+      <tpl_default><![CDATA[        <ul>{@}
           <li><a href="{$=curl("{$-baseurl}", iurl("genre={$-genre};type=list;key={$id}"))}">{$topic}</a></li>{@}
         </ul>]]></tpl_default>
     </item>
