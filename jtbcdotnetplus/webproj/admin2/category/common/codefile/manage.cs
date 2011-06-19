@@ -268,6 +268,7 @@ public partial class module : jpage
     {
         string tgenre = cls.getString(request.querystring("genre"));
         int tfid = cls.getNum(request.querystring("fid"), 0);
+        string tbackurl = encode.urlencode(request.querystring("backurl"));
 
         string tmpstr = "";
         tmpstr = jt.itake("manage.add", "tpl");
@@ -281,6 +282,7 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace("{$category.FaCatHtml}", category.getFaCatHtml(jt.itake("manage.data_fa_category", "tpl"), tgenre, admin.slng, tfid));
         tmpstr = tmpstr.Replace("{$genre}", tgenre);
         tmpstr = tmpstr.Replace("{$fid}", tfid.ToString());
+        tmpstr = tmpstr.Replace("{$backurl}", tbackurl);
         tmpstr = jt.creplace(tmpstr);
 
         return tmpstr;
@@ -290,7 +292,7 @@ public partial class module : jpage
     {
         string tgenre = cls.getString(request.querystring("genre"));
         int tfid = cls.getNum(request.querystring("fid"), 0);
-        int tpage = cls.getNum(request.querystring("page"), 1);
+        string tbackurl = encode.urlencode(request.querystring("backurl"));
 
         int tId = cls.getNum(request.querystring("id"), 0);
         string tmpstr = "";
@@ -320,7 +322,7 @@ public partial class module : jpage
         tmpstr = tmpstr.Replace("{$category.FaCatHtml}", category.getFaCatHtml(jt.itake("manage.data_fa_category", "tpl"), tgenre, admin.slng, tfid));
         tmpstr = tmpstr.Replace("{$genre}", tgenre);
         tmpstr = tmpstr.Replace("{$fid}", tfid.ToString());
-        tmpstr = tmpstr.Replace("{$page}", tpage.ToString());
+        tmpstr = tmpstr.Replace("{$backurl}", tbackurl);
         tmpstr = jt.creplace(tmpstr);
         
         return tmpstr;
@@ -328,16 +330,16 @@ public partial class module : jpage
 
     private string Module_List()
     {
-        string tmpstr = "";
-        string tmpastr, tmprstr, tmptstr;
-        int tpage = cls.getNum(request.querystring("page"));
-        int tfid = cls.getNum(request.querystring("fid"), 0);
-
+        //接收参数
         string tgenre = cls.getSafeString(request.querystring("genre"));
         if (cls.isEmpty(tgenre)) tgenre = Sub_GetDefaultGenre();
+        int tfid = cls.getNum(request.querystring("fid"), 0);
+        int tpage = cls.getNum(request.querystring("page"));
+        string tnav = cls.getSafeString(request.querystring("hspan"));
 
-        string tfield = cls.getSafeString(request.querystring("field"));
-        string tkeyword = cls.getSafeString(request.querystring("keyword"));
+        //读取模板和数据以生成HTML
+        string tmpstr = "";
+        string tmpastr, tmprstr, tmptstr;
         tmpstr = jt.itake("manage.list", "tpl");
         tmprstr = "";
         tmpastr = cls.ctemplate(ref tmpstr, "{@}");
@@ -369,9 +371,23 @@ public partial class module : jpage
         }
         tmpstr = tmpstr.Replace(config.jtbccinfo, tmprstr);
 
-        #region 服务器端分页
+        #region 分页
         pagi_plus pagi_plus = new pagi_plus(pagi);
-        string pager = pagi_plus.pager("manage.aspx?page=[$page]", 9);
+
+        string pagerUrl = config.nuri + "?";
+
+        if (!cls.isEmpty(tgenre))
+            pagerUrl += string.Format("{0}genre={1}", pagerUrl.EndsWith("?") ? "" : "&", tgenre);
+
+        if (tfid != 0)
+            pagerUrl += string.Format("{0}fid={1}", pagerUrl.EndsWith("?") ? "" : "&", tfid);
+
+        if (!cls.isEmpty(tnav))
+            pagerUrl += string.Format("{0}hspan={1}", pagerUrl.EndsWith("?") ? "" : "&", tnav);
+
+        pagerUrl += pagerUrl.EndsWith("?") ? "page=[$page]" : "&page=[$page]";
+
+        string pager = pagi_plus.pager(pagerUrl, 9);
         tmpstr = tmpstr.Replace("{$pager}", pager);
         tmpstr = tmpstr.Replace("{$page}", cls.toString(pagi.pagenum));
         #endregion
