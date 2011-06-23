@@ -47,7 +47,7 @@
             <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
                 <tr>
                     <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0" alt="" /></td>
-                    <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+                    <td width="1500" background="{$=$admin.theme}menu_endbg.gif"></td>
                     <td width="4" align="right"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0" alt="" /></td>
                 </tr>
             </table>
@@ -95,7 +95,7 @@
             <table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
                 <tr>
                     <td width="4" height="2"><img src="{$=$admin.theme}menu_endleft.gif" width="4" height="2" border="0" alt="" /></td>
-                    <td width="142" background="{$=$admin.theme}menu_endbg.gif"></td>
+                    <td width="1500" background="{$=$admin.theme}menu_endbg.gif"></td>
                     <td width="4" align="right"><img src="{$=$admin.theme}menu_endright.gif" width="4" height="2" border="0" alt="" /></td>
                 </tr>
             </table>

@@ -97,6 +97,13 @@ a:active
     font-style: normal;
     text-decoration: underline;
 }
+.slng span
+{
+    display:block;
+    height:18px;
+    line-height:18px;
+    white-space:nowrap;
+}
 .ash
 {
     color: #666666;
