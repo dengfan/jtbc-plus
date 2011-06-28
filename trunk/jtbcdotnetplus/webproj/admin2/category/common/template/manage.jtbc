@@ -117,7 +117,7 @@
         <item>
             <name><![CDATA[data_column]]></name>
             <tpl_default>
-                <![CDATA[<select name="genre" class="select" onchange="this.form.submit();">{@}
+                <![CDATA[<select name="genre" class="select" onchange="this.form.submit();" style="width:108px;">{@}
                                             <option value="{$genre}" title="{$genre}({$genre-name})"{$selected}>{$genre-text}</option>{@}
                                         </select>]]>
             </tpl_default>
