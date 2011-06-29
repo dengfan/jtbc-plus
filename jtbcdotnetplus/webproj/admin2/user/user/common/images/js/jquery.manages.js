@@ -47,13 +47,11 @@ manages.cls = {
     },
     tSetCategory: function (_strers) {
         var tstrers = _strers;
-        var jcontainer = j('#category-child-' + tstrers);
-        var jcheckboxes = j('input[name="category"]', jcontainer);
+        var container = get_id('#category-child-' + tstrers);
+        var jcheckboxes = j('input[name="category"]:checked', container);
         var tvalues = '';
         jcheckboxes.each(function () {
-            if (j(this).is(':checked')) {
-                tvalues += ',' + j(this).val();
-            }
+            tvalues += ',' + j(this).val();
         });
         tvalues = tvalues.substr(1);
         var tobj = get_id(tstrers + '-category');

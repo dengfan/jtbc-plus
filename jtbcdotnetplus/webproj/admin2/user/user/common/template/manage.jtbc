@@ -350,7 +350,7 @@
                     <td height="5"></td>
                 </tr>
             </table>
-            <form id="form1" method="post" action="manage.aspx?type=action&atype=edit&id={$id}&backurl={$backurl}">
+            <form id="form1" method="post" action="manage.aspx?type=action&atype=edit&id={$id}&backurl={$=urlencode($nurl)}">
                 <table border="0" cellspacing="0" cellpadding="0" width="98%">
                     <tr>
                         <td width="80" height="28">{$=itake("config.username", "lng")}</td>
