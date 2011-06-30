@@ -13,7 +13,7 @@
 <table width="100%" cellspacing="0" cellpadding="0" border="0">{@}
     <tr>
         <td width="20">
-            <input type="checkbox" id="checkbox-{$value}" name="popedom" value="{$value}"{$-checked} onclick="manages.cls.tSelGenre('{$value}', this.checked);" />
+            <input type="checkbox" id="checkbox-{$value}" name="popedom" value="{$value}"{$-checked} onclick="manages.tSelGenre('{$value}', this.checked);" />
         </td>
         <td>
             <label for="checkbox-{$value}">{$text}</label>
@@ -43,7 +43,7 @@
                 <![CDATA[
 <table width="100%" cellspacing="0" cellpadding="0" border="0">{@}
     <tr>
-        <td width="20"><input type="checkbox" id="checkbox-category-{$id}" name="category" value="{$id}" onchange="manages.cls.tSetCategory('{$-genre}')" /></td>
+        <td width="20"><input type="checkbox" id="checkbox-category-{$id}" name="category" value="{$id}" onchange="manages.tSetCategory('{$-genre}')" /></td>
         <td><label for="checkbox-category-{$id}" title="ID: {$id}">{$topic}</label></td>
     </tr>
     <tr>
@@ -65,7 +65,7 @@
                         <td>
                             {$-category}
                             <script type="text/javascript">
-                                manages.cls.tSelCategoryInit('{$genre}');
+                                manages.tSelCategoryInit('{$genre}');
                             </script>
                         </td>
                     </tr>{@}
@@ -287,7 +287,7 @@
                     <tr>
                         <td height="28">{$=itake("config.utype", "lng")}</td>
                         <td>
-                            <select name="utype" class="select" onchange="manages.cls.tSelUType(this.value)">
+                            <select name="utype" class="select" onchange="manages.tSelUType(this.value)">
                                 {$=xmlSelect("sel_utype.all", "-1", "select")}
                             </select>
                         </td>
@@ -363,7 +363,7 @@
                     <tr>
                         <td height="28">{$=itake("config.utype", "lng")}</td>
                         <td>
-                            <select name="utype" class="select" onchange="manages.cls.tSelUType(this.value)">
+                            <select name="utype" class="select" onchange="manages.tSelUType(this.value)">
                                 {$=xmlSelect("sel_utype.all", "{$utype}", "select")}
                             </select>
                         </td>
@@ -377,8 +377,8 @@
                         <td valign="top">
                             <div id="popedom-child" class="hidden">{$-popedom}</div>
                             <script type="text/javascript">
-                                manages.cls.tSelUType('{$utype}'); 
-                                manages.cls.tSelGenreInit();
+                                manages.tSelUType('{$utype}'); 
+                                manages.tSelGenreInit();
                             </script>
                         </td>
                     </tr>
