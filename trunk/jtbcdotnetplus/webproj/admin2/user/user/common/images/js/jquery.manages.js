@@ -1,5 +1,4 @@
-﻿manages = {};
-manages.cls = {
+﻿manages = {
     tSelUType: function (_strers) {
         var tstrers = _strers;
         if (tstrers == "0") j("#popedom-child").show();
@@ -21,7 +20,7 @@ manages.cls = {
     tSelGenreInit: function () {
         var tobjs = document.getElementsByName('popedom');
         if (tobjs) {
-            for (ti = 0; ti < tobjs.length; ti++) manages.cls.tSelGenre(tobjs[ti].value, tobjs[ti].checked);
+            for (ti = 0; ti < tobjs.length; ti++) manages.tSelGenre(tobjs[ti].value, tobjs[ti].checked);
         };
     },
     tSelCategory: function (_strers) {
